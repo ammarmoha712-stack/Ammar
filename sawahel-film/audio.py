@@ -117,8 +117,10 @@ for a,b,at in segs:
     x=vo[int(a*SR):int(b*SR)].copy(); f=int(.03*SR); x[:f]*=np.linspace(0,1,f); x[-f:]*=np.linspace(1,0,f)
     i=int(at*SR); V[i:i+len(x)]+=x
 # ducking envelope from VO activity
-act=np.convolve(np.abs(V)>0.01,np.ones(int(.25*SR))/int(.25*SR),mode='same')>0.02
-sm=np.convolve(act.astype(float),np.ones(int(.3*SR))/int(.3*SR),mode='same')
+def mavg(x,n):
+    c=np.cumsum(np.concatenate([np.zeros(n//2+1),x,np.zeros(n)]));return (c[n:n+len(x)]-c[:len(x)])/n
+act=mavg((np.abs(V)>0.01).astype(float),int(.25*SR))>0.02
+sm=mavg(act.astype(float),int(.3*SR))
 duck=1-0.45*sm
 mL=L2*duck; mR=R2*duck
 music_peak=max(np.abs(mL).max(),np.abs(mR).max()); mL/=music_peak; mR/=music_peak
