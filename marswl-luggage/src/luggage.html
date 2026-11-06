@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>MARSWL Luggage Ad</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Montserrat:wght@600;700;800&display=block" rel="stylesheet">
+<style>
+:root{--navy:#172B4D;--yellow:#F5C542;--ivory:#F6F3EC;--white:#FFFFFF;--grey:#E8E7E2}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ivory)}
+body{font-family:'Cairo',sans-serif;color:var(--navy);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--ivory)}
+.abs{position:absolute}
+.scene{position:absolute;inset:0;overflow:hidden;visibility:hidden}
+.cam{position:absolute;inset:0;transform-origin:540px 960px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.line{position:absolute;left:0;right:0;text-align:center;white-space:nowrap}
+.slash{position:absolute}
+.item{position:absolute;transform-origin:50% 100%}
+.item img{display:block;width:100%;height:100%}
+.spec{position:absolute;inset:0;-webkit-mask-size:100% 100%;mix-blend-mode:screen;
+  background:linear-gradient(105deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 60%);background-size:300% 100%;background-repeat:no-repeat}
+.refl{position:absolute;transform-origin:50% 0;
+  -webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,0) 30%)}
+.refl img{display:block;width:100%;height:100%}
+.shadow{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(10,20,40,.45),rgba(10,20,40,0))}
+.particle{position:absolute;border-radius:50%}
+.price-old{color:#9A9890;font-weight:600}
+.strike{position:absolute;height:6px;background:#8B897F;border-radius:3px;top:52%}
+.ybox{position:absolute;background:var(--yellow);transform:skewX(-14deg)}
+.chip{position:absolute;height:74px;border-radius:37px;border:3px solid var(--navy);display:flex;align-items:center;justify-content:center;gap:14px;font-size:38px;font-weight:700;color:var(--navy);background:#fff}
+.wipe{position:absolute;top:-200px;height:2320px;width:2600px;background:var(--navy)}
+.wipe .edge{position:absolute;top:0;bottom:0;width:46px;background:var(--yellow)}
+.logo{position:absolute}
+.slab{position:absolute;height:70px;border-radius:14px;background:linear-gradient(180deg,#2b4579 0%,#172B4D 45%,#0f1f3a 100%);box-shadow:0 24px 50px rgba(23,43,77,.25)}
+.slab:before{content:'';position:absolute;left:0;right:0;top:0;height:6px;background:rgba(255,255,255,.18);border-radius:14px 14px 0 0}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs id="defs"></defs></svg>
+<div id="stage"></div>
+<script>
+const W=1080,H=1920,FPS=30;
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const P=(t,a,b)=>clamp((t-a)/(b-a));
+const E={out3:t=>1-Math.pow(1-t,3),out5:t=>1-Math.pow(1-t,5),inout3:t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,
+  outExpo:t=>t>=1?1:1-Math.pow(2,-10*t),outBack:t=>{const c=1.35,c3=c+1;return 1+c3*Math.pow(t-1,3)+c*Math.pow(t-1,2)}};
+const el=(tag,cls,parent,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!==undefined)e.innerHTML=html;parent.appendChild(e);return e};
+const css=(e,o)=>{for(const k in o)e.style[k]=o[k];return e};
+let seed=11;const rnd=()=>{seed=(seed*16807)%2147483647;return(seed-1)/2147483646};
+const defs=document.getElementById('defs');
+
+const IMG={
+  r1:{src:'../assets/rifqa_set_1.png',ar:400/470},
+  r2:{src:'../assets/rifqa_set_2.png',ar:390/437},
+  a1:{src:'../assets/american_set_1.png',ar:913/755},
+  a2:{src:'../assets/american_set_2.png',ar:946/828},
+};
+const LOGO={src:'../assets/marswl_logo.png',ar:1047/675};
+const T={hook:[0,6.35],rifqa:[6.35,22.5],am:[22.5,37.55],end:[37.55,50.0]};
+const BOUNDS=[6.35,22.5,37.55];
+const stage=document.getElementById('stage');
+const updaters=[]; const fits=[];
+let fid=0;
+
+// ---------- builders ----------
+function makeItem(parent,key,h,{reflect=true}={}){
+  const im=IMG[key],w=h*im.ar,id='mb'+(fid++);
+  defs.insertAdjacentHTML('beforeend',`<filter id="${id}" x="-30%" y="-5%" width="160%" height="110%"><feGaussianBlur stdDeviation="0 0"/></filter>`);
+  const wrap=el('div','abs',parent); css(wrap,{width:w+'px',height:h+'px'});
+  const sh=el('div','shadow',wrap); css(sh,{width:w*1.15+'px',height:'60px',left:(-w*.075)+'px',top:(h-34)+'px'});
+  let refl=null; if(reflect){refl=el('div','refl',wrap);css(refl,{width:w+'px',height:h+'px',left:0,top:h+'px'});el('img','',refl).src=im.src;}
+  const b=el('div','item',wrap); css(b,{width:w+'px',height:h+'px',left:0,top:0});
+  el('img','',b).src=im.src;
+  const spec=el('div','spec',b); spec.style.webkitMaskImage=`url(${im.src})`;
+  const blurNode=()=>document.querySelector(`#${id} feGaussianBlur`);
+  return {wrap,b,sh,refl,spec,w,h,id,blurNode,prevX:null};
+}
+// place item: cx = center x, by = bottom y
+function place(o,cx,by,{lift=0,rot=0,rotY=0,scale=1,opacity=1,specX=-1,mblur=0,refl=.16}={}){
+  css(o.wrap,{left:(cx-o.w/2)+'px',top:(by-o.h)+'px',opacity});
+  o.b.style.transform=`translateY(${-lift}px) perspective(1800px) rotateY(${rotY}deg) rotate(${rot}deg) scale(${scale})`;
+  if(o.refl){o.refl.style.transform=`translateY(${lift}px) scaleY(-1) perspective(1800px) rotateY(${rotY}deg) scale(${scale})`;o.refl.style.opacity=refl*opacity;}
+  o.sh.style.transform=`scale(${scale},${scale})`; o.sh.style.opacity=opacity;
+  o.spec.style.backgroundPosition=`${specX*100}% 0`;
+  const bn=o.blurNode(); bn.setAttribute('stdDeviation',`${mblur.toFixed(1)} 0`);
+  const f=mblur>0.3?`url(#${o.id})`:''; o.b.style.filter=f; if(o.refl)o.refl.style.filter=f;
+}
+// fast roll-in from offscreen with a satisfying stop (tip forward, settle)
+function roll(u,t0,t1,fromX,toX){
+  const x=t=>lerp(fromX,toX,E.outExpo(P(t,t0,t1)));
+  const v=(x(u)-x(u-1/FPS)); const dir=Math.sign(toX-fromX)||1;
+  let rot=0; if(u>t1-0.15){const k=u-(t1-0.15);rot=dir*3.2*Math.exp(-5.5*k)*Math.sin(13*k);}
+  const bump=Math.abs(v)>1?Math.sin(u*70)*1.6:0;
+  return {x:x(u),mblur:Math.min(38,Math.abs(v)*0.45),rot,lift:bump,on:u>=t0};
+}
+function textLine(parent,html,top,size,weight,color='var(--navy)',extra={}){
+  const l=el('div','line',parent); css(l,{top:top+'px',fontSize:size+'px',fontWeight:weight,color,lineHeight:1.3,...extra});
+  const m=el('span','',l); css(m,{display:'inline-block',overflow:'hidden',padding:'0 20px',verticalAlign:'top'});
+  const i=el('span','',m,html); css(i,{display:'inline-block'}); l._i=i; l._m=m; fits.push([l,1020]); return l;
+}
+function revealUp(l,p){const e=E.out5(p);l._i.style.transform=`translateY(${(1-e)*110}%)`;l.style.opacity=clamp(p*3)}
+function particles(parent,n){
+  const arr=[];for(let i=0;i<n;i++){const d=el('div','particle',parent);const r=2+rnd()*6;const c=i%2?'rgba(245,197,66,.9)':'rgba(255,255,255,.95)';
+    css(d,{width:r*2+'px',height:r*2+'px',background:c,boxShadow:`0 0 ${r*3}px ${c}`});arr.push({d,x:rnd()*W,y:rnd()*H,sp:10+rnd()*28,ph:rnd()*6.28});}
+  return t=>arr.forEach(p=>css(p.d,{left:(p.x+Math.sin(t*.5+p.ph)*10)+'px',top:(((p.y-t*p.sp)%H+H)%H)+'px',opacity:(.2+.5*(.5+.5*Math.sin(t*1.7+p.ph))).toFixed(3)}));
+}
+// bright airport-terminal backdrop: tall glazing, sun glow, floor
+function airport(parent,glow='rgba(245,197,66,.16)'){
+  const g=el('div','abs',parent); css(g,{inset:0,background:`radial-gradient(900px 700px at 70% 30%, ${glow}, rgba(0,0,0,0) 70%), radial-gradient(1000px 900px at 50% 55%, #FFFFFF 0%, rgba(255,255,255,0) 70%), var(--ivory)`});
+  let lines='';for(let x=-40;x<=1120;x+=150)lines+=`<line x1="${x}" y1="560" x2="${x}" y2="1360"/>`;
+  const svg=`<svg width="1080" height="1920" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#172B4D" stroke-opacity=".08" stroke-width="3">
+    ${lines}<line x1="0" y1="560" x2="1080" y2="560"/><line x1="0" y1="900" x2="1080" y2="900" stroke-opacity=".05"/>
+    <path d="M-20 560 Q540 420 1100 560" stroke-opacity=".10"/></g>
+    <rect x="0" y="1360" width="1080" height="560" fill="url(#fl)"/><defs><linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8E7E2" stop-opacity=".9"/><stop offset="1" stop-color="#F6F3EC" stop-opacity="0"/></linearGradient></defs></svg>`;
+  const s=el('div','abs',parent,svg); css(s,{inset:0});
+  return s;
+}
+function smallLogo(parent){const l=el('img','logo',parent);l.src=LOGO.src;css(l,{width:'180px',left:'450px',top:'50px'});return l}
+const PLANE=`<svg width="70" height="70" viewBox="0 0 24 24"><path fill="#172B4D" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>`;
+const SHIELD=(s,fill,stroke)=>`<svg width="${s}" height="${s}" viewBox="0 0 64 64"><path d="M32 4l24 9v17c0 15-10 26-24 30C18 56 8 45 8 30V13z" fill="${fill}" stroke="${stroke}" stroke-width="3.5" stroke-linejoin="round"/><path d="M21 32l8 8 14-16" fill="none" stroke="${stroke}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const BAGS=`<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#172B4D" stroke-width="2" stroke-linejoin="round"><rect x="5" y="7" width="14" height="13" rx="2"/><path d="M9 7V4h6v3M9 11v5M15 11v5"/><circle cx="8" cy="21.5" r="1"/><circle cx="16" cy="21.5" r="1"/></svg>`;
+const priceHTML=(n)=>`<span class="ltr" style="font-family:Montserrat,Cairo;font-weight:800;font-size:1.25em;vertical-align:-.04em">${n}</span> <span style="font-weight:800">ريال</span> <span style="font-weight:700;font-size:.6em">فقط</span>`;
+
+// ---------- HOOK ----------
+(function(){
+  const [a,b]=T.hook; const sc=el('div','scene',stage); const cam=el('div','cam',sc);
+  airport(cam);
+  const bclip=el('div','abs',cam); css(bclip,{inset:0,clipPath:'inset(610px 0 520px 0)'});
+  const band=el('div','slash',bclip); css(band,{width:'380px',height:'2600px',left:'350px',top:'-340px',background:'linear-gradient(180deg,#1d3560,#172B4D)'});
+  const ys=el('div','slash',bclip); css(ys,{width:'28px',height:'2600px',left:'860px',top:'-340px',background:'var(--yellow)'});
+  const streak=el('div','abs',cam); css(streak,{left:0,width:'1080px',top:'1120px',height:'6px',background:'linear-gradient(90deg,rgba(245,197,66,0),#F5C542,rgba(245,197,66,0))'});
+  const part=particles(cam,26);
+  // flight path
+  const path=el('div','abs',cam,`<svg width="1080" height="400"><path id="fp" d="M-40 330 C 260 120, 760 380, 1120 90" fill="none" stroke="#F5C542" stroke-width="5" stroke-dasharray="14 14"/></svg>`); css(path,{left:0,top:'540px'});
+  const plane=el('div','abs',cam,PLANE);
+  const h1=textLine(cam,'ناوي تسافر؟!',170,150,900);
+  const sA=textLine(cam,'جهّز شنطك...',395,70,800);
+  const sB=textLine(cam,'وخلي <span style="background:linear-gradient(transparent 58%,#F5C542 58%)">التوفير</span> علينا!',490,70,800);
+  const r1=makeItem(cam,'r1',470,{reflect:false}), r2=makeItem(cam,'r2',450,{reflect:false});
+  const a1=makeItem(cam,'a1',600);
+  const pill=el('div','abs',cam,'عروض نهاية السنة من مرسول!'); css(pill,{left:'140px',width:'800px',top:'1560px',height:'118px',background:'var(--navy)',color:'#fff',fontSize:'56px',fontWeight:800,display:'flex',alignItems:'center',justifyContent:'center',borderRadius:'60px',boxShadow:'0 20px 50px rgba(23,43,77,.25)'});
+  const dot=el('div','abs',pill); css(dot,{width:'22px',height:'22px',borderRadius:'50%',background:'var(--yellow)',right:'44px',top:'48px'});
+  const fp=()=>document.getElementById('fp');
+  updaters.push(t=>{
+    const on=t>=a&&t<b; sc.style.visibility=on?'visible':'hidden'; if(!on)return; const u=t-a;
+    cam.style.transform=`scale(${1+0.07*E.inout3(P(u,0.9,6.35))})`;
+    band.style.transform=`translate(${lerp(1200,0,E.out5(P(u,0,.8)))}px,0) rotate(32deg)`;
+    ys.style.transform=`translate(${lerp(1000,0,E.out5(P(u,.15,1.0)))}px,0) rotate(32deg)`;
+    streak.style.opacity=clamp(P(u,.2,.4))*(1-P(u,.9,1.4)); streak.style.transform=`scaleX(${lerp(.2,1.4,P(u,.2,1.2))})`;
+    part(u);
+    // headline punch
+    const hp=P(u,0.05,0.45); h1.style.opacity=clamp(hp*3); h1.style.transform=`scale(${lerp(1.6,1,E.outExpo(hp))})`;
+    revealUp(sA,P(u,1.25,1.9)); revealUp(sB,P(u,2.45,3.1));
+    // flight path draws, plane flies
+    const pp=P(u,0.5,3.6), p=fp(), Lp=p.getTotalLength(); p.style.strokeDashoffset=0;
+    path.style.clipPath=`inset(0 ${100-E.inout3(pp)*100}% 0 0)`; path.style.opacity=.85*(1-P(u,4.5,5.2));
+    const pt=p.getPointAtLength(Lp*E.inout3(pp)), pt2=p.getPointAtLength(Math.min(Lp,Lp*E.inout3(pp)+2));
+    const ang=Math.atan2(pt2.y-pt.y,pt2.x-pt.x)*180/Math.PI+90;
+    css(plane,{left:(pt.x-35)+'px',top:(540+pt.y-35)+'px',opacity:pp>0&&pp<1?1:0,transform:`rotate(${ang}deg)`});
+    // hero set rolls in fast from the right and stops
+    const R=roll(u,0.2,1.1,1600,540);
+    place(a1,R.x,1420,{lift:R.lift,rot:R.rot,mblur:R.mblur,opacity:R.on?1:0,specX:lerp(-.3,1.4,P(u,1.6,2.8))});
+    // supporting sets glide in behind
+    const s1=E.out5(P(u,2.2,3.2)), s2=E.out5(P(u,2.4,3.4));
+    place(r1,lerp(-260,190,s1),1330,{opacity:clamp(P(u,2.2,2.5)),scale:.96,mblur:(1-s1)*20});
+    place(r2,lerp(1340,890,s2),1330,{opacity:clamp(P(u,2.4,2.7)),scale:.96,mblur:(1-s2)*20});
+    const pl=P(u,4.05,4.7); pill.style.opacity=clamp(pl*3); pill.style.transform=`scale(${lerp(.6,1,E.outBack(pl))})`;
+    dot.style.opacity=.5+.5*Math.sin(u*6);
+  });
+  // ensure hero set draws over the supporting sets
+  cam.appendChild(a1.wrap); cam.appendChild(pill);
+})();
+
+// ---------- PRODUCT SCENES ----------
+const PRODUCTS=[
+ {k:'rifqa',t:T.rifqa,A:'r1',B:'r2',hA:640,hB:620,hT:520,head:'أربع حقائب... وسفرة بلا حدود!',name:'طقم حقائب سفر رفيقا الأصلية',chip:`${BAGS}<span>4 حقائب بمقاسات كبيرة</span>`,
+  old:'580',neu:'299',save:'281',swap:4.6,tog:8.3,oldAt:9.3,strike:10.0,newAt:10.85,saveAt:11.9,shield:false},
+ {k:'am',t:T.am,A:'a1',B:'a2',hA:560,hB:580,hT:415,head:'قوة تتحمل الرحلة... وأناقة ترافقك!',name:'طقم حقائب سفر أمريكان لاكج',chip:`${SHIELD(46,'#F5C542','#172B4D')}<span>3 حقائب ضد الكسر</span>`,
+  old:'595',neu:'345',save:'250',swap:5.3,tog:7.25,oldAt:8.4,strike:9.2,newAt:10.1,saveAt:11.2,shield:true},
+];
+PRODUCTS.forEach((pd,idx)=>{
+  const [a,b]=pd.t; const D=b-a; const sc=el('div','scene',stage); const cam=el('div','cam',sc);
+  airport(cam, idx? 'rgba(23,43,77,.07)':'rgba(245,197,66,.16)');
+  const side=idx?-1:1;
+  const bclip=el('div','abs',cam); css(bclip,{inset:0,clipPath:'inset(500px 0 560px 0)'});
+  const band=el('div','slash',bclip); css(band,{width:'240px',height:'2600px',left:(side>0?860:-20)+'px',top:'-340px',background:'linear-gradient(180deg,#1d3560,#172B4D)'});
+  const ys=el('div','slash',bclip); css(ys,{width:'26px',height:'2600px',left:(side>0?150:900)+'px',top:'-340px',background:'var(--yellow)'});
+  const part=particles(cam,18);
+  const logo=smallLogo(cam);
+  const head=textLine(cam,pd.head,180,74,800);
+  const name=textLine(cam,pd.name,292,48,600,'#33476b');
+  const chip=el('div','chip',cam,pd.chip); css(chip,{top:'378px',left:'270px',width:'540px'});
+  let bigShield=null;
+  if(pd.shield){bigShield=el('div','abs',cam,SHIELD(760,'rgba(23,43,77,.06)','rgba(23,43,77,.16)'));css(bigShield,{left:'160px',top:'540px'});}
+  const slab=el('div','slab',cam); css(slab,{left:'40px',width:'1000px',top:'1338px'});
+  const A=makeItem(cam,pd.A,pd.hA), B=makeItem(cam,pd.B,pd.hB);
+  const At=makeItem(cam,pd.A,pd.hT), Bt=makeItem(cam,pd.B,pd.hT);
+  // geometric swap panel (inside the stage area)
+  const sclip=el('div','abs',cam); css(sclip,{inset:0,clipPath:'inset(470px 0 560px 0)'});
+  const swp=el('div','abs',sclip); css(swp,{width:'1500px',height:'1100px',top:'420px',background:'var(--navy)'});
+  const swpE=el('div','abs',swp); css(swpE,{left:0,top:0,bottom:0,width:'30px',background:'var(--yellow)'});
+  const sweep=el('div','abs',cam); css(sweep,{width:'240px',height:'900px',top:'470px',background:'linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.5),rgba(255,255,255,0))',mixBlendMode:'soft-light'});
+  // price block
+  const oldL=el('div','line',cam,`<span class="price-old" style="position:relative;display:inline-block"><span class="ltr" style="font-family:Montserrat,Cairo">${pd.old}</span> ريال<span class="strike"></span></span>`);
+  css(oldL,{top:'1430px',fontSize:'56px'}); const strike=oldL.querySelector('.strike');
+  const ybox=el('div','ybox',cam); css(ybox,{width:'800px',height:'200px',left:'140px',top:'1530px'});
+  const newL=el('div','line',cam,priceHTML(pd.neu)); css(newL,{top:'1500px',fontSize:'128px',lineHeight:1.55,fontWeight:900});
+  const save=el('div','abs',cam,`وفّر <span class="ltr" style="font-family:Montserrat,Cairo;font-weight:800">${pd.save}</span> ريال`);
+  css(save,{left:'310px',width:'460px',top:'1765px',height:'96px',borderRadius:'48px',background:'var(--navy)',color:'var(--yellow)',fontSize:'50px',fontWeight:800,display:'flex',alignItems:'center',justifyContent:'center',gap:'12px',boxShadow:'0 16px 40px rgba(23,43,77,.25)'});
+  const rays=el('div','abs',cam); css(rays,{left:'240px',top:'1430px',width:'600px',height:'420px',borderRadius:'50%',background:'radial-gradient(closest-side,rgba(245,197,66,.55),rgba(245,197,66,0))'});
+  updaters.push(t=>{
+    const on=t>=a&&t<b; sc.style.visibility=on?'visible':'hidden'; if(!on)return; const u=t-a;
+    cam.style.transform=`scale(${1+0.04*E.inout3(P(u,0,D))})`;
+    band.style.transform=`translate(${side*lerp(600,0,E.out5(P(u,0,1.1)))}px,${-u*6}px) rotate(32deg)`;
+    ys.style.transform=`translate(${-side*lerp(700,0,E.out5(P(u,.2,1.3)))}px,${u*8}px) rotate(32deg)`;
+    part(u+idx*20); logo.style.opacity=1;
+    revealUp(head,P(u,0.3,1.2)); revealUp(name,P(u,0.85,1.7));
+    const cp=P(u,1.4,2.0); chip.style.opacity=clamp(cp*3); chip.style.transform=`scale(${lerp(.7,1,E.outBack(cp))})`;
+    if(bigShield){const sp=P(u,1.8,2.8); bigShield.style.opacity=clamp(sp*2)*(1-P(u,pd.tog,pd.tog+.8)*.5); bigShield.style.transform=`scale(${lerp(.7,1,E.outBack(sp))})`;}
+    slab.style.transform=`scaleX(${E.out5(P(u,0.1,0.9))})`;
+    // phase A: set A rolls in big
+    const R=roll(u,0.5,1.4,side>0?1700:-620,540);
+    const swapP=P(u,pd.swap-0.45,pd.swap+0.45);
+    const showA=u<pd.swap, showB=u>=pd.swap&&u<pd.tog;
+    place(A,R.x,1345,{lift:R.lift,rot:R.rot,mblur:R.mblur,opacity:showA&&R.on?1:0,rotY:Math.sin(u*.6)*5*P(u,1.6,2.4),specX:lerp(-.3,1.4,P(u,2.0,3.3))});
+    // phase B: set B revealed by the geometric panel
+    const bp=E.out5(P(u,pd.swap,pd.swap+1.0));
+    place(B,540,1345,{opacity:showB?1:0,scale:lerp(.93,1,bp),rotY:lerp(side*-14,0,bp)+Math.sin(u*.6)*5*P(u,pd.swap+1,pd.swap+1.8),specX:lerp(-.3,1.4,P(u,pd.swap+.8,pd.swap+2))});
+    // swap panel sweeps across (covers at pd.swap)
+    const sx=lerp(side>0?1150:-1650,side>0?-1650:1150,E.inout3(swapP)); swp.style.transform=`translateX(${sx}px) skewX(-20deg)`; swp.style.visibility=swapP>0&&swapP<1?'visible':'hidden';
+    swpE.style.left=side>0?'0':''; swpE.style.right=side>0?'':'0';
+    // phase C: both sets together
+    const tp=E.inout3(P(u,pd.tog,pd.tog+1.0)), onT=u>=pd.tog;
+    place(At,lerp(-400,290,tp),1345,{opacity:onT?1:0,mblur:(1-tp)*18,specX:lerp(-.3,1.4,P(u,pd.tog+1.2,pd.tog+2.4))});
+    place(Bt,lerp(540,795,tp),1345,{opacity:onT?1:0,scale:lerp(pd.hB/pd.hT,1,tp),specX:lerp(-.3,1.4,P(u,pd.tog+1.4,pd.tog+2.6))});
+    // light sweep
+    sweep.style.left=lerp(-300,1100,P(u,2.0,3.4))+'px'; sweep.style.transform='skewX(-18deg)';
+    // price reveal
+    const o1=P(u,pd.oldAt,pd.oldAt+.6); oldL.style.opacity=clamp(o1*2)*lerp(1,.75,P(u,pd.strike+.3,pd.strike+.7)); oldL.style.transform=`translateY(${(1-E.out5(o1))*40}px)`;
+    strike.style.left='-6px'; strike.style.width=`calc(${E.inout3(P(u,pd.strike,pd.strike+.5))*100}% + 12px)`; strike.style.transform='rotate(-6deg)';
+    const yb=E.out5(P(u,pd.newAt-.15,pd.newAt+.45)); ybox.style.transformOrigin='100% 50%'; ybox.style.transform=`skewX(-14deg) scaleX(${yb})`;
+    const np=P(u,pd.newAt,pd.newAt+.7); newL.style.opacity=clamp(np*3); newL.style.transform=`scale(${lerp(1.45,1,E.outExpo(np))})`;
+    const rp=P(u,pd.newAt,pd.newAt+1.1); rays.style.opacity=Math.sin(Math.PI*rp)*.9; rays.style.transform=`scale(${lerp(.4,1.5,rp)})`;
+    const svp=P(u,pd.saveAt,pd.saveAt+.6); save.style.opacity=clamp(svp*3); save.style.transform=`scale(${lerp(.5,1,E.outBack(svp))*(1+0.03*Math.sin(u*5)*P(u,pd.saveAt+1,pd.saveAt+2))})`;
+  });
+  cam.appendChild(ybox); cam.appendChild(rays); cam.appendChild(newL); cam.appendChild(save);
+});
+
+// ---------- FINAL ----------
+(function(){
+  const [a,b]=T.end; const sc=el('div','scene',stage); const cam=el('div','cam',sc);
+  airport(cam);
+  const part=particles(cam,24);
+  const ysl=el('div','slash',cam); css(ysl,{width:'40px',height:'1500px',left:'520px',top:'-300px',background:'var(--yellow)'});
+  const logo=el('img','logo',cam); logo.src=LOGO.src; css(logo,{width:'470px',left:'305px',top:'40px'});
+  const h=textLine(cam,'لا تخلي عروض نهاية السنة تفوتك!',350,60,800);
+  const s=textLine(cam,'اختَر طقمك... واستعد لرحلتك القادمة!',445,44,600,'#33476b');
+  const shelf=el('div','slab',cam); css(shelf,{left:'60px',width:'960px',top:'880px',height:'46px'});
+  const floor=el('div','slab',cam); css(floor,{left:'40px',width:'1000px',top:'1236px',height:'46px'});
+  const items=[['r1',330,285,884],['r2',320,795,884],['a1',320,300,1240],['a2',330,790,1240]].map(([k,h,cx,by])=>({o:makeItem(cam,k,h,{reflect:false}),cx,by}));
+  const panel=el('div','abs',cam); css(panel,{left:'-100px',width:'1280px',top:'1300px',height:'800px',background:'linear-gradient(180deg,#1b3159,#172B4D 40%,#12223f)',clipPath:'polygon(0 70px,100% 0,100% 100%,0 100%)'});
+  const pline=el('div','abs',cam); css(pline,{left:'-100px',width:'1280px',top:'1288px',height:'82px',background:'var(--yellow)',clipPath:'polygon(0 70px,100% 0,100% 12px,0 82px)'});
+  const wa=textLine(cam,'للطلب والاستفسار عبر واتساب',1410,48,700,'#fff');
+  const phone=el('div','line',cam,`<span class="ltr" style="font-family:Montserrat,Cairo;font-weight:800;letter-spacing:4px">0530156785</span>`); css(phone,{top:'1488px',fontSize:'108px',color:'var(--yellow)'});
+  const icon=el('div','abs',cam,`<svg width="86" height="86" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#F5C542"/><path d="M32 14a17 17 0 0 0-14.6 25.7L15 49l9.6-2.4A17 17 0 1 0 32 14z" fill="none" stroke="#172B4D" stroke-width="3.4" stroke-linejoin="round"/><path d="M25.5 24.5c.6-1.3 1.3-1.3 2-1.3l1.5 3.6-1.6 2a12 12 0 0 0 6 6l2-1.6 3.6 1.5c0 .7 0 1.4-1.3 2-1.6.8-4 .6-7.3-1.6a20 20 0 0 1-5.5-5.6c-1.8-2.7-1.7-4.4-1.4-5z" fill="#172B4D"/></svg>`); css(icon,{left:'52px',top:'1508px'});
+  const web=el('div','line',cam,`<span class="ltr" style="font-family:Montserrat,Cairo;font-weight:600">https://marswl.com/</span>`); css(web,{top:'1645px',fontSize:'46px',color:'#fff'});
+  const cta=el('div','abs',cam,'تسوّق الآن'); css(cta,{left:'330px',width:'420px',top:'1745px',height:'110px',background:'var(--yellow)',color:'var(--navy)',fontSize:'56px',fontWeight:900,display:'flex',alignItems:'center',justifyContent:'center',borderRadius:'18px',boxShadow:'0 14px 40px rgba(0,0,0,.25)',overflow:'hidden'});
+  const shine=el('div','abs',cta); css(shine,{top:0,bottom:0,width:'120px',background:'linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.65),rgba(255,255,255,0))',transform:'skewX(-20deg)'});
+  updaters.push(t=>{
+    const on=t>=a&&t<=b; sc.style.visibility=on?'visible':'hidden'; if(!on)return; const u=t-a;
+    cam.style.transform=`scale(${1.04-0.04*E.out3(P(u,0,5))})`; part(u+40);
+    const sp=P(u,0.3,1.2); ysl.style.transform=`translate(${lerp(900,0,E.out5(sp))}px,0) rotate(32deg) scaleY(${lerp(.2,1,E.out5(sp))})`; ysl.style.opacity=1-P(u,1.6,2.4);
+    const lp=P(u,0.5,1.5); logo.style.opacity=clamp(lp*2.5); logo.style.transform=`scale(${lerp(.82,1,E.outExpo(lp))})`; logo.style.clipPath=`inset(0 0 0 ${(1-E.out5(lp))*100}%)`;
+    revealUp(h,P(u,1.1,1.9)); revealUp(s,P(u,1.6,2.4));
+    shelf.style.transform=`scaleX(${E.out5(P(u,.6,1.4))})`; floor.style.transform=`scaleX(${E.out5(P(u,.7,1.5))})`;
+    items.forEach(({o,cx,by},i)=>{const R=roll(u,0.9+i*0.22,1.7+i*0.22,i%2?1500:-420,cx);
+      place(o,R.x,by,{lift:R.lift,rot:R.rot,mblur:R.mblur,opacity:R.on?1:0,specX:lerp(-.3,1.4,P(u,3+i*.3,4.2+i*.3))});});
+    const pn=E.out5(P(u,0.1,1.0)); panel.style.transform=pline.style.transform=`translateY(${(1-pn)*700}px)`;
+    revealUp(wa,P(u,2.4,3.1));
+    const php=P(u,2.8,3.6); phone.style.opacity=clamp(php*3); phone.style.transform=`scale(${lerp(1.3,1,E.outExpo(php))})`;
+    icon.style.opacity=clamp(P(u,3.2,3.6)); icon.style.transform=`scale(${lerp(.3,1,E.outBack(P(u,3.2,3.8)))})`;
+    const wp=P(u,3.5,4.1); web.style.opacity=clamp(wp*2); web.style.transform=`translateY(${(1-E.out5(wp))*30}px)`;
+    const cp=P(u,4.0,4.6); cta.style.opacity=clamp(cp*3); cta.style.transform=`scale(${lerp(.5,1,E.outBack(cp))*(1+0.025*Math.sin(u*4)*P(u,5,6))})`;
+    shine.style.left=lerp(-160,560,((u-5)%2.2)/1.2)+'px';
+  });
+})();
+
+// ---------- TRANSITION WIPES ----------
+const wipes=BOUNDS.map(()=>{const w=el('div','wipe',stage);const e=el('div','edge',w);css(e,{left:'0px'});const e2=el('div','edge',w);css(e2,{right:'0px',width:'14px'});return w});
+updaters.push(t=>BOUNDS.forEach((B,i)=>{const w=wipes[i],p=P(t,B-0.5,B+0.5);
+  if(p<=0||p>=1){w.style.visibility='hidden';return}
+  w.style.visibility='visible'; w.style.left='0px'; w.style.transform=`translateX(${lerp(1600,-3120,E.inout3(p))}px) skewX(-22deg)`;}));
+
+window.render=t=>updaters.forEach(f=>f(t));
+window.ready=(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));
+  // shrink any line that would overflow the safe width
+  fits.forEach(([l,max])=>{let fs=parseFloat(l.style.fontSize);l.style.visibility='hidden';
+    const sc=l.closest('.scene'); const prev=sc.style.visibility; sc.style.visibility='visible';
+    while(l._m.scrollWidth>max&&fs>20){fs-=2;l.style.fontSize=fs+'px'} sc.style.visibility=prev; l.style.visibility='';});
+  render(0);return true})();
+</script>
+</body>
+</html>
