@@ -759,10 +759,12 @@ if (/[?&]v=1/.test(location.search)) {
     tl.to(d, { autoAlpha: 0, duration: 0.25 }, b - 0.2);
   });
   const vl = document.getElementById('vlogo');
-  tl.fromTo(vl, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.8 }, 0.2);
-  tl.to(vl, { autoAlpha: 0, duration: 0.4 }, 4.3);
-  tl.to(vl, { autoAlpha: 1, duration: 0.5 }, 12.5);
-  tl.to(vl, { autoAlpha: 0, duration: 0.4 }, 54.5);
+  const ramp = (t, a, d) => Math.min(1, Math.max(0, (t - a) / d));
+  updaters.push((t) => {
+    // hidden while the film itself shows the logo (end of S1 → S2, and the end card)
+    const op = ramp(t, 0.2, 0.8) * (1 - ramp(t, 4.3, 0.4)) + ramp(t, 12.4, 0.5) * (1 - ramp(t, 54.5, 0.4));
+    vl.style.opacity = op.toFixed(3);
+  });
 }
 
 /* ---------- render API ---------- */
