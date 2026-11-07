@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Alexandria';font-weight:700;src:url(assets/alexandria-arabic-700-normal.woff2)}
+@font-face{font-family:'Plex';font-weight:500;src:url(assets/ibm-plex-sans-arabic-arabic-500-normal.woff2)}
+body{margin:0;background:#F7F4EA;width:1920px;height:1080px;overflow:hidden}
+text{font-family:Plex}
+</style></head><body>
+<script src="sart.js"></script>
+<script>
+document.body.insertAdjacentHTML('afterbegin', defs());
+const lab=(x,y,t,s=26,c='#302E2B')=>`<text x="${x}" y="${y}" text-anchor="middle" font-size="${s}" fill="${c}" direction="rtl">${t}</text>`;
+let g=`<rect width="1920" height="1080" fill="#F7F4EA"/><rect x="0" y="0" width="1920" height="96" fill="#164B3A"/>
+<text x="1860" y="62" text-anchor="start" font-family="Alexandria" font-weight="700" font-size="36" fill="#fff" direction="rtl">سواحل — لوحة مرجعية للشخصيات (مثبتة)</text>
+<text x="60" y="60" font-size="22" fill="#EAD9B2">SAWAHEL · Character reference sheet · locked designs</text>`;
+const row=(y,role,title)=>{
+ g+=lab(1340,y-330,title,30,'#164B3A');
+ g+=omani({x:1700,y,s:1.05,role})+lab(1700,y+40,'أمامي',22,'#55775B');
+ g+=omani({x:1460,y,s:1.05,role,view:'q',dir:-1})+lab(1460,y+40,'ثلاثة أرباع',22,'#55775B');
+ g+=omaniSide({x:1220,y,s:1.05,role,dir:-1})+lab(1220,y+40,'جانبي',22,'#55775B');
+ g+=omani({x:980,y,s:1.05,role,pose:'sit',view:'q',dir:-1})+lab(980,y+40,'جالس',22,'#55775B');
+};
+row(520,'customer','الشخصية 01 — العميل العُماني');
+row(1000,'employee','الشخصية 02 — موظف مكتب سواحل');
+g+=lab(420,200,'الشخصية 03 — ملفات نموذجية (توضيحية)',30,'#164B3A');
+[0,1,2].forEach(v=>{const x=180+v*240; g+=`<clipPath id="cc${v}"><circle cx="${x}" cy="380" r="101"/></clipPath><circle cx="${x}" cy="380" r="105" fill="#E9DFC9" stroke="#C5A059" stroke-width="4"/><g clip-path="url(#cc${v})"><g transform="translate(${x} 488) scale(0.95)">${workerBust(v)}</g></g>`;});
+g+=lab(420,560,'نفس أسلوب الرسم — بدون أسماء أو بيانات حقيقية',22,'#55775B');
+['#164B3A','#55775B','#C5A059','#F7F4EA','#E9DFC9','#302E2B'].forEach((c,i)=>{g+=`<rect x="${120+i*100}" y="700" width="80" height="80" rx="10" fill="${c}" stroke="#DDD0B4"/><text x="${160+i*100}" y="810" text-anchor="middle" font-size="16" fill="#302E2B">${c}</text>`});
+document.body.insertAdjacentHTML('beforeend',`<svg width="1920" height="1080" viewBox="0 0 1920 1080" style="position:absolute;left:0;top:0">${g}</svg>`);
+window.renderAt=()=>{}; window.__ready=document.fonts.ready;
+</script></body></html>

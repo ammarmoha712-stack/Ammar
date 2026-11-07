@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>Sawahel Film</title>
+<style>
+@font-face{font-family:'Alexandria';font-weight:500;src:url(assets/alexandria-arabic-500-normal.woff2)}
+@font-face{font-family:'Alexandria';font-weight:600;src:url(assets/alexandria-arabic-600-normal.woff2)}
+@font-face{font-family:'Alexandria';font-weight:700;src:url(assets/alexandria-arabic-700-normal.woff2)}
+@font-face{font-family:'Alexandria';font-weight:800;src:url(assets/alexandria-arabic-800-normal.woff2)}
+@font-face{font-family:'Plex';font-weight:400;src:url(assets/ibm-plex-sans-arabic-arabic-400-normal.woff2)}
+@font-face{font-family:'Plex';font-weight:500;src:url(assets/ibm-plex-sans-arabic-arabic-500-normal.woff2)}
+@font-face{font-family:'Plex';font-weight:600;src:url(assets/ibm-plex-sans-arabic-arabic-600-normal.woff2)}
+@font-face{font-family:'Plex';font-weight:700;src:url(assets/ibm-plex-sans-arabic-arabic-700-normal.woff2)}
+@font-face{font-family:'Montserrat';font-weight:500;src:url(assets/montserrat-latin-500-normal.woff2)}
+@font-face{font-family:'Montserrat';font-weight:600;src:url(assets/montserrat-latin-600-normal.woff2)}
+html,body{margin:0;padding:0;background:#F7F4EA}
+body{overflow:hidden}
+#stage{position:relative;overflow:hidden;background:#F7F4EA}
+.scene{position:absolute;left:0;top:0;width:100%;height:100%;overflow:hidden}
+.artbox{position:absolute;overflow:hidden}
+.artbox svg{position:absolute;top:0;width:1920px;height:1080px}
+.tx{position:absolute;direction:rtl;box-sizing:border-box;line-height:1.35}
+.tx .w{display:inline-block}
+.head1{font-family:'Alexandria';font-weight:700;color:#164B3A}
+.gold{color:#B08D4C}
+.body1{font-family:'Plex';font-weight:500;color:#302E2B}
+.chip{display:flex;align-items:center;gap:16px;direction:rtl;font-family:'Plex';font-weight:600;color:#164B3A;background:#fff;border:2px solid #C5A059;border-radius:999px;padding:12px 30px 12px 22px;box-shadow:0 10px 26px rgba(22,75,58,.08);position:absolute;box-sizing:border-box;white-space:nowrap}
+.chip .ic{width:46px;height:46px;border-radius:50%;background:#164B3A;display:flex;align-items:center;justify-content:center;flex:none}
+.veil{position:absolute;inset:0;background:#F7F4EA}
+/* phone UI */
+.phoneUI{position:absolute;background:#2B2A28;border-radius:56px;padding:16px;box-sizing:border-box;box-shadow:0 40px 80px rgba(22,75,58,.25)}
+.phoneUI .scr{position:relative;width:100%;height:100%;background:#FBF9F3;border-radius:42px;overflow:hidden;direction:rtl;font-family:'Plex'}
+.phoneUI .notch{position:absolute;left:50%;top:12px;width:110px;height:28px;margin-left:-55px;background:#2B2A28;border-radius:16px}
+.phoneUI .sbar{height:60px}
+.phoneUI .ttl{font-family:'Alexandria';font-weight:700;font-size:30px;color:#164B3A;padding:6px 28px}
+.phoneUI .field{margin:12px 22px;height:66px;border-radius:33px;background:#fff;border:2px solid #C5A059;display:flex;align-items:center;gap:10px;padding:0 20px;box-sizing:border-box;font-size:22px;color:#302E2B;white-space:nowrap;overflow:hidden}
+.phoneUI .caret{display:inline-block;width:2px;height:28px;background:#164B3A;vertical-align:middle;margin-right:2px}
+.phoneUI .load{margin:8px 22px;height:4px;border-radius:2px;background:#E9DFC9;overflow:hidden}
+.phoneUI .load i{display:block;height:100%;width:0;background:#55775B}
+.res{margin:14px 22px;border-radius:20px;background:#fff;padding:18px 20px;box-shadow:0 6px 18px rgba(0,0,0,.05);position:relative}
+.res .ln{height:12px;border-radius:6px;background:#E9E4D8;margin:9px 0}
+.res.saw{border:2.5px solid #164B3A;background:#F2F7F2}
+.res.saw .row{display:flex;align-items:center;gap:12px}
+.res.saw img{width:44px;height:auto}
+.res.saw .t1{font-family:'Alexandria';font-weight:700;font-size:22px;color:#164B3A}
+.res.saw .u{font-family:'Montserrat';font-weight:500;font-size:16px;color:#55775B;direction:ltr;text-align:right}
+.ripple{position:absolute;width:90px;height:90px;border-radius:50%;background:rgba(197,160,89,.45);left:50%;top:50%;margin:-45px 0 0 -45px;opacity:0}
+/* browser */
+.browser{position:absolute;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 40px 90px rgba(22,75,58,.18);border:1px solid #E2D9C4}
+.browser .chrome{height:64px;background:#EFEADF;display:flex;align-items:center;gap:14px;padding:0 22px;box-sizing:border-box}
+.browser .dot{width:14px;height:14px;border-radius:50%;background:#D5CCB8}
+.browser .addr{flex:1;height:40px;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Montserrat';font-weight:500;font-size:20px;color:#164B3A}
+.browser .vp{position:absolute;left:0;right:0;top:64px;bottom:0;overflow:hidden}
+.browser .page{position:absolute;left:0;right:0;top:0;direction:rtl;font-family:'Plex'}
+.page .hdr{height:110px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;border-bottom:1px solid #EEE7D8}
+.page .hdr img{height:78px}
+.page .hdr .ph{font-family:'Montserrat';font-weight:600;font-size:20px;color:#164B3A;direction:ltr}
+.page .hero{position:relative;height:420px;background:#164B3A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;overflow:hidden}
+.page .hero img{width:520px}
+.page .hero .ht{font-family:'Alexandria';font-weight:600;font-size:34px;color:#EAD9B2;padding:6px 26px;border-radius:12px;border:2px solid transparent}
+.page .sec{padding:40px;display:flex;gap:26px}
+.page .card{flex:1;border:1.5px solid #E2D9C4;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.page .card .k{font-family:'Alexandria';font-weight:600;font-size:24px;color:#164B3A}
+.page .card .v{font-family:'Montserrat';font-weight:500;font-size:21px;color:#302E2B;direction:ltr}
+.page .card .va{font-family:'Plex';font-weight:500;font-size:22px;color:#302E2B}
+/* profile cards */
+.pcard{position:absolute;background:#fff;border-radius:26px;box-shadow:0 26px 60px rgba(22,75,58,.16);border:1.5px solid #E6DDC9;direction:rtl;font-family:'Plex';box-sizing:border-box;padding:22px 24px;overflow:visible}
+.pcard .tag{position:absolute;top:16px;left:16px;font-size:15px;font-weight:600;color:#55775B;background:#EEF3EC;border-radius:999px;padding:4px 12px}
+.pcard .por{width:136px;height:136px;border-radius:50%;margin:6px auto 0;overflow:hidden;border:4px solid #C5A059;background:#E9DFC9}
+.pcard .nm{height:14px;width:58%;margin:12px auto 6px;border-radius:7px;background:#E3DCCB}
+.pcard .nat{text-align:center;font-family:'Alexandria';font-weight:600;font-size:19px;color:#164B3A;margin-bottom:8px}
+.pcard .rw{display:flex;align-items:center;gap:12px;padding:8px 10px;border-radius:12px;margin:4px 0}
+.pcard .rw .ii{width:36px;height:36px;border-radius:50%;background:#EEF3EC;display:flex;align-items:center;justify-content:center;flex:none}
+.pcard .rw .lb{font-weight:600;font-size:19px;color:#302E2B;width:86px}
+.pcard .rw .bar{flex:1;height:10px;border-radius:5px;background:repeating-linear-gradient(90deg,#E3DCCB 0 14px,transparent 14px 20px)}
+.pcard .sel{position:absolute;inset:-8px;border:4px solid #C5A059;border-radius:32px;opacity:0}
+.pcard .ok{position:absolute;top:-22px;right:-22px;width:60px;height:60px;border-radius:50%;background:#164B3A;display:flex;align-items:center;justify-content:center;opacity:0;box-shadow:0 8px 20px rgba(22,75,58,.3)}
+.banner{position:absolute;background:#F7F4EA;border-radius:999px;border:2px solid #C5A059;font-family:'Alexandria';font-weight:700;color:#164B3A;text-align:center;direction:rtl;box-shadow:0 12px 30px rgba(0,0,0,.12);box-sizing:border-box;white-space:nowrap}
+/* end card */
+.cpanel{position:absolute;background:#164B3A;border-radius:28px;box-sizing:border-box;color:#fff;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px 46px;padding:26px 40px}
+.cpanel .it{display:flex;align-items:center;gap:14px;font-family:'Montserrat';font-weight:600;letter-spacing:.5px;direction:ltr}
+.cpanel .it.ar{font-family:'Plex';font-weight:600;direction:rtl;letter-spacing:0}
+.vgn{position:absolute;inset:0;pointer-events:none;z-index:100;background:radial-gradient(ellipse at 50% 50%,rgba(48,46,43,0) 64%,rgba(48,46,43,.08) 100%)}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script src="assets/gsap.min.js"></script>
+<script src="sart.js"></script>
+<script src="sfilm.js"></script>
+</body>
+</html>
