@@ -382,7 +382,7 @@ function receptionArt(idC, idE, custX, custDir) {
   pop(note, 21.2, 0.4);
   // selection
   tl.to([cards[0], cards[2]], { opacity: 0.5, scale: 0.94, duration: 0.45 }, 26.2);
-  tl.to(cards[1], { scale: 1.07, y: -10, duration: 0.45, ease: 'back.out(1.6)' }, 26.2);
+  tl.to(cards[1], { scale: 1.07, y: P(20, -10), duration: 0.45, ease: 'back.out(1.6)' }, 26.2);
   tl.to($(cards[1], '.sel'), { opacity: 1, duration: 0.3 }, 26.3);
   tl.fromTo($(cards[1], '.ok'), { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2.2)' }, 26.45);
   // characters
