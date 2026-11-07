@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts.local.css">
+<style>
+html,body{margin:0;padding:0;background:#fff;overflow:hidden}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#fff}
+#defs{position:absolute;width:0;height:0}
+#art{position:absolute;left:0;top:0}
+#txt{position:absolute;left:0;top:0;width:1920px;height:1080px}
+</style></head><body>
+<svg id="defs" xmlns="http://www.w3.org/2000/svg"><defs>
+ <pattern id="shem" patternUnits="userSpaceOnUse" width="14" height="14" patternTransform="rotate(45)">
+  <rect width="14" height="14" fill="#C9252F"/><rect x="0" y="0" width="14" height="3" fill="#F4EFEA"/><rect x="0" y="0" width="3" height="14" fill="#F4EFEA"/><rect x="7" y="7" width="3" height="3" fill="#F4EFEA" opacity=".8"/>
+ </pattern>
+ <linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2D4A75"/><stop offset=".55" stop-color="#5D82B0"/><stop offset="1" stop-color="#A9C3E0"/></linearGradient>
+ <linearGradient id="gGlass2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3A5B8C"/><stop offset=".5" stop-color="#7EA0C8"/><stop offset="1" stop-color="#2D4A75"/></linearGradient>
+ <linearGradient id="gScreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F8FD"/><stop offset="1" stop-color="#DCE7F3"/></linearGradient>
+ <linearGradient id="gDusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B5B8E"/><stop offset=".6" stop-color="#C99C7A"/><stop offset="1" stop-color="#F0C995"/></linearGradient>
+ <linearGradient id="gDusk2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14233F"/><stop offset=".55" stop-color="#3F5D8C"/><stop offset=".85" stop-color="#D8A57A"/><stop offset="1" stop-color="#F2CF9C"/></linearGradient>
+ <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CFE0F2"/><stop offset="1" stop-color="#F6F1E8"/></linearGradient>
+ <linearGradient id="gWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D6E4F2"/><stop offset=".7" stop-color="#F7E8D2"/><stop offset="1" stop-color="#F5DEC0"/></linearGradient>
+ <linearGradient id="gSoft" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3F5F9"/><stop offset="1" stop-color="#E2E9F2"/></linearGradient>
+ <radialGradient id="gGlow"><stop offset="0" stop-color="#F6EAD5"/><stop offset=".6" stop-color="#FBF6EE"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+ <filter id="sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#1B2D4B" flood-opacity=".18"/></filter>
+ <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>
+ <filter id="blur2"><feGaussianBlur stdDeviation="9"/></filter>
+ <clipPath id="cardClip"><rect x="-110" y="-86" width="220" height="120" rx="12"/></clipPath>
+ <clipPath id="win1"><rect x="1060" y="150" width="620" height="500"/></clipPath><linearGradient id="gLit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE7B5"/><stop offset="1" stop-color="#F2B66B"/></linearGradient>
+ <clipPath id="winClip"><rect x="120" y="140" width="420" height="420"/></clipPath>
+ <clipPath id="phClip"><rect x="-152" y="-280" width="304" height="586" rx="30"/></clipPath>
+ <clipPath id="mapClip"><rect x="-430" y="-330" width="860" height="660" rx="30"/></clipPath>
+ <image id="LOGO" href="logo.png" width="1384" height="365"/>
+ <image id="ICON" href="icon.png" width="267" height="340"/>
+</defs></svg>
+<div id="stage"><svg id="art" xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080"></svg><div id="txt"></div></div>
+<script src="lib.js"></script>
+<script src="scenes.js"></script>
+<script>
+const art=document.getElementById('art'), txtEl=document.getElementById('txt');
+window.renderFrame=(t)=>{const r=render(t);art.innerHTML=r.art;txtEl.innerHTML=r.html;};
+window.ready=(async()=>{
+  await Promise.all(['400','500','700','800'].map(w=>document.fonts.load(`${w} 40px Tajawal`,'عربي')));
+  await document.fonts.load('600 40px Montserrat','0599');
+  await Promise.all(['logo.png','icon.png'].map(s=>new Promise(r=>{const i=new Image();i.onload=r;i.onerror=r;i.src=s})));
+  renderFrame(0);
+  return true;
+})();
+</script>
+</body></html>
