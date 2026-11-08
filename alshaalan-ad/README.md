@@ -13,3 +13,20 @@
 | 32.25-40.0 | CTA: logo, tagline, golden key, contact details | عقارك قرار، وخبرتنا دليلك |
 
 Fonts: Tajawal (SIL Open Font License).
+
+---
+
+# Property Management ad: 41s vertical (9:16)
+
+- `ALSHAALAN_PropertyMgmt_9x16.mp4`: 1080x1920, 30 fps, 41.0 s, -14 LUFS.
+- Build: `python3 audio2.py`, normalize `pm/mix.wav` to `pm/mix_norm.wav` the same way as above, run `python3 render2.py`, then mux the video and audio with ffmpeg.
+
+| Time | Scene | Character pose |
+|---|---|---|
+| 0-6.2 | Owner's problem: building with piling-up notifications | walks in, then finger raised, then explaining |
+| 6.2-12.4 | Notifications sorted and checked off, logo reveal | presenting, then hand on heart |
+| 12.4-18.2 | Tenants and rent: lit-up units, 5-step tablet, collection | explaining, then thumbs-up |
+| 18.2-23.75 | Maintenance: 3D building, 5 service tags switch to "complete" | finger raised, then thumbs-up |
+| 23.75-30.05 | Dashboard (occupancy, income, maintenance, tenants), report sent to owner | presenting |
+| 30.05-34.6 | 40-year counter, gold timeline, skyline | arms crossed, then hand on heart |
+| 34.6-41 | Logo, tagline, contact details | hands clasped, then hand on heart, then open-arm welcome |
