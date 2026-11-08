@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts.local.css"><link rel="stylesheet" href="../build/fonts.local.css">
+<style>html,body{margin:0;background:#fff;overflow:hidden}#P{position:relative;width:1080px;height:1920px;overflow:hidden}#art,#txt{position:absolute;left:0;top:0;width:1080px;height:1920px}#defs{position:absolute;width:0;height:0}</style></head><body>
+<svg id="defs" xmlns="http://www.w3.org/2000/svg"><defs>
+ <pattern id="shem" patternUnits="userSpaceOnUse" width="14" height="14" patternTransform="rotate(45)"><rect width="14" height="14" fill="#C9252F"/><rect width="14" height="3" fill="#F4EFEA"/><rect width="3" height="14" fill="#F4EFEA"/><rect x="7" y="7" width="3" height="3" fill="#F4EFEA" opacity=".8"/></pattern>
+ <pattern id="ghut" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(45)"><rect width="16" height="16" fill="#FAFAF8"/><rect width="16" height="1.5" fill="#E3E6EA"/><rect width="1.5" height="16" fill="#E3E6EA"/></pattern>
+ <linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E3A52"/><stop offset=".55" stop-color="#4F7896"/><stop offset="1" stop-color="#A9C3D6"/></linearGradient>
+ <linearGradient id="gGlass2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E4F6B"/><stop offset=".5" stop-color="#7EA0BC"/><stop offset="1" stop-color="#1E3A52"/></linearGradient>
+ <linearGradient id="gScreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F8FD"/><stop offset="1" stop-color="#DCE7F3"/></linearGradient>
+ <linearGradient id="gLit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE7B5"/><stop offset="1" stop-color="#F2B66B"/></linearGradient>
+ <linearGradient id="gSkyV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE7EF"/><stop offset=".6" stop-color="#F6F1E8"/><stop offset="1" stop-color="#F3E9D8"/></linearGradient>
+ <radialGradient id="gGlow"><stop offset="0" stop-color="#F6EAD0"/><stop offset=".6" stop-color="#FBF6EC"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+ <filter id="sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0F202F" flood-opacity=".16"/></filter>
+ <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>
+ <clipPath id="cardClip"><rect x="-110" y="-86" width="220" height="120" rx="12"/></clipPath>
+ <linearGradient id="gNavy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A1622"/><stop offset=".55" stop-color="#0F202F"/><stop offset="1" stop-color="#1B3550"/></linearGradient><linearGradient id="gTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A1622" stop-opacity=".85"/><stop offset="1" stop-color="#0A1622" stop-opacity="0"/></linearGradient><linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0D9A0"/><stop offset=".5" stop-color="#C59C4B"/><stop offset="1" stop-color="#8E6A25"/></linearGradient><linearGradient id="gSkyN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E4F6B"/><stop offset="1" stop-color="#D8A57A"/></linearGradient>
+ <clipPath id="lgTop"><rect x="0" y="0" width="384" height="96"/></clipPath>
+ <clipPath id="lgBot"><rect x="0" y="96" width="384" height="44"/></clipPath>
+</defs></svg>
+<div id="P"><svg id="art" xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920"></svg><div id="txt"></div></div>
+<script src="lib.js"></script><script src="logo_paths.js"></script><script src="addr.js"></script><script src="film.js"></script>
+<script>
+const art=document.getElementById('art'),tx=document.getElementById('txt');
+window.renderFrame=t=>{const r=render(t);art.innerHTML=r.art;tx.innerHTML=r.html};
+window.ready=(async()=>{await Promise.all(['400','500','600','700'].map(w=>document.fonts.load(`${w} 40px "IBM Plex Sans Arabic"`,'عربي')));await document.fonts.load('600 40px Montserrat','0599');renderFrame(0);return true})();
+</script></body></html>
