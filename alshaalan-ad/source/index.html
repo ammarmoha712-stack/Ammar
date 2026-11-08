@@ -1,0 +1,44 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Alshaalan Ad</title>
+<style>
+@font-face{font-family:AlexAr;src:url(alexandria-arabic-800-normal.woff2);font-weight:800}
+@font-face{font-family:AlexAr;src:url(alexandria-arabic-700-normal.woff2);font-weight:700}
+@font-face{font-family:AlexAr;src:url(alexandria-arabic-600-normal.woff2);font-weight:600}
+@font-face{font-family:AlexAr;src:url(alexandria-arabic-400-normal.woff2);font-weight:400}
+@font-face{font-family:AlexLa;src:url(alexandria-latin-800-normal.woff2);font-weight:800}
+@font-face{font-family:AlexLa;src:url(alexandria-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:AlexLa;src:url(alexandria-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:AlexLa;src:url(alexandria-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:PlexAr;src:url(ibm-plex-sans-arabic-arabic-700-normal.woff2);font-weight:700}
+@font-face{font-family:PlexAr;src:url(ibm-plex-sans-arabic-arabic-600-normal.woff2);font-weight:600}
+@font-face{font-family:PlexAr;src:url(ibm-plex-sans-arabic-arabic-500-normal.woff2);font-weight:500}
+@font-face{font-family:PlexAr;src:url(ibm-plex-sans-arabic-arabic-400-normal.woff2);font-weight:400}
+@font-face{font-family:PlexLa;src:url(ibm-plex-sans-arabic-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:PlexLa;src:url(ibm-plex-sans-arabic-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:PlexLa;src:url(ibm-plex-sans-arabic-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:PlexLa;src:url(ibm-plex-sans-arabic-latin-400-normal.woff2);font-weight:400}
+html,body{margin:0;padding:0;background:#000}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#FAF6EE}
+#stage>svg{position:absolute;left:0;top:0}
+#TL{position:absolute;inset:0;pointer-events:none}
+.t{position:absolute;left:40px;right:40px;text-align:center;direction:rtl;line-height:1.3;white-space:nowrap}
+.alex{font-family:AlexAr,AlexLa,sans-serif}
+.plex{font-family:PlexAr,PlexLa,sans-serif}
+.w{display:inline-block;padding:.05em .06em .32em;margin-bottom:-.18em;will-change:transform}
+.gold{background:linear-gradient(100deg,#A9803A 0%,#DDBF7E 18%,#FFF3CF 25%,#DDBF7E 32%,#B58C45 50%,#DDBF7E 68%,#FFF3CF 75%,#DDBF7E 82%,#A9803A 100%);background-size:200% 100%;background-position:var(--bp,0%) 0;-webkit-background-clip:text;background-clip:text;color:transparent}
+.gshadow .w{filter:drop-shadow(0 4px 10px rgba(10,20,40,.35))}
+.navy{color:#1C3350}.ivory{color:#FAF6EE}.copper{color:#C77A4E}
+.pill{display:inline-block;background:#1C3350;border-radius:60px;padding:14px 46px 22px;box-shadow:0 14px 30px rgba(28,51,80,.25)}
+#card{position:absolute;left:80px;width:920px;top:560px;background:#FFFFFF;border-radius:40px;box-shadow:0 30px 70px rgba(28,51,80,.18);border:3px solid #D9C08C;direction:rtl;padding:40px 54px 44px;box-sizing:border-box}
+#card .hdr{font-family:AlexAr,AlexLa;font-weight:700;font-size:44px;color:#9A773A;text-align:center;margin-bottom:22px}
+#card .row{display:flex;align-items:center;gap:30px;padding:14px 0}
+#card .ic{width:92px;height:92px;border-radius:50%;background:#1C3350;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:inset 0 0 0 4px #C9A86A}
+#card .ic.s{width:74px;height:74px}
+#card .num{font-family:AlexLa,AlexAr;font-weight:800;font-size:84px;color:#1C3350;direction:ltr;letter-spacing:2px}
+#card .sm{font-family:AlexLa,AlexAr;font-weight:600;font-size:46px;color:#1C3350;direction:ltr}
+#card .ad{white-space:nowrap;font-family:PlexAr,PlexLa;font-weight:600;font-size:35px;color:#1C3350}
+#card .div{height:3px;background:linear-gradient(90deg,transparent,#C9A86A,transparent);margin:14px 0}
+</style></head><body>
+<div id="stage"><svg id="S" width="1080" height="1920" viewBox="0 0 1080 1920"></svg><div id="TL"></div><svg id="TOP" width="1080" height="1920" viewBox="0 0 1080 1920"></svg></div>
+<script src="assets.js"></script>
+<script src="scenes.js"></script>
+</body></html>

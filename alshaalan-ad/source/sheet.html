@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:AlexAr;src:url(alexandria-arabic-700-normal.woff2)}@font-face{font-family:AlexLa;src:url(alexandria-latin-700-normal.woff2)}
+body{margin:0;background:#FAF6EE;font-family:AlexAr,AlexLa}</style></head><body>
+<svg id="S" width="2400" height="1700" viewBox="0 0 2400 1700"></svg>
+<script src="assets.js"></script><script>
+const S=document.getElementById('S');defs(S);
+const lab=(x,y,t,s=30,c='#1C3350')=>{const e=el('text',{x,y,'text-anchor':'middle','font-size':s,fill:c,'font-family':'AlexLa,AlexAr','font-weight':700},S);e.textContent=t;};
+lab(1200,70,'ALSHAALAN REAL ESTATE — CHARACTER REFERENCE (LOCKED)',44);
+[[0,'01 · THE PROPERTY SEEKER',{}],[1,'02 · ALSHAALAN CONSULTANT',{consultant:true}]].forEach(([row,name,o])=>{
+ const y0=130+row*790;lab(330,y0+40,name,32,'#9A773A');
+ const views=[['FRONT',0,'front'],['3/4',0.55,'front'],['SIDE',1,'front'],['BACK',0,'back']];
+ views.forEach((v,i)=>{const m=makeMan(G(S),o);m.view=v[2];m.turn=v[1];m.expr='smile';m.armL.u=7;m.armR.u=-7;
+  if(o.consultant&&v[2]!=='back'){m.armL.ik=[-60,-330,1];}
+  drawMan(m,0);tf(m.root,170+i*270,y0+720,0.95);lab(170+i*270,y0+760,v[0],24);});
+ const ex=row==0?['curious','surprised','thoughtful','determined','happy']:['neutral','smile','thoughtful','happy','curious'];
+ ex.forEach((e,i)=>{const g=G(S);const m=makeMan(g,o);m.expr=e;drawMan(m,0);
+  const cx=1300+(i%3)*360,cy=y0+(i<3?300:700);tf(m.root,cx,cy+505*1.5+100,1.5);
+  const cp=el('clipPath',{id:'c'+row+i},S);el('rect',{x:cx-150,y:cy-260,width:300,height:330,rx:30},cp);g.setAttribute('clip-path',`url(#c${row}${i})`);
+  el('rect',{x:cx-150,y:cy-260,width:300,height:330,rx:30,fill:'none',stroke:'#C9A86A','stroke-width':3},S);lab(cx,cy+100,e.toUpperCase(),22);});
+});
+</script></body></html>
