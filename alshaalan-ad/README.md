@@ -30,3 +30,11 @@ Fonts: Tajawal (SIL Open Font License).
 | 23.75-30.05 | Dashboard (occupancy, income, maintenance, tenants), report sent to owner | presenting |
 | 30.05-34.6 | 40-year counter, gold timeline, skyline | arms crossed, then hand on heart |
 | 34.6-41 | Logo, tagline, contact details | hands clasped, then hand on heart, then open-arm welcome |
+
+---
+
+# Free Marketing ad: 45s vertical (9:16)
+
+- `ALSHAALAN_FreeMarketing_9x16.mp4`: 1080x1920, 30 fps, 45.0 s, -14 LUFS.
+- The 28.4 s voiceover is cut into 9 phrases and each phrase is placed at the start of its scene (see `VO` in `render3.py`). Music fills the gaps between phrases.
+- Scenes: 0 have a property? · 5 costs (desk, falling bills, unrolling receipt) · 10 offer with "ببلاش!" reveal · 15.3 fencing · 21 wall sign · 26 real-estate platform · 32 social media · 38 40 years, the four services, final screen.
