@@ -1,3 +1,4 @@
+const PT=!!window.PORTRAIT;
 // ===== Text layer helpers (HTML) =====
 function words(text,t,t0,t1,{size=56,color='#fff',weight=800,stag=0.07,dur=0.5,out=0.35}={}){
   const ws=text.split(' ');
@@ -52,7 +53,7 @@ function scene1(t){
   // phone glow
   g+=`<circle cx="845" cy="${f(880-300+90-30)}" r="70" fill="#9CC3F0" opacity="${f(0.18+0.06*Math.sin(t*5))}"/>`;
   // floating cards
-  const cards=[[400,240,'villa','فيلا سكنية',0.6],[1190,215,'apt','شقة سكنية',1.1],[1450,470,'land','أرض',1.6],[300,530,'com','مبنى تجاري',2.1]];
+  const cards=PT?[[555,185,'villa','فيلا سكنية',0.6],[1075,195,'apt','شقة سكنية',1.1],[1130,520,'land','أرض',1.6],[540,560,'com','مبنى تجاري',2.1]]:[[400,240,'villa','فيلا سكنية',0.6],[1190,215,'apt','شقة سكنية',1.1],[1450,470,'land','أرض',1.6],[300,530,'com','مبنى تجاري',2.1]];
   cards.forEach(([x,y,k,l,t0],i)=>{const p=pop(t,t0,0.55);if(p<=0)return;
     const by=Math.sin(t*1.8+i)*10;
     const inner=k==='villa'?G(tr(0,30,0.32),villa()):k==='apt'?G(tr(0,32,0.24),apartment()):k==='land'?G(tr(0,24,0.36),land()):G(tr(0,34,0.2),commercial());
@@ -152,7 +153,7 @@ function scene3b(t){
   // badge 40
   const b=pop(t,17.5,0.6);
   if(b>0){const n=Math.round(40*tw(t,17.6,18.8,E.out));
-    g+=G(tr(1640,170,b),circ(0,0,120,C.navy)+circ(0,0,108,'none',`stroke="${C.gold}" stroke-width="5"`)+txt(0,22,'+'+n,84,C.goldL,800,'middle','direction="ltr"')+txt(0,62,'عاماً',30,'#fff',700));
+    g+=G(PT?tr(1330,115,0.8*b):tr(1640,170,b),circ(0,0,120,C.navy)+circ(0,0,108,'none',`stroke="${C.gold}" stroke-width="5"`)+txt(0,22,'+'+n,84,C.goldL,800,'middle','direction="ltr"')+txt(0,62,'عاماً',30,'#fff',700));
   }
   // walking client
   const wk=tw(lt,0.1,2.1,E.lin);
@@ -190,14 +191,14 @@ function scene3c(t){
   const qd=tw(t,22.0,22.35), ck=pop(t,22.3,0.5);
   const happy=t>22.4;
   const nod=t>23&&t<24.2?Math.sin((t-23)*12)*4:0;
-  g+=man({x:540,y:1010,s:1.18,seated:true,t,expr:happy?(t>23.2?'big':'smile'):'neutral',look:[0.8,0.2],nod,
+  g+=man({x:PT?640:540,y:1010,s:1.18,seated:true,t,expr:happy?(t>23.2?'big':'smile'):'neutral',look:[0.8,0.2],nod,
     L:[-90,-220],R:[70,-250]});
   const talk=(t>19.8&&t<22)||(t>23.8&&t<25.2);
-  g+=man({x:1340,y:1010,s:1.18,seated:true,older:true,t,expr:talk?'talk':'smile',look:[-0.9,0.3],tilt:-3,
+  g+=man({x:PT?1250:1340,y:1010,s:1.18,seated:true,older:true,t,expr:talk?'talk':'smile',look:[-0.9,0.3],tilt:-3,
     L:[-62,-318+Math.sin(t*2)*4],R:[62,-318+Math.sin(t*2)*4],hold:{both:'tablet',tabAng:-6}});
   g+=desk()+rect(470,700,120,46,'#fff',4)+rect(480,690,100,10,C.goldL,2)+rect(1100,690,26,52,C.goldD,4);
   // question -> check above client
-  const hx=540,hy=1010-534*1.18-75;
+  const hx=PT?640:540,hy=1010-534*1.18-75;
   if(qd<1&&t>19.9) g+=qBubble(hx,hy+Math.sin(t*3)*6,0.8*pop(t,19.9)*(1-qd),1,Math.sin(t*2)*10);
   if(ck>0) g+=checkB(hx,hy,0.95*ck);
   // tablet UI inset
@@ -210,7 +211,7 @@ function scene3c(t){
       u+=G(tr(x,30,0.72),(sel?rect(-134,-109,268,218,'none',22,`stroke="${C.gold}" stroke-width="8"`):'')+card(0,0,1,inner,l));
       const c=pop(t,t0,0.4);if(c>0)u+=checkB(x+70,-40,0.5*c);
     });
-    g+=G(`translate(945,${f(520)}) scale(${f(0.66*ti*(1-to))})`,`<g filter="url(#sh)">${u}</g>`);
+    g+=G(`translate(945,${f(520)}) scale(${f((PT?0.55:0.66)*ti*(1-to))})`,`<g filter="url(#sh)">${u}</g>`);
   }
   return G(`translate(960,600) scale(${f(z)}) translate(-960,-600)`,g);
 }
@@ -325,7 +326,7 @@ function scene5a(t){
   // finger
   const fx=lerp(700,300,tw(t,36.9,37.6,E.io)), fy=lerp(520,210,tw(t,36.9,37.6,E.io));
   u+=G(tr(fx,fy,0.75,-35),S('M0,0 L0,320','#CDD2DA',94)+S('M0,0 L0,320','#FBFBF9',86)+`<ellipse cx="0" cy="-10" rx="36" ry="40" fill="#CC9676"/>`+rect(-14,-80,28,70,'#CC9676',14));
-  g+=G(`translate(960,540) scale(${f(lerp(0.85,1,E.out(pin)))}) translate(${f(lerp(0,220,tw(t,38.25,38.75,E.in)))},${f(lerp(0,-40,tw(t,38.25,38.75,E.in)))}) scale(${f(z)})`,u,clamp(pin*1.5));
+  g+=G(`translate(960,540) scale(${f((PT?0.86:1)*lerp(0.85,1,E.out(pin)))}) translate(${f(lerp(0,220,tw(t,38.25,38.75,E.in)))},${f(lerp(0,-40,tw(t,38.25,38.75,E.in)))}) scale(${f(z)})`,u,clamp(pin*1.5));
   return g;
 }
 
