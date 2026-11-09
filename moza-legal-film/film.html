@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Moza Al Shehi – Legal Awareness Film</title>
+<style>
+@font-face{font-family:AlexAr;src:url(assets/fonts/alexandria-arabic-500-normal.woff2);font-weight:500}
+@font-face{font-family:AlexAr;src:url(assets/fonts/alexandria-arabic-600-normal.woff2);font-weight:600}
+@font-face{font-family:AlexAr;src:url(assets/fonts/alexandria-arabic-700-normal.woff2);font-weight:700}
+@font-face{font-family:AlexAr;src:url(assets/fonts/alexandria-arabic-800-normal.woff2);font-weight:800}
+@font-face{font-family:AlexLat;src:url(assets/fonts/alexandria-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:AlexLat;src:url(assets/fonts/alexandria-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:AlexLat;src:url(assets/fonts/alexandria-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:AlexLat;src:url(assets/fonts/alexandria-latin-800-normal.woff2);font-weight:800}
+@font-face{font-family:PlexAr;src:url(assets/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2);font-weight:400}
+@font-face{font-family:PlexAr;src:url(assets/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2);font-weight:500}
+@font-face{font-family:PlexAr;src:url(assets/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2);font-weight:600}
+@font-face{font-family:PlexLat;src:url(assets/fonts/ibm-plex-sans-arabic-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:PlexLat;src:url(assets/fonts/ibm-plex-sans-arabic-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:PlexLat;src:url(assets/fonts/ibm-plex-sans-arabic-latin-600-normal.woff2);font-weight:600}
+:root{--g:#123D32;--iv:#F7F8F4;--w:#FFFFFF;--sg:#DCE7DF;--gd:#B99B62;--lg:#E9ECE8;--ch:#303B36}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--iv)}
+body{font-family:PlexAr,PlexLat,sans-serif;color:var(--ch)}
+.h{font-family:AlexAr,AlexLat,sans-serif}
+.abs{position:absolute}
+#stage{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse 900px 1200px at 50% 45%,#fff 0%,#FBFCF9 45%,var(--iv) 100%)}
+#bgsvg{position:absolute;inset:0}
+.layer{position:absolute;inset:0;transform-origin:540px 960px;will-change:transform}
+.ctr{left:0;width:1080px;text-align:center}
+.wr span,.ch span{display:inline-block;will-change:transform,opacity}
+.card{background:#fff;border-radius:22px;box-shadow:0 18px 40px rgba(18,61,50,.08),0 3px 8px rgba(18,61,50,.05)}
+/* document */
+.doc{position:absolute;width:620px;height:820px;background:#fff;border-radius:10px;
+  box-shadow:0 30px 60px rgba(18,61,50,.10),0 6px 14px rgba(18,61,50,.06);overflow:hidden}
+.doc .hdr{position:absolute;top:56px;right:56px;left:56px;height:92px;border-bottom:2px solid var(--sg)}
+.doc .emb{position:absolute;top:0;right:0;width:72px;height:72px;border-radius:50%;border:2px solid var(--g);display:flex;align-items:center;justify-content:center}
+.bar{position:absolute;height:13px;border-radius:7px;background:var(--lg)}
+.bar.g{background:var(--g)}
+.bar.s{background:var(--sg)}
+.pill{display:inline-flex;align-items:center;gap:14px;padding:12px 30px;border-radius:40px;background:var(--sg);color:var(--g);font-weight:600;font-size:34px}
+.lbl{font-size:40px;color:var(--gd);font-weight:600;letter-spacing:0}
+</style>
+</head>
+<body>
+<div id="stage">
+  <!-- ===== background geometry ===== -->
+  <svg id="bgsvg" width="1080" height="1920" viewBox="0 0 1080 1920">
+    <defs>
+      <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+        <path d="M60 0H0V60" fill="none" stroke="#DCE7DF" stroke-width="1" opacity=".55"/>
+      </pattern>
+      <radialGradient id="gridfade" cx="50%" cy="50%" r="60%">
+        <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="1"/>
+      </radialGradient>
+      <mask id="gm"><rect width="1080" height="1920" fill="url(#gridfadeM)"/></mask>
+      <radialGradient id="gridfadeM" cx="50%" cy="50%" r="65%">
+        <stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
+      </radialGradient>
+    </defs>
+    <g id="gridg" mask="url(#gm)"><rect x="-120" y="-120" width="1320" height="2160" fill="url(#grid)"/></g>
+    <g id="bgc1" fill="none" stroke="#DCE7DF" stroke-width="2"><circle cx="0" cy="0" r="420"/><circle cx="0" cy="0" r="470" stroke-dasharray="4 14"/></g>
+    <g id="bgc2" fill="none" stroke="#B99B62" stroke-width="1.5" opacity=".35"><rect x="-160" y="-160" width="320" height="320"/></g>
+    <g id="bgc3" fill="none" stroke="#DCE7DF" stroke-width="2"><circle cx="0" cy="0" r="260"/></g>
+  </svg>
+
+  <!-- ================= SCENE 1 ================= -->
+  <div id="s1" class="layer">
+    <div id="h1a" class="abs ctr h wr" style="top:250px;font-size:104px;font-weight:700;color:var(--g)">القانون يتغير...</div>
+    <div id="h1b" class="abs ctr h wr" style="top:410px;font-size:62px;font-weight:600;color:var(--ch)">هل تعرف ما الذي <span style="color:var(--gd)">تغيّر؟</span></div>
+    <div id="docwrap" class="abs" style="left:0;top:0;width:1080px;height:1920px;perspective:1800px">
+      <div id="pg2" class="doc" style="left:230px;top:640px;transform-origin:0 50%"></div>
+      <div id="pg3" class="doc" style="left:230px;top:640px;transform-origin:100% 50%"></div>
+      <div id="doc1" class="doc" style="left:230px;top:640px">
+        <div class="hdr">
+          <div class="emb"><svg width="44" height="44" viewBox="-50 -50 100 100"><use href="#scaleSym"/></svg></div>
+          <div class="bar g" style="top:14px;right:96px;width:250px;height:16px"></div>
+          <div class="bar" style="top:46px;right:96px;width:170px"></div>
+        </div>
+        <div id="d1lines"></div>
+        <div id="hlbg" class="abs" style="right:44px;top:470px;width:532px;height:118px;background:rgba(185,155,98,.22);border-right:6px solid var(--gd);border-radius:6px;transform-origin:100% 50%"></div>
+        <div id="sweep" class="abs" style="right:40px;width:540px;height:3px;background:var(--g);box-shadow:0 0 14px rgba(18,61,50,.35)"></div>
+      </div>
+    </div>
+    <div id="qm" class="abs h" style="left:340px;top:700px;width:400px;height:520px;text-align:center;font-size:420px;line-height:520px;font-weight:800;color:var(--g);text-shadow:0 30px 50px rgba(18,61,50,.18)">؟</div>
+    <svg id="geo" class="abs" style="left:340px;top:760px" width="400" height="400" viewBox="-200 -200 400 400">
+      <circle id="geoC" r="170" fill="rgba(255,255,255,.92)" stroke="#123D32" stroke-width="5"/>
+      <circle id="geoC2" r="146" fill="none" stroke="#B99B62" stroke-width="2" stroke-dasharray="3 9"/>
+      <g id="geoS" transform="scale(2.2)"><use href="#scaleSym"/></g>
+      <path id="geoD" d="M0-200 L200 0 L0 200 L-200 0Z" fill="none" stroke="#B99B62" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- ================= SCENE 2 ================= -->
+  <div id="s2" class="layer">
+    <div id="panel2" class="abs card" style="left:70px;top:230px;width:940px;height:1480px;border-radius:30px;transform-origin:540px 730px"></div>
+    <div id="s2c" class="abs" style="left:70px;top:230px;width:940px;height:1480px">
+      <div id="p2pill" class="abs" style="top:70px;right:70px"><span class="pill"><svg width="26" height="32" viewBox="0 0 26 32"><path d="M13 31s11-11.5 11-19A11 11 0 0 0 2 12c0 7.5 11 19 11 19z" fill="#123D32"/><circle cx="13" cy="12" r="4" fill="#DCE7DF"/></svg>سلطنة عُمان</span></div>
+      <div id="p2t" class="abs h wr" style="top:190px;right:70px;left:40px;font-size:66px;line-height:1.38;white-space:nowrap;font-weight:700;color:var(--g);text-align:right">قانون مكافحة المخدرات<br>والمؤثرات العقلية</div>
+      <div id="p2line" class="abs" style="top:418px;right:70px;width:800px;height:4px;background:linear-gradient(270deg,var(--gd),rgba(185,155,98,0));transform-origin:100% 50%"></div>
+      <div id="p2dec" class="abs" style="top:462px;right:70px;width:800px;height:220px;border-radius:22px;background:var(--sg);overflow:hidden">
+        <div id="p2decL" class="abs" style="top:34px;right:44px;font-size:40px;font-weight:600;color:var(--g)">المرسوم السلطاني رقم</div>
+        <div id="p2num" class="abs h ch" dir="ltr" style="top:92px;right:44px;font-size:104px;line-height:110px;font-weight:800;color:var(--g);letter-spacing:2px">67/2026</div>
+        <div id="p2numU" class="abs" style="top:200px;right:44px;width:440px;height:6px;background:var(--gd);transform-origin:100% 50%;border-radius:3px"></div>
+        <svg class="abs" style="left:40px;top:40px" width="140" height="140" viewBox="-70 -70 140 140" id="p2decIcon">
+          <circle r="62" fill="none" stroke="#123D32" stroke-width="3"/><circle r="52" fill="none" stroke="#B99B62" stroke-width="1.5" stroke-dasharray="2 6"/>
+          <g transform="scale(0.95)"><use href="#docSym"/></g></svg>
+      </div>
+      <div id="tlLine" class="abs" style="top:740px;right:96px;width:4px;height:640px;background:var(--g);transform-origin:50% 0;border-radius:2px"></div>
+      <div id="tlSweep" class="abs" style="top:720px;right:0;width:940px;height:2px;background:linear-gradient(270deg,rgba(18,61,50,0),var(--g),rgba(18,61,50,0))"></div>
+    </div>
+  </div>
+
+  <!-- ================= SCENE 3 ================= -->
+  <div id="s3" class="layer">
+    <div id="s3lbl" class="abs ctr lbl" style="top:400px">العقوبات والتبعات القانونية</div>
+    <div id="s3h" class="abs ctr h wr" style="top:462px;font-size:64px;font-weight:700;color:var(--g)">صور محددة يجرّمها القانون</div>
+    <div id="s3cards"></div>
+    <!-- penalty panel -->
+    <div id="penGold" class="abs" style="left:90px;top:960px;width:900px;height:3px;background:var(--gd);transform-origin:50% 50%"></div>
+    <div id="pen" class="abs card" style="left:80px;top:380px;width:920px;height:1160px;border:3px solid var(--g);border-radius:34px;transform-origin:50% 50%;overflow:hidden">
+      <div class="abs" style="left:0;right:0;top:0;height:14px;background:linear-gradient(90deg,var(--g),#1d5747,var(--g))"></div>
+      <svg id="penScale" class="abs" style="left:310px;top:70px" width="300" height="260" viewBox="-150 -130 300 260">
+        <circle r="118" fill="#F7F8F4" stroke="#DCE7DF" stroke-width="2"/>
+        <g id="penBeamG"><use href="#scaleBig"/></g>
+      </svg>
+      <div id="penH" class="abs ctr h wr" style="left:0;width:920px;top:350px;font-size:100px;font-weight:800;color:var(--g)">عقوبات مشددة</div>
+      <div id="penDiv" class="abs" style="left:260px;top:500px;width:400px;height:4px;background:var(--gd);border-radius:2px"></div>
+      <div id="penP" class="abs h" style="left:60px;width:800px;top:560px;height:180px;text-align:center">
+        <div id="penPbg" class="abs" style="left:10px;right:10px;top:30px;height:120px;background:rgba(185,155,98,.18);border-radius:16px;transform-origin:100% 50%"></div>
+        <div id="penPt" class="abs wr" style="left:0;right:0;top:52px;font-size:62px;font-weight:800;color:var(--g);white-space:nowrap">السجن المطلق أو الإعدام</div>
+      </div>
+      <div id="penQ" class="abs ctr" style="left:0;width:920px;top:800px;font-size:44px;line-height:1.55;font-weight:600;color:var(--ch)">في الجرائم والحالات المشددة<br>التي حددها القانون.</div>
+      <div id="penQi" class="abs" style="left:420px;top:990px;width:80px;height:4px;background:var(--sg);border-radius:2px"></div>
+    </div>
+  </div>
+
+  <!-- ================= SCENE 4 ================= -->
+  <div id="s4" class="layer">
+    <div id="s4lbl" class="abs ctr lbl" style="top:250px">العلاج والتأهيل</div>
+    <div id="s4doc" class="doc" style="left:110px;top:560px;width:300px;height:400px;border-radius:8px">
+      <div class="bar g" style="top:40px;right:34px;width:140px;height:12px"></div>
+      <div class="bar" style="top:80px;right:34px;width:230px;height:9px"></div><div class="bar" style="top:106px;right:34px;width:200px;height:9px"></div>
+      <div class="bar" style="top:132px;right:34px;width:220px;height:9px"></div><div class="bar s" style="top:170px;right:34px;width:232px;height:42px;border-radius:6px"></div>
+      <div class="bar" style="top:232px;right:34px;width:180px;height:9px"></div><div class="bar" style="top:258px;right:34px;width:226px;height:9px"></div>
+      <div class="bar" style="top:284px;right:34px;width:150px;height:9px"></div>
+    </div>
+    <svg id="s4sym" class="abs" style="left:240px;top:420px" width="600" height="640" viewBox="-300 -320 600 640">
+      <defs><linearGradient id="shg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF4EF"/><stop offset="1" stop-color="#DCE7DF"/></linearGradient></defs>
+      <g id="ring">
+        <path id="arc1" d="M 0 -268 A 268 268 0 0 1 232 134" fill="none" stroke="#123D32" stroke-width="6" stroke-linecap="round"/>
+        <path id="arc2" d="M 0 268 A 268 268 0 0 1 -232 -134" fill="none" stroke="#123D32" stroke-width="6" stroke-linecap="round"/>
+        <path id="ah1" d="M232 134 l-30 -2 m30 2 l8 -29" stroke="#123D32" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path id="ah2" d="M-232 -134 l30 2 m-30 -2 l-8 29" stroke="#123D32" stroke-width="6" stroke-linecap="round" fill="none"/>
+      </g>
+      <circle id="ring2" r="230" fill="none" stroke="#B99B62" stroke-width="2" stroke-dasharray="2 10"/>
+      <path id="shield" d="M0 -180 L150 -122 L150 10 C150 100 86 160 0 196 C-86 160 -150 100 -150 10 L-150 -122 Z" fill="url(#shg)" stroke="#123D32" stroke-width="6" stroke-linejoin="round"/>
+      <path id="shield2" d="M0 -150 L122 -102 L122 8 C122 82 70 132 0 162 C-70 132 -122 82 -122 8 L-122 -102 Z" fill="none" stroke="#B99B62" stroke-width="2"/>
+      <g id="cross"><rect x="-22" y="-74" width="44" height="148" rx="8" fill="#123D32"/><rect x="-74" y="-22" width="148" height="44" rx="8" fill="#123D32"/></g>
+    </svg>
+    <div id="c4a" class="abs card" style="left:560px;top:1130px;width:400px;height:170px;border-right:8px solid var(--g)">
+      <svg class="abs" style="right:40px;top:47px" width="76" height="76" viewBox="-38 -38 76 76"><circle r="35" fill="#DCE7DF"/><rect x="-6" y="-20" width="12" height="40" rx="3" fill="#123D32"/><rect x="-20" y="-6" width="40" height="12" rx="3" fill="#123D32"/></svg>
+      <div class="abs h" style="right:140px;top:46px;font-size:60px;font-weight:700;color:var(--g)">العلاج</div>
+    </div>
+    <div id="c4b" class="abs card" style="left:120px;top:1130px;width:400px;height:170px;border-right:8px solid var(--gd)">
+      <svg class="abs" style="right:40px;top:47px" width="76" height="76" viewBox="-38 -38 76 76"><circle r="35" fill="#F3EDE0"/><path d="M-18 14 L-4 0 L6 8 L20 -14" fill="none" stroke="#123D32" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 -14 H20 V-2" fill="none" stroke="#123D32" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="abs h" style="right:140px;top:46px;font-size:60px;font-weight:700;color:var(--g)">التأهيل</div>
+    </div>
+    <div id="q4" class="abs ctr" style="top:1370px">
+      <span style="display:inline-block;padding:22px 46px;border-radius:18px;border:2px solid var(--gd);background:rgba(255,255,255,.85);font-size:46px;font-weight:600;color:var(--g)">وفق الشروط والضوابط القانونية.</span>
+    </div>
+  </div>
+
+  <!-- ================= SCENE 5a ================= -->
+  <div id="s5" class="layer">
+    <div id="h5a" class="abs ctr h wr" style="top:250px;font-size:96px;font-weight:700;color:var(--g)">افهم القانون...</div>
+    <div id="h5b" class="abs ctr h wr" style="top:400px;font-size:60px;font-weight:600;color:var(--ch)">لتعرف <span style="color:var(--g)">حقوقك</span> و<span style="color:var(--gd)">التزاماتك</span>.</div>
+    <svg id="s5lines" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+    <div id="doc5" class="doc" style="left:330px;top:820px;width:420px;height:560px">
+      <div class="bar g" style="top:48px;right:44px;width:200px;height:14px"></div>
+      <div class="bar" style="top:80px;right:44px;width:130px;height:10px"></div>
+      <div id="d5lines"></div>
+    </div>
+    <div id="orb"></div>
+  </div>
+
+  <!-- ================= SCENE 5b (END CARD) ================= -->
+  <div id="s6" class="layer">
+    <div id="glow" class="abs" style="left:140px;top:150px;width:800px;height:560px;border-radius:50%;background:radial-gradient(closest-side,rgba(220,231,223,.9),rgba(220,231,223,0))"></div>
+    <img id="logo" class="abs" src="assets/logo.png" style="left:110px;top:230px;width:860px;height:auto">
+    <div id="b1" class="abs ctr h" style="top:640px;font-size:56px;font-weight:700;color:var(--g)">مكتب المحامية موزة الشحية</div>
+    <div id="b2" class="abs ctr" style="top:724px;font-size:42px;font-weight:500;color:var(--gd)">للمحاماة والاستشارات القانونية</div>
+    <div id="sl1" class="abs ctr h wr" style="top:860px;font-size:80px;font-weight:700;color:var(--ch)">القانون يتغير...</div>
+    <div id="sl2" class="abs ctr h wr" style="top:972px;font-size:80px;font-weight:800;color:var(--g)">والمعرفة تحميك.</div>
+    <div id="slU" class="abs" style="left:340px;top:1090px;width:400px;height:5px;background:var(--gd);border-radius:3px"></div>
+    <div id="cc" class="abs card" style="left:110px;top:1170px;width:860px;height:470px;border-top:8px solid var(--g)">
+      <div id="cct" class="abs" style="right:60px;top:44px;font-size:40px;font-weight:600;color:var(--gd)">للتواصل والاستشارات:</div>
+      <div id="r1" class="abs" style="right:60px;top:130px;height:80px;display:flex;align-items:center;gap:30px">
+        <svg width="72" height="72" viewBox="-36 -36 72 72"><circle r="35" fill="#123D32"/><path d="M-12 -16 c-3 0 -6 3 -5 7 c2 11 11 21 23 25 c4 1 7 -2 7 -5 v-5 l-9 -4 l-4 4 c-6 -3 -10 -7 -13 -13 l4 -4 l-4 -9 z" fill="#fff"/></svg>
+        <div dir="ltr" style="font-family:PlexLat,PlexAr;font-size:56px;font-weight:600;color:var(--g);letter-spacing:1px">+96893590021</div>
+      </div>
+      <div id="r2" class="abs" style="right:60px;top:236px;height:80px;display:flex;align-items:center;gap:30px">
+        <svg width="72" height="72" viewBox="-36 -36 72 72"><circle r="35" fill="#123D32"/><g fill="none" stroke="#fff" stroke-width="3"><circle r="18"/><ellipse rx="8" ry="18"/><path d="M-18 0H18M-15 -9H15M-15 9H15"/></g></svg>
+        <div dir="ltr" style="font-family:PlexLat,PlexAr;font-size:50px;font-weight:600;color:var(--g)">www.mozaalshehi.com</div>
+      </div>
+      <div id="r3" class="abs" style="right:60px;top:342px;height:80px;display:flex;align-items:center;gap:30px">
+        <svg width="72" height="72" viewBox="-36 -36 72 72"><circle r="35" fill="#123D32"/><path d="M0 20s13-13 13-22A13 13 0 0 0 -13 -2c0 9 13 22 13 22z" fill="#fff"/><circle cy="-3" r="5" fill="#123D32"/></svg>
+        <div style="font-size:50px;font-weight:600;color:var(--g)">سلطنة عُمان – السيب</div>
+      </div>
+    </div>
+    <div id="endLine" class="abs" style="left:110px;top:1700px;width:860px;height:3px;background:linear-gradient(90deg,rgba(185,155,98,0),var(--gd),rgba(185,155,98,0))"></div>
+  </div>
+
+  <!-- transition wipe -->
+  <div id="wipe" class="abs" style="left:0;width:1080px;height:0">
+    <div class="abs" style="left:0;top:0;width:1080px;height:4px;background:var(--g)"></div>
+    <div class="abs" style="left:0;top:18px;width:1080px;height:2px;background:var(--gd);opacity:.8"></div>
+    <div class="abs" style="left:0;top:-160px;width:1080px;height:160px;background:linear-gradient(0deg,rgba(220,231,223,.55),rgba(220,231,223,0))"></div>
+  </div>
+
+  <!-- shared symbols -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="scaleSym" fill="none" stroke="#123D32" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M0 -16V16M-11 17H11M-17 -10H17M0 -18v-3"/>
+        <path d="M-17 -10 L-23 4 H-11 Z M17 -10 L11 4 H23 Z"/>
+      </g>
+      <g id="docSym" fill="none" stroke="#123D32" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M-22 -30 H10 L24 -16 V30 H-22 Z"/><path d="M10 -30 V-16 H24"/><path d="M-12 -6H14M-12 6H14M-12 18H4"/>
+      </g>
+      <g id="scaleBig" fill="none" stroke="#123D32" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M0 -70 V70 M-40 74 H40"/><circle cy="-78" r="8" fill="#B99B62" stroke="none"/>
+      </g>
+    </defs>
+  </svg>
+</div>
+
+<script>
+// ---------- helpers ----------
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const P=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eo5=x=>1-Math.pow(1-x,5);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eb=x=>{const c1=1.25,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const lerp=(a,b,x)=>a+(b-a)*x;
+function tf(el,o,x=0,y=0,s=1,extra=''){
+  el.style.opacity=o; el.style.visibility=o<=0.001?'hidden':'visible';
+  el.style.transform=`translate(${x}px,${y}px) scale(${s}) ${extra}`;
+}
+function vis(el,on){el.style.display=on?'block':'none'}
+// split words
+document.querySelectorAll('.wr').forEach(el=>{
+  const walk=n=>{
+    [...n.childNodes].forEach(c=>{
+      if(c.nodeType===3){
+        const parts=c.textContent.split(/(\s+)/);
+        const frag=document.createDocumentFragment();
+        parts.forEach(p=>{
+          if(!p) return;
+          if(/^\s+$/.test(p)) frag.appendChild(document.createTextNode(p));
+          else {const s=document.createElement('span');s.className='w';s.textContent=p;frag.appendChild(s);}
+        });
+        c.replaceWith(frag);
+      } else if(c.nodeType===1 && c.tagName!=='BR'){
+        if(c.tagName==='SPAN' && !c.classList.contains('w')){c.classList.add('w');} else walk(c);
+      }
+    });
+  };
+  walk(el);
+});
+document.querySelectorAll('.ch').forEach(el=>{
+  const t=el.textContent; el.textContent='';
+  [...t].forEach(c=>{const s=document.createElement('span');s.textContent=c;el.appendChild(s);});
+});
+function words(el,t,start,stag=.09,dur=.6,dy=34){
+  const ws=el.querySelectorAll('.w');
+  // RTL: reading order = DOM order
+  ws.forEach((w,i)=>{
+    const e=eo(P(t,start+i*stag,start+i*stag+dur));
+    w.style.opacity=e;
+    w.style.transform=`translateY(${(1-e)*dy}px)`;
+    w.style.filter=e<1?`blur(${(1-e)*8}px)`:'none';
+  });
+}
+// ---------- build procedural content ----------
+(function(){
+  // doc1 lines
+  const L=$('d1lines'); let y=200; const ws=[520,480,532,410,500,0,532,532,460,0,520,500,380,532,440];
+  ws.forEach((w,i)=>{ if(!w){y+=26;return;}
+    if(y>=470&&y<590){y+=0}
+    const b=document.createElement('div');b.className='bar';b.style.top=y+'px';b.style.right='44px';b.style.width=w+'px';
+    if(y>=470&&y<590) b.style.background='#CFC2A3';
+    L.appendChild(b); y+=40;});
+  // pg2/pg3 lines
+  ['pg2','pg3'].forEach(id=>{const d=$(id);let yy=120;for(let i=0;i<14;i++){const b=document.createElement('div');b.className='bar';b.style.top=yy+'px';b.style.right='56px';b.style.width=(380+((i*73)%150))+'px';d.appendChild(b);yy+=46;}});
+  // doc5 lines
+  const D5=$('d5lines'); let y5=130;
+  for(let i=0;i<9;i++){const b=document.createElement('div');b.className='bar'+(i===3||i===4?'':'');b.style.top=y5+'px';b.style.right='44px';b.style.width=(260+((i*57)%72))+'px';b.style.height='11px';if(i===3||i===4){b.style.background='#D9CBA8'}D5.appendChild(b);y5+=44;}
+  // scene3 cards
+  const cats=[
+    ['الاستيراد والتصدير','<path d="M-22 -10 H18 M8 -20 L18 -10 L8 0" /><path d="M22 12 H-18 M-8 2 L-18 12 L-8 22"/>'],
+    ['التهريب','<path d="M0 -26 V26" stroke-dasharray="5 6"/><path d="M-26 8 C-12 8 -10 -8 6 -8 H24 M16 -16 L24 -8 L16 0"/>'],
+    ['الاتجار غير المشروع','<circle cx="-12" cy="0" r="12"/><circle cx="12" cy="0" r="12"/><path d="M-24 -22 L24 22"/>'],
+    ['الإنتاج والصنع بقصد الاتجار','<path d="M0 -24 L21 -12 V12 L0 24 L-21 12 V-12 Z"/><circle r="8"/>']
+  ];
+  const C=$('s3cards');
+  cats.forEach((c,i)=>{
+    const d=document.createElement('div');d.className='abs card s3c';d.id='c3_'+i;
+    d.style.cssText+=`left:90px;top:${660+i*196}px;width:900px;height:164px;border-radius:24px;`;
+    d.innerHTML=`<svg class="abs" style="left:0;top:0" width="900" height="164"><rect class="brd" x="2" y="2" width="896" height="160" rx="22" fill="none" stroke="#123D32" stroke-width="3" pathLength="1000" stroke-dasharray="1000" /></svg>
+    <svg class="abs" style="right:36px;top:32px" width="100" height="100" viewBox="-50 -50 100 100"><rect x="-46" y="-46" width="92" height="92" rx="20" fill="#DCE7DF"/><g fill="none" stroke="#123D32" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">${c[1]}</g></svg>
+    <div class="abs h" style="right:170px;top:46px;font-size:${c[0].length>20?46:56}px;font-weight:700;color:#123D32;white-space:nowrap">${c[0]}</div>
+    <div class="abs" style="left:46px;top:72px;width:20px;height:20px;border-radius:50%;background:#B99B62"></div>`;
+    C.appendChild(d);
+  });
+  // scene2 timeline cards
+  const tl=['تنظيم الأحكام القانونية','تحديث العقوبات والتدابير','تنظيم العلاج والتأهيل'];
+  const S2=$('s2c');
+  const ics=['<use href="#docSym"/>','<g transform="scale(1.3)"><use href="#scaleSym"/></g>','<path d="M0 -26 L22 -17 V2 C22 15 12 24 0 28 C-12 24 -22 15 -22 2 V-17Z" fill="none" stroke="#123D32" stroke-width="3.5"/><path d="M0 -10V12M-11 1H11" stroke="#123D32" stroke-width="4" stroke-linecap="round"/>'];
+  tl.forEach((txt,i)=>{
+    const n=document.createElement('div');n.className='abs tln';n.id='tln'+i;
+    n.style.cssText=`top:${790+i*210}px;right:80px;width:36px;height:36px;border-radius:50%;background:#fff;border:6px solid #123D32;`;
+    S2.appendChild(n);
+    const c=document.createElement('div');c.className='abs card tlc';c.id='tlc'+i;
+    c.style.cssText=`top:${740+i*210}px;right:150px;width:720px;height:140px;border-radius:20px;border:2px solid #DCE7DF;`;
+    c.innerHTML=`<svg class="abs" style="left:34px;top:28px" width="84" height="84" viewBox="-42 -42 84 84"><circle r="40" fill="#F7F8F4" stroke="#DCE7DF" stroke-width="2"/>${ics[i]}</svg>
+      <div class="abs" style="right:44px;top:38px;font-size:48px;font-weight:600;color:#303B36">${txt}</div>`;
+    S2.appendChild(c);
+  });
+  // scene5 orbit items
+  const O=$('orb');
+  const items=[
+    ['o0',`<div class="h" dir="ltr" style="font-size:46px;font-weight:800;color:#123D32">67/2026</div>`,250,170],
+    ['o1',`<svg width="110" height="110" viewBox="-55 -55 110 110"><circle r="52" fill="#fff" stroke="#123D32" stroke-width="3"/><g transform="scale(1.6)"><use href="#scaleSym"/></g></svg>`,0,0],
+    ['o2',`<svg width="110" height="110" viewBox="-55 -55 110 110"><circle r="52" fill="#fff" stroke="#123D32" stroke-width="3"/><path d="M0 -30 L25 -20 V2 C25 17 13 27 0 32 C-13 27 -25 17 -25 2 V-20Z" fill="#DCE7DF" stroke="#123D32" stroke-width="3.5"/><path d="M0 -12V14M-12 1H12" stroke="#123D32" stroke-width="5" stroke-linecap="round"/></svg>`,0,0],
+    ['o3',`<div style="width:190px;height:70px;border-radius:14px;background:#fff;box-shadow:0 10px 24px rgba(18,61,50,.1);padding:16px 18px"><div style="height:10px;width:150px;border-radius:5px;background:#B99B62;opacity:.7"></div><div style="height:10px;width:110px;border-radius:5px;background:#E9ECE8;margin-top:14px"></div></div>`,0,0],
+    ['o4',`<div style="width:170px;height:70px;border-radius:14px;background:#fff;box-shadow:0 10px 24px rgba(18,61,50,.1);padding:16px 18px"><div style="height:10px;width:130px;border-radius:5px;background:#123D32"></div><div style="height:10px;width:90px;border-radius:5px;background:#DCE7DF;margin-top:14px"></div></div>`,0,0],
+  ];
+  items.forEach(it=>{const d=document.createElement('div');d.className='abs';d.id=it[0];d.innerHTML=it[1];O.appendChild(d);
+    if(it[0]==='o0'){d.style.cssText+='padding:18px 30px;border-radius:18px;background:#DCE7DF;'}});
+})();
+
+// orbit target positions (centers) around doc5 center (540,1100)
+const ORB={o0:[540,700],o1:[200,960],o2:[880,960],o3:[220,1420],o4:[860,1420]};
+const ORBfrom={o0:[540,-200],o1:[-200,900],o2:[1280,900],o3:[-200,1700],o4:[1280,1700]};
+
+function wipeAt(t){
+  const ws=[4.25,12.95,25.95,30.45,36.35];
+  let on=false;
+  for(const w of ws){const k=P(t,w,w+.75);if(k>0&&k<1){on=true;const y=lerp(-40,1960,eio(k));$('wipe').style.top=y+'px';$('wipe').style.opacity=1;}}
+  if(!on) $('wipe').style.opacity=0;
+}
+
+// ---------- RENDER ----------
+function render(t){
+  // background drift
+  $('gridg').setAttribute('transform',`translate(${(t*6)%60},${(t*10)%60})`);
+  $('bgc1').setAttribute('transform',`translate(${900-t*4},${300+t*3}) rotate(${t*4})`);
+  $('bgc2').setAttribute('transform',`translate(${150+t*2},${1600-t*5}) rotate(${45+t*6})`);
+  $('bgc3').setAttribute('transform',`translate(${120},${520+Math.sin(t*.3)*30})`);
+  wipeAt(t);
+
+  // ===== SCENE 1 (0 - 4.9) =====
+  const s1=$('s1'); vis(s1,t<5.2);
+  if(t<5.2){
+    const out=eio(P(t,4.15,4.9));
+    s1.style.transform=`scale(${lerp(1,1.07,eio(P(t,0,4.2)))+out*.12})`;
+    s1.style.opacity=1-out;
+    words($('h1a'),t,.35,.22,.7);
+    words($('h1b'),t,2.15,.14,.6);
+    const din=eo(P(t,0,.9));
+    tf($('doc1'),din,0,(1-din)*90,lerp(.9,1,din));
+    // sweep line
+    const sw=P(t,.7,1.9);
+    $('sweep').style.top=lerp(170,780,eio(sw))+'px';
+    $('sweep').style.opacity=sw>0&&sw<1?1:0;
+    // highlight
+    const hl=eo(P(t,1.35,2.0));
+    $('hlbg').style.transform=`scaleX(${hl})`;
+    $('hlbg').style.opacity=hl>0?1:0;
+    // pages unfold (2.5D)
+    const uf=eo5(P(t,1.75,2.8));
+    tf($('pg2'),uf>0?1:0,-uf*230,uf*40,lerp(1,.94,uf),`rotateY(${lerp(-90,-18,uf)}deg)`);
+    tf($('pg3'),uf>0?1:0,uf*230,uf*40,lerp(1,.94,uf),`rotateY(${lerp(90,18,uf)}deg)`);
+    $('pg2').style.zIndex=0;$('pg3').style.zIndex=0;$('doc1').style.zIndex=1;
+    // question mark emerges from highlighted clause
+    const q=eb(P(t,2.2,3.0)); const qo=1-eio(P(t,3.35,3.9));
+    tf($('qm'),Math.min(P(t,2.2,2.6),qo),0,lerp(260,0,eo(P(t,2.2,3.0))),lerp(.2,1,q)*lerp(1,.6,eio(P(t,3.35,3.9))));
+    // geometric symbol
+    const g=P(t,3.45,4.25);
+    tf($('geo'),eo(P(t,3.45,3.8)),0,0,lerp(.7,1,eb(g)),`rotate(${lerp(-30,0,eo(g))}deg)`);
+    $('geoC').setAttribute('stroke-dasharray','1070');$('geoC').setAttribute('stroke-dashoffset',1070*(1-eo(g)));
+    $('geoD').setAttribute('stroke-dasharray','1132');$('geoD').setAttribute('stroke-dashoffset',1132*(1-eo(P(t,3.6,4.4))));
+    $('geoS').setAttribute('opacity',eo(P(t,3.7,4.1)));
+  }
+
+  // ===== SCENE 2 (4.3 - 13.4) =====
+  const s2=$('s2'); vis(s2,t>4.2&&t<13.6);
+  if(t>4.2&&t<13.6){
+    const inn=eo5(P(t,4.3,5.1)); const out=eio(P(t,12.85,13.45));
+    s2.style.opacity=1-out; s2.style.transform=`translateY(${-out*120}px) scale(${1-out*.05})`;
+    // panel grows from document dimensions
+    const sx=lerp(620/940,1,inn), sy=lerp(820/1480,1,inn);
+    $('panel2').style.transform=`translate(0,${(1-inn)*(1050-970)}px) scale(${sx},${sy})`;
+    $('panel2').style.opacity=cl(inn*3);
+    tf($('p2pill'),eo(P(t,4.6,5.2)),-(1-eo(P(t,4.6,5.2)))*-40,0);
+    words($('p2t'),t,5.75,.2,.65);
+    $('p2line').style.transform=`scaleX(${eo(P(t,6.6,7.4))})`;
+    // decree
+    const dc=eo(P(t,9.3,9.9));
+    tf($('p2dec'),dc,0,(1-dc)*40);
+    tf($('p2decL'),eo(P(t,9.45,10.0)),0,(1-eo(P(t,9.45,10.0)))*20);
+    $('p2num').querySelectorAll('span').forEach((s,i)=>{const e=eb(P(t,10.0+i*.07,10.5+i*.07));s.style.opacity=cl(P(t,10.0+i*.07,10.25+i*.07));s.style.transform=`translateY(${(1-e)*60}px)`;});
+    $('p2numU').style.transform=`scaleX(${eo(P(t,10.6,11.3))})`;
+    tf($('p2decIcon'),eo(P(t,9.7,10.3)),0,0,lerp(.6,1,eb(P(t,9.7,10.3))),`rotate(${lerp(-40,0,eo(P(t,9.7,10.5)))}deg)`);
+    // timeline
+    $('tlLine').style.transform=`scaleY(${eio(P(t,6.7,8.9))})`;
+    const sw=P(t,6.5,7.6); $('tlSweep').style.transform=`scaleX(${eio(sw)})`;$('tlSweep').style.transformOrigin='100% 50%';$('tlSweep').style.opacity=1-P(t,7.6,8.2);
+    [7.1,7.8,8.5].forEach((st,i)=>{
+      const e=eo(P(t,st,st+.6));
+      tf($('tln'+i),cl(P(t,st-.1,st+.1)),0,0,lerp(.2,1,eb(P(t,st-.1,st+.35))));
+      tf($('tlc'+i),e,-(1-e)*-60,0);
+    });
+  }
+
+  // ===== SCENE 3 (13.0 - 26.2) =====
+  const s3=$('s3'); vis(s3,t>12.95&&t<26.6);
+  if(t>12.95&&t<26.6){
+    const out=eio(P(t,25.9,26.5));
+    s3.style.opacity=1-out;
+    tf($('s3lbl'),eo(P(t,13.25,13.8)),0,(1-eo(P(t,13.25,13.8)))*20);
+    words($('s3h'),t,13.45,.16,.6);
+    // categories
+    const push=eio(P(t,19.9,20.6));
+    [16.25,17.85,18.6,19.25].forEach((st,i)=>{
+      const c=$('c3_'+i); const e=eo(P(t,st,st+.55));
+      tf(c,e*(1-push),(1-e)*-80,push*(-120+i*80),lerp(1,.86,push));
+      c.querySelector('.brd').setAttribute('stroke-dashoffset',1000*(1-eio(P(t,st+.1,st+1.0))));
+    });
+    // header out during penalty
+    const ho=1-push;
+    $('s3lbl').style.opacity=Math.min(eo(P(t,13.25,13.8)),ho);
+    $('s3h').style.opacity=ho;
+    // penalty panel
+    const gl=P(t,20.0,20.4); const op=eo5(P(t,20.3,21.0));
+    $('penGold').style.transform=`scaleX(${eio(gl)})`;$('penGold').style.opacity=gl>0?1-op:0;
+    $('pen').style.transform=`scaleY(${lerp(.003,1,op)}) scaleX(${lerp(.98,1,op)})`;$('pen').style.opacity=op>0?1:0;
+    $('pen').style.visibility=op>0?'visible':'hidden';
+    const sc=P(t,20.8,22.6);
+    tf($('penScale'),eo(P(t,20.8,21.3)),0,0,lerp(.7,1,eb(P(t,20.8,21.4))));
+    $('penBeamG').innerHTML='';
+    // draw scale with balancing beam
+    const ang=Math.sin(sc*Math.PI*2.2)*10*(1-sc);
+    const bx=82, by=-48;
+    const c=Math.cos(ang*Math.PI/180), s=Math.sin(ang*Math.PI/180);
+    const L=[-bx*c, -bx*s+by], R=[bx*c, bx*s+by];
+    $('penBeamG').innerHTML=`<use href="#scaleBig"/>
+      <g stroke="#123D32" stroke-width="6" stroke-linecap="round" fill="none">
+      <path d="M${L[0]} ${L[1]} L${R[0]} ${R[1]}"/>
+      <path d="M${L[0]} ${L[1]} L${L[0]-24} ${L[1]+52} M${L[0]} ${L[1]} L${L[0]+24} ${L[1]+52}"/>
+      <path d="M${R[0]} ${R[1]} L${R[0]-24} ${R[1]+52} M${R[0]} ${R[1]} L${R[0]+24} ${R[1]+52}"/></g>
+      <path d="M${L[0]-34} ${L[1]+52} Q${L[0]} ${L[1]+86} ${L[0]+34} ${L[1]+52}Z" fill="#B99B62"/>
+      <path d="M${R[0]-34} ${R[1]+52} Q${R[0]} ${R[1]+86} ${R[0]+34} ${R[1]+52}Z" fill="#B99B62"/>`;
+    words($('penH'),t,20.55,.2,.6);
+    $('penDiv').style.transform=`scaleX(${eo(P(t,21.0,21.6))})`;
+    // qualification first (stays visible)
+    const q=eo(P(t,21.3,21.9)); tf($('penQ'),q,0,(1-q)*24);
+    $('penQi').style.opacity=q;
+    // penalty line on VO
+    $('penPbg').style.transform=`scaleX(${eo(P(t,23.8,24.5))})`;
+    words($('penPt'),t,23.85,.32,.55);
+  }
+
+  // ===== SCENE 4 (26.0 - 30.9) =====
+  const s4=$('s4'); vis(s4,t>25.95&&t<31.2);
+  if(t>25.95&&t<31.2){
+    const out=eio(P(t,30.45,31.1));
+    s4.style.opacity=1-out; s4.style.transform=`scale(${1-out*.08})`;
+    tf($('s4lbl'),eo(P(t,26.3,26.8)),0,(1-eo(P(t,26.3,26.8)))*20);
+    const sh=P(t,26.2,27.1);
+    const shield=$('shield'); shield.setAttribute('stroke-dasharray','1150'); shield.setAttribute('stroke-dashoffset',1150*(1-eio(sh)));
+    shield.setAttribute('fill-opacity',eo(P(t,26.7,27.3)));
+    $('shield2').setAttribute('opacity',eo(P(t,27.0,27.5)));
+    tf($('s4sym'),eo(P(t,26.15,26.5)),0,0,lerp(.85,1,eo(P(t,26.15,27.2))));
+    const cr=eb(P(t,26.85,27.4)); $('cross').setAttribute('transform',`scale(${cr})`);
+    const rg=P(t,27.0,27.9);
+    ['arc1','arc2'].forEach(id=>{const a=$(id);a.setAttribute('stroke-dasharray','560');a.setAttribute('stroke-dashoffset',560*(1-eo(rg)));});
+    ['ah1','ah2'].forEach(id=>$(id).setAttribute('opacity',P(t,27.7,27.95)));
+    $('ring').setAttribute('transform',`rotate(${(t-27)*28})`);
+    $('ring2').setAttribute('transform',`rotate(${-(t-27)*12})`);$('ring2').setAttribute('opacity',eo(P(t,27.2,27.8)));
+    const dd=eo(P(t,26.6,27.3)); tf($('s4doc'),dd*.95,(1-dd)*-60,(1-dd)*30,1,`rotate(${lerp(-14,-8,dd)}deg)`);
+    const qa=eo(P(t,27.15,27.75)); tf($('q4'),qa,0,(1-qa)*24);
+    const a=eb(P(t,29.15,29.7)); tf($('c4a'),cl(P(t,29.15,29.4)),0,(1-a)*50,lerp(.85,1,a));
+    const b=eb(P(t,29.7,30.25)); tf($('c4b'),cl(P(t,29.7,29.95)),0,(1-b)*50,lerp(.85,1,b));
+  }
+
+  // ===== SCENE 5a (30.6 - 37.0) =====
+  const s5=$('s5'); vis(s5,t>30.6&&t<37.2);
+  if(t>30.6&&t<37.2){
+    const conv=eio(P(t,36.2,36.95));
+    s5.style.opacity=1-eo(P(t,36.5,37.0));
+    words($('h5a'),t,30.95,.25,.65);
+    words($('h5b'),t,33.35,.2,.6);
+    $('h5a').style.transform=`translateY(${-conv*60}px)`;$('h5b').style.transform=`translateY(${-conv*60}px)`;
+    const d=eo5(P(t,30.75,31.6));
+    tf($('doc5'),d,0,(1-d)*120,lerp(.85,1,d)*(1-conv*.6));
+    const rot=(t-31)*1.2;
+    let lines='';
+    Object.keys(ORB).forEach((k,i)=>{
+      const st=31.35+i*.22; const e=eo5(P(t,st,st+1.0));
+      const [tx,ty]=ORB[k],[fx,fy]=ORBfrom[k];
+      // slight float
+      const fl=Math.sin(t*1.3+i)*8;
+      let x=lerp(fx,tx,e), y=lerp(fy,ty,e)+fl;
+      x=lerp(x,540,conv); y=lerp(y,1100,conv);
+      const el=$(k); const w=el.offsetWidth,h=el.offsetHeight;
+      el.style.left=(x-w/2)+'px'; el.style.top=(y-h/2)+'px';
+      el.style.opacity=cl(P(t,st,st+.3))*(1-conv);
+      el.style.transform=`scale(${lerp(.6,1,e)*(1-conv*.7)}) rotate(${(1-e)*-25}deg)`;
+      // connecting gold lines
+      const lp=eo(P(t,32.4+i*.15,33.4+i*.15))*(1-conv);
+      if(lp>0){
+        const x2=lerp(540,x,lp), y2=lerp(1100,y,lp);
+        lines+=`<line x1="540" y1="1100" x2="${x2}" y2="${y2}" stroke="#B99B62" stroke-width="2" stroke-dasharray="6 8" opacity="${.85*lp}"/>`;
+        lines+=`<circle cx="${x2}" cy="${y2}" r="6" fill="#B99B62" opacity="${lp}"/>`;
+      }
+    });
+    // geometric frame
+    const fr=eo(P(t,32.0,33.2))*(1-conv);
+    if(fr>0){
+      lines+=`<rect x="${540-340}" y="${1100-430}" width="680" height="860" rx="40" fill="none" stroke="#123D32" stroke-width="2.5" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="${1000*(1-fr)}" transform="rotate(${rot} 540 1100)" opacity=".9"/>`;
+      lines+=`<circle cx="540" cy="1100" r="500" fill="none" stroke="#DCE7DF" stroke-width="3" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="${1000*(1-fr)}" transform="rotate(${-90-rot*2} 540 1100)"/>`;
+    }
+    $('s5lines').innerHTML=lines;
+  }
+
+  // ===== SCENE 5b END CARD (36.7 - end) =====
+  const s6=$('s6'); vis(s6,t>36.6);
+  if(t>36.6){
+    const lg=P(t,36.75,37.9);
+    $('logo').style.opacity=eo(P(t,36.75,37.3));
+    $('logo').style.clipPath=`inset(0 0 0 ${(1-eo5(lg))*100}%)`;
+    $('logo').style.transform=`scale(${lerp(1.06,1,eo(lg))})`;
+    $('logo').style.filter=`blur(${(1-eo(lg))*6}px)`;
+    $('glow').style.opacity=eo(P(t,36.7,37.6))*0.9;
+    $('glow').style.transform=`scale(${lerp(.6,1,eo(P(t,36.7,38)))})`;
+    const b1=eo(P(t,37.35,37.95)); tf($('b1'),b1,0,(1-b1)*26);
+    const b2=eo(P(t,37.7,38.3)); tf($('b2'),b2,0,(1-b2)*26);
+    words($('sl1'),t,38.95,.22,.6);
+    words($('sl2'),t,40.4,.25,.6);
+    $('slU').style.transform=`scaleX(${eo(P(t,40.9,41.6))})`;
+    const cc=eo5(P(t,41.0,41.7)); tf($('cc'),cc,0,(1-cc)*80);
+    ['cct','r1','r2','r3'].forEach((id,i)=>{const e=eo(P(t,41.2+i*.12,41.75+i*.12));tf($(id),e,(1-e)*-50,0);});
+    const el=eo(P(t,41.6,42.6)); $('endLine').style.transform=`scaleX(${el})`;
+    // subtle settle
+    s6.style.transform=`scale(${lerp(1.015,1,eo(P(t,36.7,44)))})`;
+  }
+}
+window.render=render;
+window.ready=document.fonts.ready.then(()=>new Promise(r=>{const i=$('logo');if(i.complete)r();else i.onload=r;}));
+render(0);
+</script>
+</body>
+</html>
