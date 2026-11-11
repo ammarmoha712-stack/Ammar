@@ -6,147 +6,155 @@
 <link rel="stylesheet" href="fonts/fonts.css">
 <style>
 :root{
-  --navy:#0E2340; --navy2:#16305A; --gold:#C2A36B; --gold2:#E3CB97;
-  --beige:#E9DCC5; --ivory:#F8F4EC; --char:#2A2A2A; --copper:#C8744A;
+  --navy:#0E2340; --navy2:#1B3560; --gold:#B08D4F; --gold2:#E3CB97; --goldD:#9A773A;
+  --beige:#E9DCC5; --ivory:#F8F4EC; --char:#2A2A2A; --muted:#6B7486;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{width:1080px;height:1920px;overflow:hidden;background:var(--navy)}
-body{font-family:'IBM Plex Sans Arabic',sans-serif;color:var(--ivory)}
-#stage{position:absolute;inset:0;overflow:hidden;background:radial-gradient(120% 80% at 50% 30%,#173563 0%,var(--navy) 60%,#0A1A31 100%)}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ivory)}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;color:var(--navy)}
+#stage{position:absolute;inset:0;overflow:hidden;background:radial-gradient(120% 75% at 50% 28%,#FFFDF8 0%,#F5EEE1 55%,#ECE1CC 100%)}
 .abs{position:absolute}
 .layer{position:absolute;inset:0;will-change:transform,opacity}
 .h1{font-family:'Alexandria','IBM Plex Sans Arabic';font-weight:800}
-.gold{color:var(--gold2)}
-.chip{position:absolute;right:70px;padding:22px 38px;border-radius:18px;background:rgba(14,35,64,.88);
-  border:2px solid var(--gold);font-weight:700;font-size:52px;line-height:1.25;box-shadow:0 18px 50px rgba(0,0,0,.35);white-space:nowrap}
-.chip small{display:block;font-size:30px;font-weight:500;color:var(--gold2)}
+.gold{color:var(--gold)}
+.chip{position:absolute;right:70px;padding:22px 38px;border-radius:18px;background:var(--navy);color:var(--ivory);
+  border:2px solid var(--gold2);font-weight:700;font-size:52px;line-height:1.25;box-shadow:0 18px 44px rgba(14,35,64,.28);white-space:nowrap}
+.chip .gold{color:var(--gold2)}
 .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
-.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
-  background:repeating-linear-gradient(135deg,#1B355E 0 22px,#18304F 22px 44px);color:var(--gold2);font-weight:700;font-size:44px;text-align:center;
-  border:4px dashed var(--gold)}
-.ph span{font-size:28px;font-weight:500;color:var(--beige);direction:ltr}
 .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.frame-corner{position:absolute;width:90px;height:90px;border-color:var(--gold2);border-style:solid}
-.card{position:absolute;left:70px;right:70px;height:300px;border-radius:28px;background:linear-gradient(160deg,#F8F4EC,#EADFCB);
-  color:var(--navy);box-shadow:0 30px 70px rgba(0,0,0,.4);display:flex;align-items:center;padding:0 48px;gap:40px;overflow:hidden}
+.card{position:absolute;left:70px;right:70px;height:300px;border-radius:28px;background:#FFFFFF;
+  color:var(--navy);box-shadow:0 26px 60px rgba(14,35,64,.18);border:1px solid #E6D9BF;display:flex;align-items:center;padding:0 48px;gap:40px;overflow:hidden}
 .card .ic{width:170px;height:170px;flex:none}
 .card .tx{flex:1}
 .card .k{font-size:44px;font-weight:700;color:var(--navy2)}
 .card .v{font-family:'Alexandria';font-weight:800;font-size:84px;line-height:1.1;color:var(--navy)}
 .card .v.s{font-size:54px}
-.card .n{font-size:38px;font-weight:700;color:#9A7A3E}
+.card .n{font-size:38px;font-weight:700;color:var(--goldD)}
 .card:before{content:"";position:absolute;right:0;top:0;bottom:0;width:14px;background:var(--gold)}
-.check{position:absolute;right:90px;display:flex;align-items:center;gap:26px;font-size:54px;font-weight:700}
-.check i{width:74px;height:74px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex:none}
-.meter{position:absolute;width:250px;height:300px;border-radius:26px;background:#132C52;border:3px solid #33507E}
-.badge{position:absolute;width:150px;height:150px;border-radius:50%;background:var(--navy);border:4px solid var(--gold);
-  display:flex;align-items:center;justify-content:center;flex-direction:column;font-weight:700;line-height:1}
+.check{position:absolute;right:90px;display:flex;align-items:center;gap:26px;font-size:54px;font-weight:700;color:var(--navy)}
+.check i{width:74px;height:74px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex:none}
+.meter{position:absolute;width:250px;height:300px;border-radius:26px;background:var(--navy);border:3px solid #33507E}
+.badge{position:absolute;width:150px;height:150px;border-radius:50%;background:var(--navy);border:4px solid var(--gold2);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;font-weight:700;line-height:1;box-shadow:0 12px 30px rgba(14,35,64,.25)}
 .badge b{font-family:'Alexandria';font-size:62px;color:var(--gold2)}
 .badge s{text-decoration:none;font-size:26px;color:var(--beige);margin-top:6px}
+.tag{position:absolute;padding:14px 26px;border-radius:14px;background:var(--navy);color:var(--ivory);font-size:38px;font-weight:700;box-shadow:0 14px 34px rgba(14,35,64,.3);white-space:nowrap}
+.tag .gold{color:var(--gold2)}
+.shadowcard{box-shadow:0 40px 90px rgba(14,35,64,.28),0 6px 18px rgba(14,35,64,.12)}
 </style>
 </head>
 <body>
 <div id="stage">
 
   <!-- ============ BACKGROUND GRID ============ -->
-  <svg class="layer" id="grid" viewBox="0 0 1080 1920" style="opacity:.10">
-    <defs><pattern id="gp" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#C2A36B" stroke-width="1"/></pattern></defs>
-    <rect width="1080" height="1920" fill="url(#gp)"/>
+  <svg class="layer" id="grid" viewBox="0 0 1080 1980" style="height:1980px;opacity:.16">
+    <defs><pattern id="gp" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#B08D4F" stroke-width="1"/></pattern></defs>
+    <rect width="1080" height="1980" fill="url(#gp)"/>
   </svg>
 
   <!-- ============ SCENE 1: MAP ============ -->
   <div class="layer" id="s1">
     <div class="layer" id="map" style="transform-origin:600px 1010px">
       <svg viewBox="0 0 1080 1920" width="1080" height="1920">
-        <rect width="1080" height="1920" fill="#0F2647"/>
-        <!-- district blocks (stylised, not to scale) -->
-        <g fill="#14315A" stroke="#1F416F" stroke-width="2">
+        <rect width="1080" height="1920" fill="#F2EADB"/>
+        <g fill="#E7DBC4" stroke="#D9C9AA" stroke-width="2">
           <path d="M80 300h300v260H80z"/><path d="M420 300h260v180H420z"/><path d="M720 280h300v300H720z"/>
           <path d="M80 620h220v320H80z"/><path d="M340 640h200v220H340z"/><path d="M680 640h340v240H680z"/>
           <path d="M80 1000h300v300H80z"/><path d="M420 1080h140v180H420z"/><path d="M700 1100h320v220H700z"/>
           <path d="M80 1360h400v260H80z"/><path d="M540 1380h200v240H540z"/><path d="M790 1380h230v300H790z"/>
           <path d="M120 1680h500v180H120z"/>
         </g>
-        <!-- streets -->
-        <g stroke="#2E5385" stroke-linecap="round" fill="none">
-          <path d="M-20 600 L1100 620" stroke-width="18"/>
-          <path d="M-20 970 L1100 1040" stroke-width="26"/>
-          <path d="M400 -20 L380 1940" stroke-width="20"/>
-          <path d="M640 -20 Q620 900 660 1940" stroke-width="16"/>
-          <path d="M-20 1330 L1100 1350" stroke-width="14"/>
-          <path d="M-20 200 Q500 260 1100 180" stroke-width="10"/>
-          <path d="M860 -20 L900 1940" stroke-width="10"/>
+        <g id="streets" stroke-linecap="round" fill="none">
+          <g stroke="#D3C19F">
+            <path d="M-20 600 L1100 620" stroke-width="24"/><path d="M-20 970 L1100 1040" stroke-width="32"/>
+            <path d="M400 -20 L380 1940" stroke-width="26"/><path d="M640 -20 Q620 900 660 1940" stroke-width="22"/>
+            <path d="M-20 1330 L1100 1350" stroke-width="20"/><path d="M-20 200 Q500 260 1100 180" stroke-width="16"/>
+            <path d="M860 -20 L900 1940" stroke-width="16"/>
+          </g>
+          <g stroke="#FFFFFF">
+            <path d="M-20 600 L1100 620" stroke-width="16"/><path d="M-20 970 L1100 1040" stroke-width="24"/>
+            <path d="M400 -20 L380 1940" stroke-width="18"/><path d="M640 -20 Q620 900 660 1940" stroke-width="14"/>
+            <path d="M-20 1330 L1100 1350" stroke-width="12"/><path d="M-20 200 Q500 260 1100 180" stroke-width="8"/>
+            <path d="M860 -20 L900 1940" stroke-width="8"/>
+          </g>
         </g>
-        <!-- park / square -->
-        <rect x="560" y="880" width="70" height="70" rx="8" fill="#1E4A52" opacity=".9"/>
-        <!-- gold route -->
-        <path id="route" d="M140 1760 L380 1600 L390 1060 Q395 1000 460 998 L600 1004 L600 1010" fill="none" stroke="#E3CB97" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-        <!-- pin -->
+        <rect x="560" y="880" width="70" height="70" rx="8" fill="#CFDCC4"/>
+        <path id="route" d="M140 1760 L380 1600 L390 1060 Q395 1000 460 998 L600 1004 L600 1010" fill="none" stroke="#B08D4F" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
         <g id="pin" transform="translate(600 1010)">
-          <circle id="pulse" r="40" fill="none" stroke="#E3CB97" stroke-width="4"/>
-          <path d="M0 0 C-36 -46 -44 -64 -44 -82 A44 44 0 1 1 44 -82 C44 -64 36 -46 0 0Z" fill="#C2A36B" stroke="#F8F4EC" stroke-width="4"/>
-          <circle cy="-84" r="16" fill="#0E2340"/>
+          <circle id="pulse" r="40" fill="none" stroke="#B08D4F" stroke-width="4"/>
+          <path d="M0 0 C-36 -46 -44 -64 -44 -82 A44 44 0 1 1 44 -82 C44 -64 36 -46 0 0Z" fill="#0E2340" stroke="#E3CB97" stroke-width="4"/>
+          <circle cy="-84" r="16" fill="#E3CB97"/>
         </g>
       </svg>
-      <!-- street labels -->
-      <div class="abs" id="lblAtaif" style="left:430px;top:1035px;font-size:34px;font-weight:700;color:var(--beige);transform:rotate(3deg)">شارع العطايف</div>
-      <div class="abs" id="lblMaig"  style="left:690px;top:1140px;font-size:34px;font-weight:700;color:var(--beige)">المعيقلية ◆</div>
+      <div class="abs" id="lblAtaif" style="left:430px;top:1035px;font-size:34px;font-weight:700;color:var(--navy2);transform:rotate(3deg)">شارع العطايف</div>
+      <div class="abs" id="lblMaig"  style="left:690px;top:1140px;font-size:34px;font-weight:700;color:var(--navy2)">المعيقلية ◆</div>
     </div>
-    <div class="abs h1" id="s1head" style="top:260px;left:0;right:0;text-align:center;font-size:96px;line-height:1.2;text-shadow:0 8px 40px rgba(0,0,0,.6)">في قلب<br><span class="gold">وسط الرياض</span></div>
-    <div class="chip" id="s1c1" style="top:1380px">وسط الرياض — حي الديرة</div>
+    <div class="abs h1" id="s1head" style="top:250px;left:0;right:0;text-align:center;font-size:100px;line-height:1.2;text-shadow:0 6px 30px rgba(255,255,255,.9)">في قلب<br><span class="gold">وسط الرياض</span></div>
+    <div class="chip" id="s1c1" style="top:1380px">وسط الرياض — <span class="gold">حي الديرة</span></div>
     <div class="chip" id="s1c2" style="top:1500px">خلف شارع العطايف</div>
     <div class="chip" id="s1c3" style="top:1620px">بالقرب من المعيقلية</div>
   </div>
 
-  <!-- ============ BUILDING FRAME (Scenes 1→2, 5, 6) ============ -->
-  <div class="abs" id="bwrap" style="left:70px;top:230px;width:940px;height:1180px;transform-origin:540px 820px">
-    <div class="abs" id="bclip" style="inset:0;overflow:hidden;border-radius:10px;box-shadow:0 40px 90px rgba(0,0,0,.5)">
-      <div class="abs" id="bpan" style="inset:-8% -4%;">
-        <img class="photo" id="imgBuilding" src="assets/building.jpg" style="filter:contrast(1.08) saturate(1.06) brightness(1.03)"
-             onerror="this.remove();document.getElementById('phBuilding').style.display='flex'">
-        <div class="ph" id="phBuilding" style="display:none">صورة العمارة الفعلية<span>assets/building.jpg</span></div>
+  <!-- ============ BUILDING (actual photo) ============ -->
+  <div class="abs" id="bwrap" style="left:70px;top:220px;width:940px;height:1200px;transform-origin:540px 820px">
+    <div class="abs shadowcard" id="bclip" style="inset:0;overflow:hidden;border-radius:16px;border:10px solid #fff;background:#fff">
+      <div class="abs" id="bpan" style="left:0;top:0;width:920px;height:1433px">
+        <img id="imgBuilding" src="assets/building.jpg" style="position:absolute;inset:0;width:100%;height:100%">
+        <!-- gold outlines traced on the real windows (same coordinate space as the photo) -->
+        <svg class="abs" viewBox="0 0 899 1400" preserveAspectRatio="none" style="inset:0;width:100%;height:100%">
+          <g id="wins" fill="rgba(227,203,151,0)" stroke="#E3CB97" stroke-width="5" stroke-linejoin="round">
+            <path d="M150 112 L322 150 L326 440 L146 405Z"/><path d="M755 136 L822 148 L826 370 L758 358Z"/>
+            <path d="M568 336 L683 357 L685 580 L572 552Z"/><path d="M797 446 L873 458 L877 715 L801 705Z"/>
+            <path d="M140 672 L360 688 L362 848 L138 836Z"/><path d="M606 767 L737 777 L740 892 L608 886Z"/>
+          </g>
+        </svg>
       </div>
-      <div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(14,35,64,0) 55%,rgba(14,35,64,.75) 100%)"></div>
+      <div class="abs" id="bshade" style="inset:0;background:linear-gradient(180deg,rgba(14,35,64,0) 60%,rgba(14,35,64,.45) 100%)"></div>
+      <div class="abs" id="bsweep" style="top:0;bottom:0;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent)"></div>
     </div>
-    <svg class="abs" id="bframe" viewBox="0 0 940 1180" style="inset:-14px;width:968px;height:1208px;overflow:visible">
-      <rect id="bframeRect" x="0" y="0" width="968" height="1208" fill="none" stroke="#C2A36B" stroke-width="4"/>
+    <svg class="abs" viewBox="0 0 968 1228" style="inset:-14px;width:968px;height:1228px;overflow:visible">
+      <path id="cTL" d="M0 110 V0 H110" fill="none" stroke="#B08D4F" stroke-width="6"/>
+      <path id="cTR" d="M858 0 H968 V110" fill="none" stroke="#B08D4F" stroke-width="6"/>
+      <path id="cBR" d="M968 1118 V1228 H858" fill="none" stroke="#B08D4F" stroke-width="6"/>
+      <path id="cBL" d="M110 1228 H0 V1118" fill="none" stroke="#B08D4F" stroke-width="6"/>
     </svg>
   </div>
 
   <!-- Scene 2 chips -->
   <div class="layer" id="s2">
-    <div class="chip" id="s2c1" style="top:1150px">عمارة سكنية جديدة</div>
-    <!-- dimension line -->
-    <svg class="abs" id="dim" viewBox="0 0 940 60" style="left:70px;top:1440px;width:940px;height:60px">
-      <path id="dimLine" d="M10 30 H930 M10 10 V50 M930 10 V50" stroke="#E3CB97" stroke-width="4" fill="none"/>
+    <div class="chip" id="s2c1" style="top:1180px">عمارة سكنية <span class="gold">جديدة</span></div>
+    <svg class="abs" id="dim" viewBox="0 0 940 60" style="left:70px;top:1450px;width:940px;height:60px">
+      <path id="dimLine" d="M10 30 H930 M10 10 V50 M930 10 V50" stroke="#B08D4F" stroke-width="4" fill="none"/>
     </svg>
-    <div class="chip" id="s2c2" style="top:1520px">مساحة الأرض <span class="ltr gold">160.65</span> <span class="gold">م²</span></div>
-    <div class="chip" id="s2c3" style="top:1660px;background:var(--gold);color:var(--navy);border-color:var(--gold2)">ملكية أولى</div>
+    <div class="chip" id="s2c2" style="top:1530px">مساحة الأرض <span class="ltr gold">160.65</span> <span class="gold">م²</span></div>
+    <div class="chip" id="s2c3" style="top:1670px;background:var(--gold);color:#fff;border-color:var(--gold2)">ملكية أولى</div>
   </div>
 
   <!-- ============ SCENE 3: FLOOR PLAN ============ -->
-  <div class="layer" id="s3">
-    <div class="abs h1" id="s3head" style="top:150px;right:70px;font-size:72px">المخطط المعماري</div>
-    <div class="abs" id="planWrap" style="left:70px;top:280px;width:940px;height:800px;background:#F8F4EC;border-radius:14px;overflow:hidden">
-      <img class="photo" id="imgPlan" src="assets/floorplan.jpg" style="object-fit:contain;background:#F8F4EC"
-           onerror="this.remove();document.getElementById('phPlan').style.display='flex'">
-      <div class="ph" id="phPlan" style="display:none">المخطط المعماري المرفق<span>assets/floorplan.jpg</span></div>
-      <!-- blueprint sweep -->
-      <div class="abs" id="planSweep" style="top:0;bottom:0;width:100%;background:linear-gradient(90deg,rgba(14,35,64,0),rgba(14,35,64,.95) 6%,#0E2340 10%);"></div>
+  <div class="layer" id="s3" style="perspective:1800px">
+    <div class="abs h1" id="s3head" style="top:150px;right:70px;font-size:72px">المخطط <span class="gold">المعماري</span></div>
+    <div class="abs shadowcard" id="planCard" style="left:70px;top:270px;width:940px;height:860px;background:#fff;border-radius:16px;overflow:hidden;transform-origin:50% 100%">
+      <div class="abs" id="planZoom" style="inset:0;transform-origin:50% 45%">
+        <img class="photo" src="assets/floorplan.jpg" style="object-fit:contain;background:#fff">
+        <svg class="abs" viewBox="0 0 967 1061" preserveAspectRatio="xMidYMid meet" style="inset:0;width:100%;height:100%">
+          <g id="rooms"></g>
+        </svg>
+      </div>
+      <div class="abs" id="planSweep" style="top:0;bottom:0;width:120%;right:0;background:linear-gradient(90deg,rgba(248,244,236,0),#F8F4EC 8%,#F8F4EC)"></div>
+      <div class="abs" id="scanLine" style="top:0;bottom:0;width:6px;background:#B08D4F;box-shadow:0 0 30px #E3CB97"></div>
     </div>
-    <svg class="abs" viewBox="0 0 960 880" style="left:60px;top:270px;width:960px;height:820px;overflow:visible">
-      <rect id="planBorder" x="2" y="2" width="956" height="816" rx="16" fill="none" stroke="#C2A36B" stroke-width="4"/>
+    <svg class="abs" viewBox="0 0 960 880" style="left:60px;top:260px;width:960px;height:880px;overflow:visible">
+      <rect id="planBorder" x="2" y="2" width="956" height="876" rx="20" fill="none" stroke="#B08D4F" stroke-width="4"/>
     </svg>
-    <!-- 5 apartment badges -->
-    <div id="aptRow" class="abs" style="top:1120px;left:70px;right:70px;height:170px"></div>
-    <div class="abs" id="s3count" style="top:1310px;right:70px;display:flex;gap:26px;align-items:baseline">
-      <div class="h1" style="font-size:110px;color:var(--gold2)"><span class="ltr" id="aptN">0</span></div><div style="font-size:60px;font-weight:700">شقق</div>
+    <div id="aptRow" class="abs" style="top:1160px;left:70px;right:70px;height:170px"></div>
+    <div class="abs" id="s3count" style="top:1340px;right:70px;display:flex;gap:26px;align-items:baseline">
+      <div class="h1" style="font-size:110px;color:var(--gold)"><span class="ltr" id="aptN">0</span></div><div style="font-size:60px;font-weight:700">شقق</div>
       <div style="width:3px;height:100px;background:var(--gold);align-self:center;margin:0 8px"></div>
-      <div class="h1" style="font-size:110px;color:var(--gold2)"><span class="ltr" id="roomN">0</span></div><div style="font-size:60px;font-weight:700">غرفة</div>
+      <div class="h1" style="font-size:110px;color:var(--gold)"><span class="ltr" id="roomN">0</span></div><div style="font-size:60px;font-weight:700">غرفة</div>
     </div>
-    <div class="abs" style="top:1450px;right:70px;font-size:36px;font-weight:600;color:var(--beige)" id="s3sub">حسب المخطط المرفق</div>
-    <div class="abs" id="roomDots" style="top:1520px;right:70px;left:330px;height:32px;display:flex;gap:6px;justify-content:flex-start;flex-direction:row-reverse"></div>
-    <div class="abs" id="s3note" style="top:1590px;left:400px;right:70px;padding:24px 30px;border-radius:18px;background:rgba(194,163,107,.14);border:2px solid var(--gold);font-size:36px;font-weight:600;line-height:1.5">
+    <div class="abs" style="top:1480px;right:70px;font-size:36px;font-weight:600;color:var(--muted)" id="s3sub">حسب المخطط المرفق</div>
+    <div class="abs" id="roomDots" style="top:1550px;right:70px;left:330px;height:32px;display:flex;gap:6px;flex-direction:row-reverse"></div>
+    <div class="abs" id="s3note" style="top:1620px;left:400px;right:70px;padding:24px 30px;border-radius:18px;background:#fff;border:2px solid var(--gold);font-size:36px;font-weight:600;line-height:1.5;box-shadow:0 16px 40px rgba(14,35,64,.12)">
       تم تعديل التقسيم الداخلي<br>إلى غرف مع إلغاء<br>الصالات والمطابخ.
     </div>
   </div>
@@ -156,95 +164,87 @@ body{font-family:'IBM Plex Sans Arabic',sans-serif;color:var(--ivory)}
     <div class="abs h1" style="top:230px;left:0;right:0;text-align:center;font-size:84px" id="s4head"><span class="ltr gold">6</span> عدادات كهرباء</div>
     <div id="meters" class="abs" style="top:420px;left:0;right:0;height:700px"></div>
     <div class="abs" id="s4amp" style="top:1180px;left:0;right:0;text-align:center">
-      <div class="h1" style="font-size:150px;color:var(--gold2);line-height:1"><span class="ltr">70</span> <span style="font-size:90px">أمبير</span></div>
+      <div class="h1" style="font-size:150px;color:var(--gold);line-height:1"><span class="ltr">70</span> <span style="font-size:90px">أمبير</span></div>
       <div style="font-size:56px;font-weight:700;margin-top:18px">لكل عداد</div>
     </div>
   </div>
 
   <!-- ============ SCENE 4b: DOCUMENTS ============ -->
-  <div class="layer" id="s4b">
-    <div class="abs h1" style="top:170px;right:70px;font-size:72px">الوثائق والملكية</div>
-    <div class="abs" id="permit" style="left:110px;top:310px;width:600px;height:800px;background:#fff;border-radius:10px;box-shadow:0 40px 80px rgba(0,0,0,.5);overflow:hidden;transform-origin:50% 50%">
-      <img class="photo" id="imgPermit" src="assets/permit.jpg" style="object-fit:cover;object-position:50% 0%"
-           onerror="this.remove();document.getElementById('phPermit').style.display='flex'">
-      <div class="ph" id="phPermit" style="display:none;font-size:38px">رخصة البناء<span>assets/permit.jpg</span></div>
-      <!-- privacy mask: everything below the header band is blurred -->
-      <div class="abs" id="permitMask" style="left:0;right:0;top:34%;bottom:0;backdrop-filter:blur(16px);background:rgba(248,244,236,.35)"></div>
-      <div class="abs" style="left:0;right:0;bottom:0;padding:16px;background:var(--navy);color:var(--gold2);font-size:28px;font-weight:700;text-align:center">رخصة بناء — تم إخفاء البيانات الشخصية</div>
+  <div class="layer" id="s4b" style="perspective:2000px">
+    <div class="abs h1" style="top:150px;right:70px;font-size:72px">رخصة <span class="gold">البناء</span></div>
+    <div class="abs shadowcard" id="permit" style="left:70px;top:260px;width:940px;height:860px;background:#fff;border-radius:16px;overflow:hidden;transform-origin:50% 50%">
+      <div class="abs" id="permitZoom" style="left:0;top:0;width:940px;height:997px;transform-origin:0 0">
+        <img src="assets/permit.jpg" style="width:940px;height:997px;display:block">
+        <!-- highlight boxes in displayed-pixel space (permit shown at 0.684 scale) -->
+        <div class="abs" id="hlTable" style="left:488px;top:564px;width:378px;height:176px;border:5px solid #B08D4F;border-radius:10px;box-shadow:0 0 0 2000px rgba(14,35,64,.0)"></div>
+        <div class="abs" id="hlArea"  style="left:496px;top:517px;width:364px;height:38px;border:5px solid #B08D4F;border-radius:8px"></div>
+      </div>
+      <div class="tag" id="tgUnits" style="left:30px;top:30px">مكونات البناء: <span class="gold ltr">2 + 2 + 1</span> = <span class="gold">5 وحدات</span></div>
+      <div class="tag" id="tgArea"  style="left:30px;top:110px">مساحة الأرض <span class="gold ltr">160.65</span> <span class="gold">م²</span></div>
+      <div class="abs" style="right:16px;bottom:16px;padding:8px 16px;border-radius:10px;background:rgba(14,35,64,.85);color:var(--gold2);font-size:24px;font-weight:600" id="privNote">تم إخفاء البيانات الشخصية</div>
     </div>
-    <div class="abs" id="ins" style="left:620px;top:720px;width:330px;height:330px;transform-origin:50% 50%">
-      <svg viewBox="0 0 200 200" width="330" height="330">
-        <path d="M100 14 L170 42 V100 C170 146 138 174 100 188 C62 174 30 146 30 100 V42Z" fill="#0E2340" stroke="#E3CB97" stroke-width="7"/>
-        <path d="M70 104 L92 126 L136 80" fill="none" stroke="#E3CB97" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <div class="check" id="ck1" style="top:1180px"><i><svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 21l8 8 16-17" stroke="#0E2340" stroke-width="6" fill="none" stroke-linecap="round"/></svg></i>بوليصة تأمين</div>
-    <div class="check" id="ck2" style="top:1290px"><i><svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 21l8 8 16-17" stroke="#0E2340" stroke-width="6" fill="none" stroke-linecap="round"/></svg></i>سجل عقاري حديث</div>
-    <div class="check" id="ck3" style="top:1400px"><i><svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 21l8 8 16-17" stroke="#0E2340" stroke-width="6" fill="none" stroke-linecap="round"/></svg></i>من المالك الأول</div>
-    <div class="abs" id="pending" style="top:1540px;left:70px;right:70px;padding:30px 36px;border-radius:20px;border:3px dashed var(--gold);display:flex;gap:30px;align-items:center;background:rgba(14,35,64,.6)">
-      <svg width="96" height="96" viewBox="0 0 48 48" style="flex:none"><circle cx="24" cy="24" r="20" fill="none" stroke="#E3CB97" stroke-width="3"/><path id="clockHand" d="M24 24 V12" stroke="#E3CB97" stroke-width="3.5" stroke-linecap="round"/><path d="M24 24 L32 28" stroke="#E3CB97" stroke-width="3" stroke-linecap="round"/></svg>
+    <div class="check" id="ck1" style="top:1170px"><i><svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 21l8 8 16-17" stroke="#E3CB97" stroke-width="6" fill="none" stroke-linecap="round"/></svg></i>بوليصة تأمين</div>
+    <div class="check" id="ck2" style="top:1280px"><i><svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 21l8 8 16-17" stroke="#E3CB97" stroke-width="6" fill="none" stroke-linecap="round"/></svg></i>سجل عقاري حديث</div>
+    <div class="check" id="ck3" style="top:1390px"><i><svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 21l8 8 16-17" stroke="#E3CB97" stroke-width="6" fill="none" stroke-linecap="round"/></svg></i>من المالك الأول</div>
+    <div class="abs" id="pending" style="top:1530px;left:70px;right:70px;padding:30px 36px;border-radius:20px;border:3px dashed var(--gold);display:flex;gap:30px;align-items:center;background:#fff;box-shadow:0 16px 40px rgba(14,35,64,.12)">
+      <svg width="96" height="96" viewBox="0 0 48 48" style="flex:none"><circle cx="24" cy="24" r="20" fill="none" stroke="#B08D4F" stroke-width="3"/><path id="clockHand" d="M24 24 V12" stroke="#0E2340" stroke-width="3.5" stroke-linecap="round"/><path d="M24 24 L32 28" stroke="#0E2340" stroke-width="3" stroke-linecap="round"/></svg>
       <div style="font-size:44px;font-weight:700;line-height:1.45">رخصة إتمام البناء والأشغال<br><span class="gold">متوقع صدورها قريباً</span></div>
     </div>
   </div>
 
   <!-- ============ SCENE 5: OFFERS ============ -->
   <div class="layer" id="s5">
-    <div class="abs h1" id="s5head" style="top:640px;right:70px;font-size:70px">خيارات <span class="gold">مرنة</span></div>
-    <div class="card" id="cd1" style="top:760px">
-      <svg class="ic" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="20" fill="#0E2340"/><path d="M24 76V44L50 24l26 20v32H58V58H42v18Z" fill="#C2A36B"/></svg>
+    <div class="abs shadowcard" id="s5photo" style="left:330px;top:190px;width:680px;height:430px;border-radius:20px;overflow:hidden;border:8px solid #fff">
+      <img class="photo" id="s5img" src="assets/building.jpg" style="object-position:50% 25%">
+    </div>
+    <div class="abs h1" id="s5head" style="top:650px;right:70px;font-size:70px">خيارات <span class="gold">مرنة</span></div>
+    <div class="card" id="cd1" style="top:770px">
+      <svg class="ic" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="20" fill="#0E2340"/><path d="M24 76V44L50 24l26 20v32H58V58H42v18Z" fill="#E3CB97"/></svg>
       <div class="tx"><div class="k">للبيع</div><div class="v"><span class="ltr" id="price1">3,500,000</span> <span style="font-size:48px">ريال</span></div><div class="n">صافي</div></div>
     </div>
-    <div class="card" id="cd2" style="top:1090px">
-      <svg class="ic" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="20" fill="#0E2340"/><path d="M28 78V26h44v52M36 34h8M56 34h8M36 46h8M56 46h8M36 58h8M56 58h8M46 78V68h8v10" stroke="#C2A36B" stroke-width="5" fill="none"/><circle cx="74" cy="72" r="13" fill="#C2A36B"/><path d="M74 66v12M70 70h8" stroke="#0E2340" stroke-width="3"/></svg>
+    <div class="card" id="cd2" style="top:1095px">
+      <svg class="ic" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="20" fill="#0E2340"/><path d="M28 78V26h44v52M36 34h8M56 34h8M36 46h8M56 46h8M36 58h8M56 58h8M46 78V68h8v10" stroke="#E3CB97" stroke-width="5" fill="none"/><circle cx="74" cy="72" r="13" fill="#E3CB97"/><path d="M74 66v12M70 70h8" stroke="#0E2340" stroke-width="3"/></svg>
       <div class="tx"><div class="k">للإيجار</div><div class="v"><span class="ltr" id="price2">300,000</span> <span style="font-size:48px">ريال</span></div><div class="n">دفعة واحدة</div></div>
     </div>
     <div class="card" id="cd3" style="top:1420px">
-      <svg class="ic" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="20" fill="#0E2340"/><path d="M18 62 L50 46 L82 62 L50 78Z" fill="none" stroke="#C2A36B" stroke-width="4.5"/><path d="M50 46V62M34 54l32 16" stroke="#C2A36B" stroke-width="2.5" opacity=".7"/><path d="M30 34 h40 M62 26 l8 8 -8 8 M70 34" stroke="#E3CB97" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="ic" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="20" fill="#0E2340"/><path d="M18 62 L50 46 L82 62 L50 78Z" fill="none" stroke="#E3CB97" stroke-width="4.5"/><path d="M50 46V62M34 54l32 16" stroke="#E3CB97" stroke-width="2.5" opacity=".7"/><path d="M30 34 h40 M62 26 l8 8 -8 8" stroke="#E3CB97" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <div class="tx"><div class="k">إمكانية المقايضة</div><div class="v s">بأراضٍ تجارية</div><div class="n">حسب الموقع</div></div>
     </div>
-    <div class="abs" id="s5note" style="top:1750px;left:70px;right:70px;text-align:center;font-size:34px;font-weight:500;color:var(--beige)">السعي للوسيط من طرف المالك حسب الاتفاق.</div>
+    <div class="abs" id="s5note" style="top:1750px;left:70px;right:70px;text-align:center;font-size:34px;font-weight:600;color:var(--muted)">السعي للوسيط من طرف المالك حسب الاتفاق.</div>
   </div>
 
   <!-- ============ CONSULTANT (persistent) ============ -->
-  <div class="abs" id="guy" style="left:-30px;top:1060px;width:440px;height:860px;transform-origin:50% 100%">
+  <div class="abs" id="guy" style="left:-30px;top:1060px;width:440px;height:860px;transform-origin:50% 100%;filter:drop-shadow(0 18px 24px rgba(14,35,64,.25))">
     <svg viewBox="0 0 440 860" width="440" height="860">
       <defs>
         <pattern id="shm" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
           <rect width="18" height="18" fill="#FBFAF7"/><rect width="9" height="9" fill="#C8202E"/><rect x="9" y="9" width="9" height="9" fill="#C8202E"/>
         </pattern>
-        <linearGradient id="thobe" x1="0" x2="1"><stop offset="0" stop-color="#E9E8E4"/><stop offset=".5" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E2E1DC"/></linearGradient>
+        <linearGradient id="thobe" x1="0" x2="1"><stop offset="0" stop-color="#E4E3DE"/><stop offset=".5" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDDCD6"/></linearGradient>
       </defs>
-      <!-- body / thobe -->
-      <path d="M92 390 C110 330 160 312 220 310 C280 312 330 330 348 390 L370 860 H70Z" fill="url(#thobe)"/>
+      <path d="M92 390 C110 330 160 312 220 310 C280 312 330 330 348 390 L370 860 H70Z" fill="url(#thobe)" stroke="#D6D3CA" stroke-width="2"/>
       <path d="M220 330 V560" stroke="#D5D3CC" stroke-width="3"/>
       <circle cx="220" cy="370" r="5" fill="#CFCBC0"/><circle cx="220" cy="410" r="5" fill="#CFCBC0"/>
-      <!-- left arm (static, at side) -->
-      <path d="M104 380 C80 470 78 560 92 640 L132 640 C128 560 134 480 146 420Z" fill="url(#thobe)" stroke="#DCDAD3" stroke-width="2"/>
+      <path d="M104 380 C80 470 78 560 92 640 L132 640 C128 560 134 480 146 420Z" fill="url(#thobe)" stroke="#D6D3CA" stroke-width="2"/>
       <ellipse cx="112" cy="652" rx="22" ry="26" fill="#C6936C"/>
-      <!-- neck -->
       <path d="M196 270 h48 v50 c-10 12 -38 12 -48 0z" fill="#B98762"/>
-      <!-- shemagh back drape -->
       <path d="M128 200 C118 280 110 360 116 430 L170 400 C176 340 180 290 188 250Z" fill="url(#shm)"/>
       <path d="M312 200 C324 280 332 360 326 430 L272 400 C266 340 262 290 254 250Z" fill="url(#shm)"/>
-      <!-- face -->
       <ellipse cx="220" cy="212" rx="64" ry="78" fill="#C99A72"/>
       <path d="M158 220 C164 290 196 300 220 300 C244 300 276 290 282 220 C272 252 252 262 220 262 C188 262 168 252 158 220Z" fill="#2B211C"/>
       <path d="M196 252 C206 246 234 246 244 252 C234 258 206 258 196 252Z" fill="#2B211C"/>
       <path d="M200 268 Q220 276 240 268" stroke="#8B5A45" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <ellipse cx="196" cy="204" rx="7" ry="8" fill="#22191A"/><ellipse cx="244" cy="204" rx="7" ry="8" fill="#22191A"/>
+      <g id="eyes"><ellipse cx="196" cy="204" rx="7" ry="8" fill="#22191A"/><ellipse cx="244" cy="204" rx="7" ry="8" fill="#22191A"/></g>
       <path d="M180 186 Q196 178 210 186 M230 186 Q244 178 260 186" stroke="#2B211C" stroke-width="6" fill="none" stroke-linecap="round"/>
       <path d="M220 206 L214 236 Q220 240 228 236" stroke="#A9775A" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <!-- shemagh head -->
       <path d="M146 196 C140 120 180 92 220 92 C260 92 300 120 294 196 C284 160 260 142 220 142 C180 142 156 160 146 196Z" fill="url(#shm)"/>
       <path d="M146 196 C150 156 180 136 220 136 C260 136 290 156 294 196" fill="none" stroke="#FBFAF7" stroke-width="8"/>
-      <!-- agal -->
       <ellipse cx="220" cy="118" rx="74" ry="18" fill="none" stroke="#111" stroke-width="10"/>
       <ellipse cx="220" cy="106" rx="70" ry="16" fill="none" stroke="#111" stroke-width="9"/>
-      <!-- right arm (gesture, pivots at shoulder 330,385) -->
       <g id="arm" transform="rotate(0 330 385)">
-        <path d="M312 372 C340 380 360 400 366 430 L376 540 L340 548 L326 450 C320 420 306 400 300 392Z" fill="url(#thobe)" stroke="#DCDAD3" stroke-width="2"/>
+        <path d="M312 372 C340 380 360 400 366 430 L376 540 L340 548 L326 450 C320 420 306 400 300 392Z" fill="url(#thobe)" stroke="#D6D3CA" stroke-width="2"/>
         <g id="forearm" transform="rotate(0 358 540)">
-          <path d="M340 540 L376 538 L380 640 L346 644Z" fill="url(#thobe)" stroke="#DCDAD3" stroke-width="2"/>
+          <path d="M340 540 L376 538 L380 640 L346 644Z" fill="url(#thobe)" stroke="#D6D3CA" stroke-width="2"/>
           <path d="M346 640 C344 664 350 684 362 690 C370 694 384 688 386 670 L384 640Z" fill="#C6936C"/>
           <path d="M372 688 L376 720" stroke="#C6936C" stroke-width="12" stroke-linecap="round"/>
         </g>
@@ -253,46 +253,53 @@ body{font-family:'IBM Plex Sans Arabic',sans-serif;color:var(--ivory)}
   </div>
 
   <!-- ============ SCENE 6: BRAND ============ -->
-  <div class="layer" id="s6" style="background:linear-gradient(180deg,#0E2340,#0A1A31)">
-    <svg class="layer" viewBox="0 0 1080 1920"><rect id="s6frame" x="60" y="60" width="960" height="1800" rx="30" fill="none" stroke="#C2A36B" stroke-width="3"/></svg>
-    <div class="abs" id="logoCard" style="left:90px;right:90px;top:300px;height:400px;border-radius:30px;background:var(--ivory);display:flex;align-items:center;justify-content:center;box-shadow:0 30px 80px rgba(0,0,0,.45)">
+  <div class="layer" id="s6" style="background:radial-gradient(120% 80% at 50% 30%,#FFFDF8,#F1E8D7)">
+    <div class="abs" id="s6photo" style="left:0;top:0;width:1080px;height:860px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%)">
+      <img class="photo" id="s6img" src="assets/building.jpg" style="object-position:50% 20%">
+    </div>
+    <svg class="layer" viewBox="0 0 1080 1920"><rect id="s6frame" x="50" y="50" width="980" height="1820" rx="30" fill="none" stroke="#B08D4F" stroke-width="3"/></svg>
+    <div class="abs" id="logoCard" style="left:90px;right:90px;top:720px;height:330px;border-radius:28px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 30px 70px rgba(14,35,64,.18)">
       <img src="assets/logo.png" style="width:820px">
     </div>
-    <div class="abs h1" id="s6tag" style="top:790px;left:0;right:0;text-align:center;font-size:66px;line-height:1.4">فرص عقارية...<br><span class="gold">وخيارات استثمارية</span></div>
-    <div class="abs" id="s6c1" style="top:1110px;left:0;right:0;text-align:center;font-size:50px;font-weight:600;color:var(--beige)">للتواصل والاستفسار</div>
-    <div class="abs h1" id="s6c2" style="top:1200px;left:0;right:0;text-align:center;font-size:84px">أبو نايف</div>
-    <div class="abs" id="s6c3" style="top:1350px;left:110px;right:110px;height:200px;border-radius:100px;background:var(--gold);display:flex;align-items:center;justify-content:center;gap:30px;color:var(--navy)">
-      <svg width="80" height="80" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z" fill="#0E2340"/></svg>
+    <div class="abs h1" id="s6tag" style="top:1095px;left:0;right:0;text-align:center;font-size:60px;line-height:1.35">فرص عقارية...<br><span class="gold">وخيارات استثمارية</span></div>
+    <div class="abs" id="s6c1" style="top:1290px;left:0;right:0;text-align:center;font-size:48px;font-weight:600;color:var(--muted)">للتواصل والاستفسار</div>
+    <div class="abs h1" id="s6c2" style="top:1360px;left:0;right:0;text-align:center;font-size:84px">أبو نايف</div>
+    <div class="abs" id="s6c3" style="top:1510px;left:110px;right:110px;height:200px;border-radius:100px;background:var(--navy);display:flex;align-items:center;justify-content:center;gap:30px;color:var(--gold2);box-shadow:0 26px 60px rgba(14,35,64,.35);border:3px solid var(--gold2)">
+      <svg width="80" height="80" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z" fill="#E3CB97"/></svg>
       <span class="ltr h1" style="font-size:100px;letter-spacing:2px">0599818181</span>
     </div>
   </div>
 
-  <!-- persistent small brand mark -->
-  <img id="wm" src="assets/mark.png" class="abs" style="top:60px;left:60px;width:110px;padding:12px;background:rgba(248,244,236,.95);border-radius:18px">
-  <div class="abs" id="wmTxt" style="top:84px;left:190px;font-size:30px;font-weight:700;color:var(--beige);letter-spacing:4px;direction:ltr">ALSHAALAN<br><span style="font-size:22px;color:var(--gold)">REAL ESTATE</span></div>
-  <!-- gold flash for transitions -->
-  <div class="layer" id="flash" style="background:linear-gradient(115deg,transparent 30%,rgba(227,203,151,.55) 50%,transparent 70%);opacity:0"></div>
+  <!-- persistent brand mark -->
+  <div class="abs" id="wm" style="top:56px;left:56px;display:flex;align-items:center;gap:18px;direction:ltr">
+    <img src="assets/mark.png" style="width:104px;padding:10px;background:#fff;border-radius:18px;box-shadow:0 8px 24px rgba(14,35,64,.15)">
+    <div style="font-size:30px;font-weight:700;color:var(--navy);letter-spacing:4px;line-height:1.25">ALSHAALAN<br><span style="font-size:22px;color:var(--gold)">REAL ESTATE</span></div>
+  </div>
+  <!-- light sweep for transitions -->
+  <div class="layer" id="flash" style="background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.85) 48%,rgba(227,203,151,.6) 52%,transparent 65%);opacity:0"></div>
 </div>
 
 <script>
 const $ = id => document.getElementById(id);
 const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
 const p=(t,a,d)=>clamp((t-a)/d);
-const eo=x=>1-Math.pow(1-x,3);                 // easeOutCubic
-const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2; // easeInOutCubic
-const eb=x=>{const c1=1.4,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)}; // easeOutBack
+const eo=x=>1-Math.pow(1-x,3);
+const eo5=x=>1-Math.pow(1-x,5);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eb=x=>{const c1=1.4,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const lerp=(a,b,k)=>a+(b-a)*k;
 function show(el,t,a,dur=.5,out=1e9,outDur=.4,dy=40,dx=0){
-  const i=eo(p(t,a,dur)), o=1-eio(p(t,out,outDur));
+  const i=eo5(p(t,a,dur)), o=1-eio(p(t,out,outDur));
   el.style.opacity=i*o; el.style.transform=`translate(${dx*(1-i)}px,${dy*(1-i)}px)`;
   return i*o;
 }
 function draw(path,prog){const L=path.getTotalLength();path.style.strokeDasharray=L;path.style.strokeDashoffset=L*(1-prog);}
 
-// ---- build dynamic pieces
+// ---- dynamic pieces
 const aptRow=$('aptRow');
 for(let i=0;i<5;i++){const b=document.createElement('div');b.className='badge';b.style.right=(i*188)+'px';b.innerHTML=`<b class="ltr">${i+1}</b><s>شقة</s>`;aptRow.appendChild(b);}
 const dots=$('roomDots');
-for(let i=0;i<17;i++){const d=document.createElement('div');d.style.cssText='width:34px;height:34px;border-radius:7px;border:3px solid #C2A36B';dots.appendChild(d);}
+for(let i=0;i<17;i++){const d=document.createElement('div');d.style.cssText='width:34px;height:34px;border-radius:7px;border:3px solid #B08D4F';dots.appendChild(d);}
 const meters=$('meters');
 for(let i=0;i<6;i++){const m=document.createElement('div');m.className='meter';const c=i%3,r=Math.floor(i/3);
   m.style.left=(105+c*300)+'px';m.style.top=(r*340)+'px';
@@ -301,138 +308,150 @@ for(let i=0;i<6;i++){const m=document.createElement('div');m.className='meter';c
   <circle cx="125" cy="210" r="44" fill="none" stroke="#33507E" stroke-width="6"/><path class="bolt" d="M132 172 L104 216 H124 L116 250 L148 202 H128Z" fill="#33507E"/>
   <text x="125" y="290" text-anchor="middle" font-family="IBM Plex Sans Arabic" font-weight="700" font-size="24" fill="#9FB1CC">عداد ${i+1}</text></svg>`;
   meters.appendChild(m);}
+// room markers on the actual plan (pixel positions of the "غرفة" labels in the supplied drawing)
+const ROOMS=[[490,140],[410,300],[410,460],[550,600],[375,655],[460,875],[265,880]];
+const rg=$('rooms');
+ROOMS.forEach(([x,y],i)=>{rg.insertAdjacentHTML('beforeend',
+ `<g class="rm" transform="translate(${x} ${y})"><circle r="78" fill="rgba(176,141,79,.16)" stroke="#B08D4F" stroke-width="6"/>
+  <circle class="rp" r="78" fill="none" stroke="#B08D4F" stroke-width="4"/>
+  <g transform="translate(62 -62)"><circle r="26" fill="#0E2340"/><text y="10" text-anchor="middle" font-family="Alexandria" font-weight="800" font-size="30" fill="#E3CB97">${i+1}</text></g></g>`);});
+const rms=[...rg.querySelectorAll('.rm')];
 
-// ---- master timeline (seconds; VO phrase boundaries measured from the audio)
+// ---- master timeline (VO phrase boundaries measured from the audio)
 const T={ s2:5.6, s3:12.6, s4a:21.1, s4b:25.45, s5:29.9, s6:41.35, end:46.5 };
 
 function render(t){
-  // background grid drift
-  $('grid').style.transform=`translateY(${-t*6%60}px)`;
+  $('grid').style.transform=`translateY(${-(t*6)%60}px)`;
 
-  // ===== Scene 1 =====
-  const s1o=1-eio(p(t,T.s2-.6,.6));
-  $('s1').style.opacity=s1o;
+  // ===== Scene 1 : map =====
+  $('s1').style.opacity=1-eio(p(t,T.s2-.6,.6));
   const z=1+1.3*eio(p(t,2.6,3.0));
-  $('map').style.transform=`scale(${z})`;
+  $('map').style.transform=`scale(${z}) rotate(${-2*eio(p(t,2.6,3))}deg)`;
   draw($('route'),eio(p(t,.2,2.2)));
-  const pinIn=eb(p(t,2.0,.5));
-  $('pin').setAttribute('transform',`translate(600 1010) scale(${pinIn})`);
+  $('pin').setAttribute('transform',`translate(600 1010) scale(${eb(p(t,2.0,.5))})`);
   const pu=(t*1.2)%1; $('pulse').setAttribute('r',20+60*pu); $('pulse').style.opacity=(1-pu)*(t>2?1:0);
   show($('lblAtaif'),t,2.6,.5); show($('lblMaig'),t,3.4,.5);
-  show($('s1head'),t,.15,.7,4.4,.5,50);
-  show($('s1c1'),t,.9,.5,4.6,.4,0,80);
-  show($('s1c2'),t,2.55,.5,4.7,.4,0,80);
-  show($('s1c3'),t,3.35,.5,4.8,.4,0,80);
+  show($('s1head'),t,.15,.8,4.4,.5,60);
+  show($('s1c1'),t,.9,.55,4.6,.4,0,90);
+  show($('s1c2'),t,2.55,.55,4.7,.4,0,90);
+  show($('s1c3'),t,3.35,.55,4.8,.4,0,90);
 
-  // ===== Building frame =====
+  // ===== Building =====
   const bw=$('bwrap');
-  let bOp=0,bScale=1,bY=0, clipP=0;
-  const rev=eio(p(t,4.5,1.3));           // architectural reveal (wipe up)
-  if(t<T.s3){ bOp=rev>0?1:0; clipP=rev; }
-  else if(t<T.s3+.7){ const k=eio(p(t,T.s3,.7)); bOp=1-k; bScale=1-.15*k; clipP=1; }
-  else if(t>=T.s5-.1 && t<T.s6+.2){ // small hero for offers
-    const k=eo(p(t,T.s5-.1,.7)); bOp=k; clipP=1; bScale=.42+.0*k; bY=-430+60*(1-k);
-    const out=eio(p(t,T.s6-.3,.5)); bOp*=1-out;
-  }
+  let bOp=0,bScale=1,bY=0,clipP=0,rotY=0;
+  const rev=eio(p(t,4.5,1.3));
+  if(t<T.s3){ bOp=rev>0?1:0; clipP=rev; bScale=lerp(1.08,1,eo(p(t,4.5,1.6))); }
+  else if(t<T.s3+.7){ const k=eio(p(t,T.s3,.7)); bOp=1-k; bScale=1-.12*k; rotY=-14*k; clipP=1; }
   bw.style.opacity=bOp;
-  bw.style.transform=`translateY(${bY}px) scale(${bScale})`;
-  $('bclip').style.clipPath=`inset(${(1-clipP)*100}% 0 0 0)`;
-  // slow upward camera along facade (scene 2), gentle push in
-  const pan=eio(p(t,4.8,7.8));
-  $('bpan').style.transform=`translateY(${(0.5-pan)*7}%) scale(${1.04+.06*pan})`;
-  const fr=$('bframeRect'); draw(fr, t<T.s5? eio(p(t,5.2,1.6)) : 1);
-  fr.style.opacity = t<T.s5 ? 1 : .0;
+  bw.style.transform=`perspective(2200px) translateY(${bY}px) scale(${bScale}) rotateY(${rotY}deg)`;
+  $('bclip').style.clipPath=`inset(${(1-clipP)*100}% 0 0 0 round 16px)`;
+  // camera: slow tilt-up along the facade + gentle push-in
+  const pan=eio(p(t,4.6,8.0));
+  $('bpan').style.transformOrigin='50% 50%'; $('bpan').style.transform=`translateY(${lerp(-253,0,pan)}px) scale(${1+.05*pan})`;
+  // trace actual windows
+  [...$('wins').children].forEach((w,i)=>{const k=eio(p(t,7.0+i*.22,.7));draw(w,k);
+    const gl=Math.max(0,Math.sin(p(t,8.6+i*.12,1.2)*Math.PI));w.setAttribute('fill',`rgba(227,203,151,${.28*gl})`);});
+  $('bsweep').style.transform=`translateX(${lerp(-260,260,p(t,5.6,1.6))}%)`;
+  ['cTL','cTR','cBR','cBL'].forEach((id,i)=>{draw($(id),eo(p(t,5.4+i*.12,.6)));});
 
   // ===== Scene 2 =====
-  const s2o=(t>=T.s2-.2&&t<T.s3+.6)?1-eio(p(t,T.s3,.5)):0;
-  $('s2').style.opacity=s2o;
-  show($('s2c1'),t,6.3,.55,1e9,.4,0,90);
+  $('s2').style.opacity=(t>=T.s2-.2&&t<T.s3+.6)?1-eio(p(t,T.s3,.5)):0;
+  show($('s2c1'),t,6.3,.6,1e9,.4,0,110);
   draw($('dimLine'),eio(p(t,9.2,.9)));
-  show($('s2c2'),t,9.5,.55,1e9,.4,0,90);
+  show($('s2c2'),t,9.5,.6,1e9,.4,0,110);
   const c3=$('s2c3'); const k3=eb(p(t,10.7,.6)); c3.style.opacity=clamp(k3*2); c3.style.transform=`scale(${.6+.4*k3})`;
 
-  // ===== Scene 3 =====
-  const s3o=eo(p(t,T.s3+.2,.6))*(1-eio(p(t,T.s4a-.3,.5)));
-  $('s3').style.opacity=s3o;
-  $('s3').style.transform=`translateY(${60*(1-eo(p(t,T.s3+.2,.7)))}px)`;
-  draw($('planBorder'),eio(p(t,T.s3+.3,1.2)));
-  $('planSweep').style.transform=`translateX(${-110*eio(p(t,T.s3+.5,1.6))}%)`;
+  // ===== Scene 3 : floor plan (2.5D settle + scan) =====
+  const s3in=eo5(p(t,T.s3+.15,.9));
+  $('s3').style.opacity=eo(p(t,T.s3+.15,.5))*(1-eio(p(t,T.s4a-.3,.5)));
+  $('planCard').style.transform=`rotateX(${22*(1-s3in)}deg) translateY(${120*(1-s3in)}px) scale(${lerp(.9,1,s3in)})`;
+  show($('s3head'),t,T.s3+.2,.6);
+  draw($('planBorder'),eio(p(t,T.s3+.4,1.2)));
+  const sw=eio(p(t,T.s3+.5,1.5));
+  $('planSweep').style.transform=`translateX(${-sw*105}%)`;
+  $('scanLine').style.left=`${lerp(940,-10,sw)}px`; $('scanLine').style.opacity=sw>0&&sw<1?1:0;
+  // slow push-in on the drawing
+  $('planZoom').style.transform=`scale(${1+.07*eio(p(t,T.s3+1,7.5))})`;
+  rms.forEach((r,i)=>{const a=14.2+i*.42;const k=eb(p(t,a,.5));r.style.opacity=clamp(k*2);
+    r.setAttribute('transform',r.getAttribute('transform').replace(/ scale\([^)]*\)/,'')+` scale(${.3+.7*k})`);
+    const pr=p(t,a,.9); const rp=r.querySelector('.rp'); rp.setAttribute('r',78+40*pr); rp.style.opacity=(1-pr)*(pr>0?1:0);});
   [...aptRow.children].forEach((b,i)=>{const k=eb(p(t,13.0+i*.22,.45));b.style.opacity=clamp(k*2);b.style.transform=`scale(${.4+.6*k})`;});
   $('aptN').textContent=Math.round(5*eo(p(t,12.9,1.1)));
   $('roomN').textContent=Math.round(17*eo(p(t,18.0,1.8)));
-  [...dots.children].forEach((d,i)=>{const on=t>=18.0+i*.1;d.style.background=on?'#C2A36B':'transparent';d.style.transform=`scale(${on?1:.8})`;});
+  [...dots.children].forEach((d,i)=>{const on=t>=18.0+i*.1;d.style.background=on?'#B08D4F':'transparent';});
+  show($('s3sub'),t,18.2,.5);
   show($('s3note'),t,14.3,.6,1e9,.4,40);
 
-  // ===== Scene 4a electricity =====
-  const s4ao=eo(p(t,T.s4a,.5))*(1-eio(p(t,T.s4b-.3,.45)));
-  $('s4a').style.opacity=s4ao;
+  // ===== Scene 4a : electricity =====
+  $('s4a').style.opacity=eo(p(t,T.s4a,.5))*(1-eio(p(t,T.s4b-.3,.45)));
   show($('s4head'),t,T.s4a+.1,.5);
-  [...meters.children].forEach((m,i)=>{const a=21.45+i*.28;const k=eb(p(t,a,.45));m.style.opacity=clamp(k*2);m.style.transform=`translateY(${40*(1-k)}px)`;
-    const lit=eo(p(t,a+.2,.3));m.style.borderColor=lit>.5?'#C2A36B':'#33507E';m.style.boxShadow=`0 0 ${50*lit}px rgba(227,203,151,${.45*lit})`;
+  [...meters.children].forEach((m,i)=>{const a=21.45+i*.28;const k=eb(p(t,a,.45));m.style.opacity=clamp(k*2);m.style.transform=`translateY(${50*(1-k)}px) rotateX(${30*(1-k)}deg)`;
+    const lit=eo(p(t,a+.2,.3));m.style.borderColor=lit>.5?'#E3CB97':'#33507E';m.style.boxShadow=`0 20px 40px rgba(14,35,64,.25),0 0 ${46*lit}px rgba(176,141,79,${.55*lit})`;
     m.querySelector('.bolt').setAttribute('fill',lit>.5?'#E3CB97':'#33507E');});
   const amp=eb(p(t,23.45,.6)); $('s4amp').style.opacity=clamp(amp*2); $('s4amp').style.transform=`scale(${.7+.3*amp})`;
 
-  // ===== Scene 4b documents =====
-  const s4bo=eo(p(t,T.s4b,.5))*(1-eio(p(t,T.s5-.3,.45)));
-  $('s4b').style.opacity=s4bo;
-  const pz=eio(p(t,T.s4b,4.4));
-  $('permit').style.transform=`rotate(${-6+4*pz}deg) scale(${.92+.1*pz})`;
-  const ins=eb(p(t,25.75,.6)); $('ins').style.opacity=clamp(ins*2); $('ins').style.transform=`scale(${.5+.5*ins}) rotate(${8*(1-ins)}deg)`;
-  show($('ck1'),t,25.8,.45,1e9,.4,0,80);
-  show($('ck2'),t,26.9,.45,1e9,.4,0,80);
-  show($('ck3'),t,28.55,.45,1e9,.4,0,80);
+  // ===== Scene 4b : permit (redacted) with camera moves =====
+  $('s4b').style.opacity=eo(p(t,T.s4b,.5))*(1-eio(p(t,T.s5-.3,.45)));
+  const pin_=eo5(p(t,T.s4b,.9));
+  $('permit').style.transform=`rotateY(${-25*(1-pin_)}deg) translateX(${120*(1-pin_)}px)`;
+  // overview (z .9) -> focus on building components + land area (z 1.6)
+  const fz=eio(p(t,26.3,1.3));
+  const Z=lerp(.9,1.5,fz), tx=lerp(47,-540,fz), ty=lerp(2,-500,fz);
+  $('permitZoom').style.transform=`translate(${tx}px,${ty}px) scale(${Z})`;
+  const h1=eo(p(t,27.4,.5)); $('hlTable').style.opacity=h1; $('hlTable').style.boxShadow=`0 0 0 2000px rgba(14,35,64,${.35*h1})`;
+  $('hlArea').style.opacity=eo(p(t,27.8,.5));
+  show($('tgUnits'),t,27.6,.5,1e9,.4,30); show($('tgArea'),t,28.0,.5,1e9,.4,30);
+  show($('ck1'),t,25.8,.45,1e9,.4,0,90);
+  show($('ck2'),t,26.9,.45,1e9,.4,0,90);
+  show($('ck3'),t,28.55,.45,1e9,.4,0,90);
   show($('pending'),t,28.9,.6,1e9,.4,40);
   $('clockHand').setAttribute('transform',`rotate(${t*90} 24 24)`);
 
-  // ===== Scene 5 offers =====
-  const s5o=eo(p(t,T.s5,.4))*(1-eio(p(t,T.s6-.3,.5)));
-  $('s5').style.opacity=s5o;
-  show($('s5head'),t,T.s5+.2,.5);
-  [['cd1',30.05],['cd2',34.35],['cd3',37.8]].forEach(([id,a])=>{const k=eo(p(t,a,.6));const e=$(id);e.style.opacity=k;e.style.transform=`translateX(${-160*(1-k)}px)`;});
-  const n1=eo(p(t,30.3,1.4)); $('price1').textContent=Math.round(3500000*n1/1000)*1000>=3500000?'3,500,000':(Math.round(3500000*n1/1000)*1000).toLocaleString('en-US');
+  // ===== Scene 5 : offers =====
+  $('s5').style.opacity=eo(p(t,T.s5,.4))*(1-eio(p(t,T.s6-.3,.5)));
+  const ph5=eo5(p(t,T.s5,.9)); $('s5photo').style.transform=`translateY(${-60*(1-ph5)}px)`; $('s5photo').style.opacity=ph5;
+  $('s5img').style.transform=`scale(${1.05+.12*p(t,T.s5,11.5)})`;
+  show($('s5head'),t,T.s5+.3,.5);
+  [['cd1',30.05],['cd2',34.35],['cd3',37.8]].forEach(([id,a])=>{const k=eo5(p(t,a,.7));const e=$(id);e.style.opacity=k;e.style.transform=`translateX(${-180*(1-k)}px) perspective(1600px) rotateY(${-12*(1-k)}deg)`;});
+  const n1=eo(p(t,30.3,1.4)); $('price1').textContent=(Math.round(3500000*n1/1000)*1000).toLocaleString('en-US');
   const n2=eo(p(t,34.6,1.2)); $('price2').textContent=(Math.round(300000*n2/1000)*1000).toLocaleString('en-US');
   show($('s5note'),t,39.6,.6,1e9,.4,20);
 
   // ===== Consultant =====
   const g=$('guy');
   let gOp=0,gx=0,gs=1,armR=0,foreR=0,bob=Math.sin(t*2.2)*3;
-  if(t>=6.0 && t<T.s4a){ // scenes 2–3
+  if(t>=6.0 && t<T.s4a){
     const k=eo(p(t,6.0,.8)); gOp=k*(1-eio(p(t,T.s4a-.4,.4))); gx=-260*(1-k);
-    // presenting gesture toward building (scene 2) then pointing up at plan (scene 3)
-    if(t<T.s3) { armR=-38*eio(p(t,6.5,.6))+ -6*Math.sin(t*1.6)*(t>7.1?1:0); foreR=-30*eio(p(t,6.6,.6)); }
-    else { const kk=eio(p(t,T.s3+.2,.6)); armR=-38+(-70+38)*kk; foreR=-30+(-20+30)*kk + 4*Math.sin(t*2); }
-  } else if(t>=T.s5+.3 && t<T.s6){ // scene 5 presenter, smaller, left of title area
+    if(t<T.s3){ armR=-38*eio(p(t,6.5,.6))-6*Math.sin(t*1.6)*(t>7.1?1:0); foreR=-30*eio(p(t,6.6,.6)); }
+    else { const kk=eio(p(t,T.s3+.2,.6)); armR=lerp(-38,-70,kk); foreR=lerp(-30,-20,kk)+4*Math.sin(t*2); }
+    if(t>=T.s3) gs=1-.25*eio(p(t,T.s3,.6));
+  } else if(t>=T.s5+.3 && t<T.s6){
     const k=eo(p(t,T.s5+.3,.7)); gOp=k*(1-eio(p(t,T.s6-.35,.35))); gx=-200*(1-k); gs=.62;
-    armR=-55*eio(p(t,T.s5+.6,.6)); foreR=-25*eio(p(t,T.s5+.7,.6)) + 3*Math.sin(t*2);
+    armR=-55*eio(p(t,T.s5+.6,.6)); foreR=-25*eio(p(t,T.s5+.7,.6))+3*Math.sin(t*2);
   }
-  if(t>=T.s3 && t<T.s5){ const kk=eio(p(t,T.s3,.6)); gs=1-.25*kk; }
   g.style.opacity=gOp;
-  if(t>=T.s5) { g.style.top='170px'; g.style.left='-40px'; } else { g.style.top='1060px'; g.style.left='-30px'; }
+  if(t>=T.s5){ g.style.top='170px'; g.style.left='-40px'; g.style.transformOrigin='0 0'; }
+  else { g.style.top='1060px'; g.style.left='-30px'; g.style.transformOrigin='50% 100%'; }
   g.style.transform=`translate(${gx}px,${bob}px) scale(${gs})`;
-  if(t>=T.s5) g.style.transformOrigin='0 0'; else g.style.transformOrigin='50% 100%';
   $('arm').setAttribute('transform',`rotate(${armR} 330 385)`);
   $('forearm').setAttribute('transform',`rotate(${foreR} 358 540)`);
-  // keep consultant away from the scene-5 card column
-  if(t>=T.s5) g.style.zIndex=1;
+  const blink=((t+0.3)%3.7)<0.12; $('eyes').setAttribute('transform',blink?'translate(0 204) scale(1 .15) translate(0 -204)':'');
 
-  // ===== Scene 6 brand =====
+  // ===== Scene 6 : brand =====
   const s6o=eio(p(t,T.s6,.7));
   $('s6').style.opacity=s6o;
+  $('s6img').style.transform=`scale(${lerp(1.35,1.05,eo(p(t,T.s6,5)))})`;   // cinematic zoom-out on the actual building
   draw($('s6frame'),eio(p(t,T.s6+.2,1.4)));
-  const lc=eb(p(t,T.s6+.3,.7)); $('logoCard').style.opacity=clamp(lc*2); $('logoCard').style.transform=`scale(${.8+.2*lc})`;
+  const lc=eb(p(t,T.s6+.3,.7)); $('logoCard').style.opacity=clamp(lc*2); $('logoCard').style.transform=`translateY(${40*(1-lc)}px) scale(${.85+.15*lc})`;
   show($('s6tag'),t,42.3,.6);
   show($('s6c1'),t,43.2,.5);
   show($('s6c2'),t,44.8,.5);
   const ph=eb(p(t,44.0,.6)); $('s6c3').style.opacity=clamp(ph*2); $('s6c3').style.transform=`scale(${.75+.25*ph})`;
 
-  // watermark (hidden on final brand card)
-  const wmo=eo(p(t,.4,.6))*(1-s6o);
-  $('wm').style.opacity=wmo; $('wmTxt').style.opacity=wmo;
+  $('wm').style.opacity=eo(p(t,.4,.6))*(1-s6o);
 
-  // gold light sweep on scene changes
-  let fl=0; [4.6,T.s3,T.s4a,T.s4b,T.s5,T.s6].forEach(c=>{const x=p(t,c-.15,.6); if(x>0&&x<1){fl=Math.max(fl,Math.sin(x*Math.PI));}
-    if(x>0&&x<1) $('flash').style.transform=`translateX(${(-1+2*x)*100}%)`;});
-  $('flash').style.opacity=fl*.8;
+  let fl=0; [4.6,T.s3,T.s4a,T.s4b,T.s5,T.s6].forEach(c=>{const x=p(t,c-.2,.7); if(x>0&&x<1){fl=Math.max(fl,Math.sin(x*Math.PI)); $('flash').style.transform=`translateX(${(-1+2*x)*100}%)`;}});
+  $('flash').style.opacity=fl*.75;
 }
 window.render=render; window.TOTAL=T.end;
 window.ready=document.fonts.ready.then(()=>Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>{i.onload=i.onerror=r;}))));
