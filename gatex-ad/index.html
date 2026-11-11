@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>GATEX Policy Update</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{--blue:#003FCC;--cyan:#01CBFB;--bg:#F4F8FC;--bg2:#E8F4FA;--ink:#263B55;--gray:#E5EDF4;--green:#16A36A}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;color:var(--ink)}
+#stage{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#FFFFFF 0%,#F4F8FC 45%,#E8F4FA 100%)}
+.abs{position:absolute}.layer{position:absolute;inset:0}
+.h1{font-family:'Alexandria','IBM Plex Sans Arabic';font-weight:800;color:var(--blue)}
+.cy{color:var(--cyan)}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.center{left:0;right:0;text-align:center}
+.card{position:absolute;background:#fff;border-radius:28px;box-shadow:0 18px 40px rgba(0,63,204,.10),0 2px 6px rgba(38,59,85,.06);border:1px solid #E1EAF3}
+.chip{position:absolute;right:60px;display:flex;align-items:center;gap:18px;padding:20px 28px;border-radius:22px;background:#fff;box-shadow:0 14px 34px rgba(0,63,204,.12);
+  font-size:36px;font-weight:700;color:var(--ink);white-space:nowrap;border-right:8px solid var(--cyan)}
+.row{position:absolute;left:60px;right:60px;height:192px;display:flex;align-items:center;gap:30px;padding:0 34px}
+.row .num{width:96px;height:96px;border-radius:24px;background:linear-gradient(135deg,var(--cyan),#3FA0FF);color:#fff;font-family:'Alexandria';font-weight:800;font-size:46px;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 10px 22px rgba(1,203,251,.35)}
+.row .nm{flex:1;min-width:0}
+.row .ar{font-size:50px;font-weight:700;color:var(--blue);line-height:1.2;white-space:nowrap}
+.row .en{font-size:32px;font-weight:600;color:#5A6F8A;direction:ltr;text-align:right;margin-top:4px;white-space:nowrap}
+.row .tag{flex:none;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:22px;font-weight:700;color:var(--blue)}
+.row .tag.ok{color:var(--green)}
+.panel{position:absolute;left:60px;right:60px;border-radius:36px;overflow:hidden}
+.hdr{position:absolute;left:60px;right:60px;top:150px;height:220px;border-radius:30px;padding:26px 36px;display:flex;align-items:center;gap:26px}
+.hdr .t{font-family:'Alexandria';font-weight:800;font-size:42px;line-height:1.35}
+.dots{position:absolute;left:0;right:0;top:1770px;display:flex;justify-content:center;gap:16px}
+.dots i{width:16px;height:16px;border-radius:8px;background:#C9D8EA;transition:none}
+</style>
+</head>
+<body>
+<div id="stage">
+  <!-- ambient geometry + clouds -->
+  <svg class="layer" id="geo" viewBox="0 0 1080 1920">
+    <defs>
+      <linearGradient id="gb" x1="0" x2="1"><stop offset="0" stop-color="#01CBFB" stop-opacity=".18"/><stop offset="1" stop-color="#003FCC" stop-opacity=".10"/></linearGradient>
+      <pattern id="dotp" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="2" fill="#003FCC" opacity=".07"/></pattern>
+    </defs>
+    <rect width="1080" height="1920" fill="url(#dotp)"/>
+    <g id="para1"><path d="M-80 260 L460 80 L520 160 L-20 340Z" fill="url(#gb)"/><path d="M700 1780 L1160 1620 L1180 1700 L720 1860Z" fill="url(#gb)"/></g>
+    <g id="clouds" fill="#fff" opacity=".9">
+      <g id="cl1"><ellipse cx="160" cy="520" rx="120" ry="38"/><ellipse cx="220" cy="500" rx="80" ry="44"/></g>
+      <g id="cl2"><ellipse cx="900" cy="1300" rx="140" ry="40"/><ellipse cx="840" cy="1280" rx="80" ry="46"/></g>
+      <g id="cl3"><ellipse cx="860" cy="420" rx="100" ry="30"/><ellipse cx="900" cy="402" rx="60" ry="34"/></g>
+    </g>
+  </svg>
+
+  <!-- flight trail + plane -->
+  <svg class="layer" viewBox="0 0 1080 1920" id="flight">
+    <path id="trail" d="M1180 -60 C 900 200, 300 260, 200 560 S 520 900, 540 880" fill="none" stroke="#01CBFB" stroke-width="8" stroke-linecap="round" opacity=".9"/>
+    <path id="trail2" d="M-120 1500 C 200 1300, 700 1500, 1200 1100" fill="none" stroke="#01CBFB" stroke-width="8" stroke-linecap="round"/>
+    <g id="plane">
+      <g transform="scale(1.1)">
+        <path d="M-70 0 C-70 -9 -60 -12 -40 -12 L50 -12 C66 -12 80 -6 86 0 C80 6 66 12 50 12 L-40 12 C-60 12 -70 9 -70 0Z" fill="#003FCC"/>
+        <path d="M10 -10 L-22 -78 L-6 -78 L40 -10Z" fill="#003FCC"/><path d="M10 10 L-22 78 L-6 78 L40 10Z" fill="#003FCC"/>
+        <path d="M-52 -8 L-70 -36 L-60 -36 L-38 -8Z" fill="#01CBFB"/><path d="M-52 8 L-70 36 L-60 36 L-38 8Z" fill="#01CBFB"/>
+        <path d="M60 -6 C70 -5 78 -3 82 0 C78 3 70 5 60 6Z" fill="#01CBFB"/>
+      </g>
+    </g>
+  </svg>
+
+  <!-- ================= S1 : announcement ================= -->
+  <div class="layer" id="s1">
+    <img id="logo1" src="assets/logo.png" class="abs" style="left:270px;top:110px;width:540px">
+    <div class="abs h1 center" id="h1a" style="top:330px;font-size:66px">إشعار هام <span style="color:var(--ink)">للوكلاء الكرام</span></div>
+    <div class="abs center" id="h1b" style="top:440px;font-size:46px;font-weight:700;color:var(--ink)"><span style="padding:8px 26px;border-radius:16px;background:rgba(1,203,251,.14);color:var(--blue)">تحديث التعاميم المعتمدة</span></div>
+    <!-- boarding pass -->
+    <div class="card" id="bpass" style="left:120px;right:120px;top:560px;height:470px;overflow:hidden">
+      <div class="abs" style="left:0;right:0;top:0;height:120px;background:linear-gradient(90deg,#003FCC,#1A6BFF);display:flex;align-items:center;justify-content:space-between;padding:0 40px">
+        <span class="h1" style="color:#fff;font-size:40px">BOARDING PASS</span><span style="color:#BFF3FF;font-size:30px;font-weight:700">تعميم محدَّث</span></div>
+      <div class="abs" style="left:40px;right:40px;top:160px;display:flex;justify-content:space-between;align-items:center;direction:ltr">
+        <div style="text-align:left"><div class="h1" style="font-size:72px">AGT</div><div style="font-size:26px;color:#5A6F8A;font-weight:600">Travel Agent</div></div>
+        <svg width="240" height="60" viewBox="0 0 240 60"><path id="bpLine" d="M10 40 Q120 -10 230 40" fill="none" stroke="#01CBFB" stroke-width="4" stroke-dasharray="8 8"/><g id="bpPlane" transform="translate(120 16)"><path d="M-14 0 L12 0 M0 -9 L-4 0 L0 9" stroke="#003FCC" stroke-width="4" fill="none" stroke-linecap="round"/></g></svg>
+        <div style="text-align:right"><div class="h1" style="font-size:72px">GTX</div><div style="font-size:26px;color:#5A6F8A;font-weight:600">GATEX</div></div>
+      </div>
+      <div class="abs" style="left:0;right:0;top:330px;border-top:3px dashed #D2DEEB"></div>
+      <div class="abs" style="left:40px;right:40px;top:360px;display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:30px;font-weight:700">الخطابات والتعاميم</div>
+        <svg width="260" height="70" viewBox="0 0 260 70"><g id="barcode"></g></svg>
+      </div>
+    </div>
+    <div class="chip" id="k1" style="top:1080px">تحديثات على التعاميم المعتمدة</div>
+    <div class="chip" id="k2" style="top:1200px">إضافة شركات طيران جديدة</div>
+    <div class="chip" id="k3" style="top:1320px;white-space:normal;width:560px;line-height:1.35">متطلبات خاصة عند طلب الخطابات والتعاميم</div>
+    <div class="chip" id="k4" style="top:1490px">تطوير العمل وتحسين الخدمات</div>
+  </div>
+
+  <!-- ================= S2 : two categories ================= -->
+  <div class="layer" id="s2">
+    <div class="abs h1 center" id="h2" style="top:150px;font-size:70px">فئتان <span style="color:var(--ink)">لشركات الطيران</span></div>
+    <div class="panel" id="p1" style="top:290px;height:470px;background:linear-gradient(135deg,#003FCC,#155BFF);color:#fff;box-shadow:0 30px 60px rgba(0,63,204,.3)">
+      <div class="abs" style="right:44px;top:40px;font-family:Alexandria;font-weight:800;font-size:64px">الفئة الأولى</div>
+      <div class="abs" style="right:44px;top:140px;left:300px;font-size:40px;font-weight:700;line-height:1.45">يشترط وجود تذكرة<br><span style="color:#7FE6FF">ذهاب وعودة مؤكدة</span></div>
+      <div class="abs" style="left:44px;top:50px;width:210px;height:210px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <span class="ltr" style="font-family:Alexandria;font-weight:800;font-size:96px;line-height:1" id="n18">18</span><span style="font-size:28px;font-weight:700">شركة طيران</span></div>
+      <svg class="abs" viewBox="0 0 520 120" style="right:44px;bottom:30px;width:520px;height:120px">
+        <circle cx="30" cy="80" r="16" fill="#01CBFB"/><circle cx="490" cy="80" r="16" fill="#01CBFB"/>
+        <path id="rtGo" d="M46 70 Q260 -10 474 70" fill="none" stroke="#fff" stroke-width="5"/>
+        <path id="rtBack" d="M474 92 Q260 150 46 92" fill="none" stroke="#7FE6FF" stroke-width="5" stroke-dasharray="10 8"/>
+        <path d="M462 58 L476 70 L460 78" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" id="arGo"/>
+        <path d="M60 82 L44 92 L60 104" fill="none" stroke="#7FE6FF" stroke-width="5" stroke-linecap="round" id="arBack"/>
+      </svg>
+    </div>
+    <div class="panel" id="p2" style="top:800px;height:440px;background:linear-gradient(135deg,#E8F4FA,#D5F3FD);border:2px solid #BDEBFA;box-shadow:0 24px 50px rgba(1,203,251,.18)">
+      <div class="abs" style="right:44px;top:40px;font-family:Alexandria;font-weight:800;font-size:64px;color:var(--blue)">الفئة الثانية</div>
+      <div class="abs" style="right:44px;top:140px;left:300px;font-size:40px;font-weight:700;line-height:1.45;color:var(--ink)">يمكن طلب التعاميم<br>والخطابات <span style="color:var(--blue)">كالمعتاد</span></div>
+      <div class="abs" style="left:44px;top:40px;width:210px;height:210px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(1,203,251,.25)">
+        <span class="ltr" style="font-family:Alexandria;font-weight:800;font-size:96px;line-height:1;color:var(--blue)">6</span><span style="font-size:28px;font-weight:700">شركات طيران</span></div>
+      <div class="abs" id="okc" style="left:84px;top:290px;width:110px;height:110px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(22,163,106,.35)">
+        <svg width="64" height="64" viewBox="0 0 24 24"><path id="okPath" d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+  </div>
+
+  <!-- ================= S3 intro ================= -->
+  <div class="layer" id="s3i">
+    <div class="abs" id="badge1" style="right:60px;top:170px;padding:14px 34px;border-radius:40px;background:var(--blue);color:#fff;font-family:Alexandria;font-weight:800;font-size:44px">أولاً</div>
+    <div class="abs h1" id="t3" style="right:60px;left:60px;top:280px;font-size:60px;line-height:1.4">شركات الطيران التي يشترط لها<br><span class="cy" style="color:#00A9DB">تذكرة ذهاب وعودة مؤكدة</span></div>
+    <!-- big round-trip ticket -->
+    <div class="card" id="bigT" style="left:110px;right:110px;top:560px;height:430px;overflow:hidden">
+      <div class="abs" style="right:0;top:0;bottom:0;width:22px;background:linear-gradient(180deg,#01CBFB,#003FCC)"></div>
+      <div class="abs" style="right:60px;top:40px;font-size:34px;font-weight:700;color:#5A6F8A">تذكرة</div>
+      <div class="abs h1" style="right:60px;top:90px;font-size:58px">ذهاب وعودة</div>
+      <svg class="abs" viewBox="0 0 400 200" style="left:40px;top:40px;width:400px;height:200px">
+        <path id="bgGo" d="M30 120 Q200 0 370 120" fill="none" stroke="#003FCC" stroke-width="6"/>
+        <path id="bgBack" d="M370 150 Q200 230 30 150" fill="none" stroke="#01CBFB" stroke-width="6" stroke-dasharray="12 10"/>
+        <circle cx="30" cy="135" r="16" fill="#003FCC"/><circle cx="370" cy="135" r="16" fill="#003FCC"/>
+        <g id="bgPlane"><path d="M-16 0 L14 0 M0 -10 L-5 0 L0 10" stroke="#003FCC" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+      </svg>
+      <div class="abs" style="left:0;right:0;top:270px;border-top:3px dashed #D2DEEB"></div>
+      <div class="abs" id="stampOK" style="left:60px;top:300px;padding:16px 30px;border-radius:18px;border:5px solid var(--green);color:var(--green);font-family:Alexandria;font-weight:800;font-size:48px;transform:rotate(-6deg)">✓ مؤكدة</div>
+      <div class="abs" style="right:60px;top:310px;display:flex;align-items:baseline;gap:14px"><span class="h1 ltr" style="font-size:80px" id="cnt18">0</span><span style="font-size:36px;font-weight:700">شركة طيران</span></div>
+    </div>
+    <div class="abs" id="t3b" style="right:60px;left:460px;top:1060px;font-size:38px;font-weight:600;line-height:1.5">قبل تقديم طلب <b style="color:var(--blue)">الخطاب أو التعميم</b></div>
+  </div>
+
+  <!-- ================= list screens ================= -->
+  <div class="layer" id="lists">
+    <div class="hdr" id="lh" style="background:linear-gradient(135deg,#003FCC,#1560FF);color:#fff;box-shadow:0 24px 50px rgba(0,63,204,.28)">
+      <div style="flex:none;width:130px;height:130px;border-radius:30px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center" id="lhIcon"></div>
+      <div class="t" id="lhT"></div>
+    </div>
+    <div id="rows"></div>
+    <div class="dots" id="dots"><i></i><i></i><i></i></div>
+  </div>
+
+  <div class="layer" id="c2i">
+    <div class="card" style="left:190px;right:190px;top:560px;height:640px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px">
+      <div id="c2doc" style="position:relative;width:250px;height:300px">
+        <svg width="250" height="300" viewBox="0 0 250 300"><rect x="10" y="10" width="200" height="270" rx="20" fill="#fff" stroke="#003FCC" stroke-width="6"/><path d="M45 70h130M45 110h130M45 150h100M45 190h130" stroke="#C9D8EA" stroke-width="12" stroke-linecap="round"/></svg>
+        <div id="c2ok" style="position:absolute;right:-10px;bottom:-10px;width:120px;height:120px;border-radius:50%;background:#16A36A;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(22,163,106,.4)"><svg width="70" height="70" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span class="h1 ltr" style="font-size:110px">6</span><span style="font-size:44px;font-weight:700">شركات طيران</span></div>
+      <div style="font-size:38px;font-weight:700;color:#5A6F8A">الطلب <span style="color:#003FCC">كالمعتاد</span></div>
+    </div>
+  </div>
+
+  <!-- ================= S5 notice ================= -->
+  <div class="layer" id="s5">
+    <div class="abs" id="nt" style="right:60px;top:150px;display:flex;align-items:center;gap:22px">
+      <div style="width:100px;height:100px;border-radius:28px;background:linear-gradient(135deg,#01CBFB,#003FCC);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(0,63,204,.3)">
+        <svg width="60" height="60" viewBox="0 0 24 24"><path d="M12 3 L22 20 H2Z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 9v5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="17" r="1.4" fill="#fff"/></svg></div>
+      <div class="h1" style="font-size:80px">تنويه هام</div>
+    </div>
+    <!-- ticket <-> document illustration -->
+    <div class="abs" id="illu" style="left:60px;right:60px;top:300px;height:400px">
+      <div class="card" id="miniT" style="right:0;top:40px;width:400px;height:250px;overflow:hidden">
+        <div class="abs" style="right:0;top:0;bottom:0;width:18px;background:linear-gradient(180deg,#01CBFB,#003FCC)"></div>
+        <div class="abs h1" style="right:44px;top:34px;font-size:42px">ذهاب وعودة</div>
+        <div class="abs" style="right:44px;top:100px;font-size:28px;font-weight:700;color:#5A6F8A">تذكرة مؤكدة</div>
+        <svg class="abs" viewBox="0 0 300 80" style="left:30px;bottom:24px;width:300px;height:80px"><path d="M20 60 Q150 -10 280 60" fill="none" stroke="#003FCC" stroke-width="5"/><path d="M280 70 Q150 110 20 70" fill="none" stroke="#01CBFB" stroke-width="5" stroke-dasharray="10 8"/></svg>
+      </div>
+      <div class="card" id="miniD" style="left:0;top:0;width:290px;height:350px">
+        <div class="abs" style="left:34px;right:34px;top:40px;height:22px;border-radius:11px;background:#003FCC"></div>
+        <div class="abs" style="left:34px;right:80px;top:90px;height:14px;border-radius:7px;background:var(--gray)"></div>
+        <div class="abs" style="left:34px;right:34px;top:124px;height:14px;border-radius:7px;background:var(--gray)"></div>
+        <div class="abs" style="left:34px;right:110px;top:158px;height:14px;border-radius:7px;background:var(--gray)"></div>
+        <div class="abs" style="left:34px;right:34px;top:192px;height:14px;border-radius:7px;background:var(--gray)"></div>
+        <div class="abs" style="left:34px;bottom:30px;font-size:26px;font-weight:700;color:var(--blue)">خطاب / تعميم</div>
+      </div>
+      <svg class="abs" viewBox="0 0 960 400" style="inset:0;width:960px;height:400px;overflow:visible">
+        <path id="link" d="M560 165 C 470 165, 420 175, 300 175" fill="none" stroke="#01CBFB" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <div class="abs" id="bigCheck" style="left:400px;top:110px;width:140px;height:140px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 36px rgba(22,163,106,.4)">
+        <svg width="84" height="84" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+    <div class="card" id="m1" style="left:60px;right:60px;top:740px;padding:40px 44px;border:3px solid var(--blue);border-right-width:16px">
+      <div style="font-size:46px;font-weight:700;line-height:1.55;color:var(--ink)">تأكد من وجود <span style="color:var(--blue)">تذكرة ذهاب وعودة مؤكدة</span> قبل طلب الخطاب أو التعميم <span style="color:var(--blue)">لشركات القائمة الأولى.</span></div>
+    </div>
+    <div class="abs" id="m2" style="left:60px;right:60px;top:1150px;padding:22px 34px;border-radius:22px;background:rgba(1,203,251,.13);font-size:38px;font-weight:700;color:var(--ink);display:flex;gap:18px;align-items:center">
+      <svg width="48" height="48" viewBox="0 0 24 24" style="flex:none"><circle cx="12" cy="12" r="10" fill="none" stroke="#003FCC" stroke-width="2"/><path d="M12 7v6" stroke="#003FCC" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1.3" fill="#003FCC"/></svg>
+      لتجنب رفض الطلب أو تأخير إنجاز المعاملة.</div>
+    <div class="card" id="m3" style="left:60px;right:60px;top:1310px;padding:34px 44px;background:linear-gradient(135deg,#FFFFFF,#EEF7FC)">
+      <div style="display:flex;gap:22px;align-items:center;font-size:40px;font-weight:700;line-height:1.5"><span style="flex:none;width:64px;height:64px;border-radius:18px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Alexandria;font-size:32px">✓</span>
+      <span>يرجى الالتزام بالشروط والإجراءات المعتمدة لكل شركة طيران.</span></div>
+    </div>
+    <div class="abs" id="m4" style="left:60px;right:60px;top:1540px;display:flex;gap:22px;align-items:center;font-size:38px;font-weight:700;padding:0 44px">
+      <span style="flex:none;width:64px;height:64px;border-radius:18px;background:var(--cyan);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Alexandria;font-size:32px">✓</span>
+      <span>التأكد من استيفاء المتطلبات قبل إرسال الطلب.</span></div>
+  </div>
+
+  <!-- ================= S6 brand ================= -->
+  <div class="layer" id="s6">
+    <img id="logo6" src="assets/logo.png" class="abs" style="left:110px;top:640px;width:860px">
+    <div class="abs h1 center" id="f1" style="top:1010px;font-size:72px">شركة جيت إكس</div>
+    <div class="abs center" id="f2" style="top:1120px;font-size:44px;font-weight:600;color:var(--ink)">شكراً لثقتكم وتعاونكم الدائم</div>
+  </div>
+
+  <!-- ================= presenter ================= -->
+  <div class="abs" id="guy" style="left:-20px;top:1080px;width:440px;height:860px;transform-origin:50% 100%;filter:drop-shadow(0 20px 26px rgba(0,63,204,.18))">
+    <svg viewBox="0 0 440 860" width="440" height="860">
+      <defs><linearGradient id="suit" x1="0" x2="1"><stop offset="0" stop-color="#22385C"/><stop offset=".5" stop-color="#2E4A75"/><stop offset="1" stop-color="#22385C"/></linearGradient></defs>
+      <!-- jacket -->
+      <path d="M88 400 C104 336 156 316 220 314 C284 316 336 336 352 400 L372 860 H68Z" fill="url(#suit)"/>
+      <!-- shirt + tie -->
+      <path d="M182 318 L220 420 L258 318Z" fill="#FFFFFF"/>
+      <path d="M210 330 L230 330 L236 350 L226 360 L240 520 L220 545 L200 520 L214 360 L204 350Z" fill="#003FCC"/>
+      <path d="M212 332 L228 332 L232 346 L208 346Z" fill="#01CBFB"/>
+      <!-- lapels -->
+      <path d="M182 318 L150 340 L196 470 L220 420Z" fill="#1B2E4D"/><path d="M258 318 L290 340 L244 470 L220 420Z" fill="#1B2E4D"/>
+      <path d="M280 360 l24 4" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="220" cy="590" r="7" fill="#15243D"/><circle cx="220" cy="660" r="7" fill="#15243D"/>
+      <!-- left arm -->
+      <path d="M100 392 C78 480 76 570 88 650 L132 650 C128 570 134 488 146 430Z" fill="url(#suit)"/>
+      <rect x="86" y="644" width="48" height="16" rx="5" fill="#fff"/>
+      <ellipse cx="110" cy="676" rx="22" ry="25" fill="#C99A72"/>
+      <!-- neck/head -->
+      <path d="M196 268 h48 v52 c-10 12 -38 12 -48 0z" fill="#B98762"/>
+      <ellipse cx="154" cy="214" rx="12" ry="20" fill="#C08E66"/><ellipse cx="286" cy="214" rx="12" ry="20" fill="#C08E66"/>
+      <ellipse cx="220" cy="208" rx="66" ry="80" fill="#C99A72"/>
+      <path d="M156 196 C150 120 190 104 222 104 C262 104 292 124 286 196 C280 160 262 144 220 146 C182 146 162 160 156 196Z" fill="#1E1714"/>
+      <path d="M156 214 C162 290 196 300 220 300 C244 300 278 290 284 214 C274 250 254 262 220 262 C186 262 166 250 156 214Z" fill="#2B211C"/>
+      <path d="M196 252 C206 246 234 246 244 252 C234 258 206 258 196 252Z" fill="#2B211C"/>
+      <path d="M200 268 Q220 277 240 268" stroke="#8B5A45" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <g id="eyes"><ellipse cx="196" cy="204" rx="7" ry="8" fill="#22191A"/><ellipse cx="244" cy="204" rx="7" ry="8" fill="#22191A"/></g>
+      <path d="M180 184 Q196 176 210 184 M230 184 Q244 176 260 184" stroke="#2B211C" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M220 206 L214 236 Q220 240 228 236" stroke="#A9775A" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- right arm gesture -->
+      <g id="arm" transform="rotate(0 330 395)">
+        <path d="M314 380 C342 388 362 410 368 440 L378 550 L340 558 L326 460 C320 430 306 410 300 400Z" fill="url(#suit)"/>
+        <g id="forearm" transform="rotate(0 358 550)">
+          <path d="M340 550 L378 548 L382 650 L346 654Z" fill="url(#suit)"/>
+          <rect x="344" y="644" width="40" height="16" rx="5" fill="#fff" transform="rotate(-2 364 652)"/>
+          <path d="M346 656 C344 680 350 700 362 706 C370 710 384 704 386 686 L384 656Z" fill="#C6936C"/>
+          <path d="M372 704 L376 736" stroke="#C6936C" stroke-width="12" stroke-linecap="round"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="layer" id="sweep" style="background:linear-gradient(115deg,transparent 38%,rgba(1,203,251,.25) 48%,rgba(255,255,255,.9) 50%,rgba(1,203,251,.25) 52%,transparent 62%);opacity:0"></div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const p=(t,a,d)=>clamp((t-a)/d);
+const eo=x=>1-Math.pow(1-x,3), eo5=x=>1-Math.pow(1-x,5);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eb=x=>{const c1=1.4,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const lerp=(a,b,k)=>a+(b-a)*k;
+function show(el,t,a,dur=.6,out=1e9,outDur=.45,dy=40,dx=0,sc=0){const i=eo5(p(t,a,dur)),o=1-eio(p(t,out,outDur));
+  el.style.opacity=i*o; el.style.transform=`translate(${dx*(1-i)}px,${dy*(1-i)}px) scale(${1-sc*(1-i)})`; return i*o;}
+function pop(el,t,a,dur=.6,out=1e9,outDur=.4,from=.6){const k=eb(p(t,a,dur)),o=1-eio(p(t,out,outDur));el.style.opacity=clamp(k*2)*o;el.style.transform=`scale(${from+(1-from)*k})`;}
+function draw(path,k){const L=path.getTotalLength();path.style.strokeDasharray=L;path.style.strokeDashoffset=L*(1-k);}
+function along(path,k){const L=path.getTotalLength(),a=path.getPointAtLength(L*k),b=path.getPointAtLength(Math.min(L,L*k+1));return[a.x,a.y,Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI];}
+
+// barcode
+let bc='';for(let i=0;i<46;i++){const w=[2,3,5][(i*7)%3];bc+=`<rect x="${i*5.6}" y="0" width="${w}" height="70" fill="#263B55"/>`;}$('barcode').innerHTML=bc;
+
+// ---------------- airline data (order exactly as supplied) ----------------
+const A1=[['الخطوط الجوية القطرية','Qatar Airways'],['طيران الإمارات','Emirates'],['طيران الاتحاد','Etihad Airways'],['الخطوط الجوية التركية','Turkish Airlines'],['طيران ناس','Flynas'],['الخطوط السعودية','Saudia'],
+['طيران الشرق الأوسط','Middle East Airlines — MEA'],['الخطوط التونسية','Tunisair'],['الخطوط الملكية المغربية','Royal Air Maroc'],['الخطوط الجوية الكويتية','Kuwait Airways'],['طيران الجزيرة','Jazeera Airways'],['الطيران العُماني','Oman Air'],
+['الخطوط الجوية الإثيوبية','Ethiopian Airlines'],['الخطوط الجوية العراقية','Iraqi Airways'],['طيران بدر','Badr Airlines'],['طيران تاركو','Tarco Aviation'],['العربية للطيران','Air Arabia'],['طيران AJet','AJet']];
+const A2=[['إير كايرو','Air Cairo'],['نايل إير','Nile Air'],['مصر للطيران','EgyptAir'],['فلاي أديل','Flyadeal'],['نسما للطيران','Nesma Airlines'],['الخطوط الجوية الملكية الأردنية','Royal Jordanian Airlines']];
+// row reveal times, aligned to the narration
+const R1=[42.0,44.0,45.4,46.9,48.6,49.9, 51.2,52.6,54.1,56.1,58.1,59.4, 60.8,62.8,64.8,65.9,67.2,68.8];
+const R2=[78.8,79.7,80.7,82.0,83.1,84.6];
+const SCR=[[41.6,50.9],[50.9,60.7],[60.7,72.0],[72.0,87.0]]; // screen windows
+
+const TK=`<svg width="64" height="44" viewBox="0 0 64 44"><path d="M4 8a4 4 0 014-4h48a4 4 0 014 4v8a6 6 0 000 12v8a4 4 0 01-4 4H8a4 4 0 01-4-4v-8a6 6 0 000-12z" fill="#E8F4FA" stroke="#003FCC" stroke-width="3"/><path d="M18 18h22l-5-5M46 27H24l5 5" stroke="#003FCC" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const OK=`<svg width="56" height="56" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#16A36A"/><path d="M6.5 12.5l3.5 3.5L17.5 8.5" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const rowsEl=$('rows');
+function mkRow(n,ar,en,cat){return `<div class="row card"><div class="num ltr">${String(n).padStart(2,'0')}</div><div class="nm"><div class="ar">${ar}</div><div class="en">${en}</div></div>
+ <div class="tag ${cat==2?'ok':''}">${cat==1?TK+'<span>ذهاب وعودة</span>':OK+'<span>كالمعتاد</span>'}</div></div>`;}
+A1.forEach((a,i)=>rowsEl.insertAdjacentHTML('beforeend',mkRow(i+1,a[0],a[1],1)));
+A2.forEach((a,i)=>rowsEl.insertAdjacentHTML('beforeend',mkRow(i+1,a[0],a[1],2)));
+const rows=[...rowsEl.children];
+rows.forEach((r,i)=>{const k=i<18?i%6:i-18; r.style.top=(420+k*218)+'px';});
+const dots=[...$('dots').children];
+const HDR1=`<span style="font-size:30px;opacity:.85">الفئة الأولى</span><br>تذكرة <span style="color:#7FE6FF">ذهاب وعودة مؤكدة</span> قبل طلب الخطاب أو التعميم`;
+const HDR2=`<span style="font-size:30px;color:#5A6F8A">ثانياً — الفئة الثانية</span><br>يمكن طلب التعاميم والخطابات لها <span style="color:#003FCC">كالمعتاد</span>`;
+const IC1=`<svg width="90" height="70" viewBox="0 0 64 44">${TK.replace(/<\/?svg[^>]*>/g,'').replace('#E8F4FA','rgba(255,255,255,.15)').replace(/#003FCC/g,'#fff')}</svg>`;
+const IC2=`<svg width="86" height="86" viewBox="0 0 24 24"><rect x="4" y="2" width="14" height="19" rx="2" fill="#fff" stroke="#003FCC" stroke-width="1.4"/><path d="M7 7h8M7 10h8M7 13h5" stroke="#9FB4CC" stroke-width="1.2"/><circle cx="17" cy="17" r="5" fill="#16A36A"/><path d="M14.6 17.1l1.6 1.6 3-3.2" stroke="#fff" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>`;
+
+const T={s2:21.2,s3:31.0,l:41.5,s4:72.0,s5:87.0,s6:109.6,end:119.0};
+
+function render(t){
+  // ambient parallax
+  $('cl1').setAttribute('transform',`translate(${(t*9)%1400-200} 0)`);
+  $('cl2').setAttribute('transform',`translate(${-((t*7)%1500)+300} 0)`);
+  $('cl3').setAttribute('transform',`translate(${-((t*5)%1400)+200} ${Math.sin(t*.4)*10})`);
+  $('para1').setAttribute('transform',`translate(${Math.sin(t*.2)*30} ${Math.cos(t*.15)*20})`);
+
+  // ===== flight / trail =====
+  const tr=$('trail'), tr2=$('trail2'), pl=$('plane');
+  let pk=-1;
+  const f1=eio(p(t,.1,2.6)); draw(tr,f1); tr.style.opacity=1-eio(p(t,2.8,.8));
+  if(t<3.2){pk=f1; const [x,y,a]=along(tr,f1); pl.setAttribute('transform',`translate(${x} ${y}) rotate(${a}) scale(${lerp(1.3,.6,f1)})`); pl.style.opacity=1-eio(p(t,2.6,.5));}
+  const f2=eio(p(t,T.s6,2.2)); draw(tr2,f2); tr2.style.opacity=t>T.s6?(1-eio(p(t,T.s6+2.0,.8))):0;
+  if(t>=T.s6 && t<T.s6+2.6){const [x,y,a]=along(tr2,f2); pl.setAttribute('transform',`translate(${x} ${y}) rotate(${a}) scale(1)`); pl.style.opacity=1-eio(p(t,T.s6+2.0,.5));}
+  else if(t>=3.2) pl.style.opacity=0;
+
+  // ===== S1 =====
+  const s1=1-eio(p(t,T.s2-.5,.6)); $('s1').style.opacity=s1;
+  pop($('logo1'),t,1.2,.8,1e9,.4,.7);
+  show($('h1a'),t,.5,.7,1e9,.4,50);
+  show($('h1b'),t,4.0,.6,1e9,.4,30);
+  const bp=eo5(p(t,2.6,1.0)); $('bpass').style.opacity=bp; $('bpass').style.transform=`perspective(1600px) rotateX(${30*(1-bp)}deg) translateY(${60*(1-bp)}px) scale(${lerp(.85,1,bp)})`;
+  const bpk=(t*.25)%1; $('bpPlane').setAttribute('transform',`translate(${lerp(20,220,bpk)} ${40-60*bpk*(1-bpk)*1.4}) `);
+  [['k1',4.2],['k2',8.7],['k3',12.5],['k4',17.0]].forEach(([id,a])=>show($(id),t,a,.6,1e9,.4,0,90));
+
+  // ===== S2 =====
+  const s2=eio(p(t,T.s2-.2,.6))*(1-eio(p(t,T.s3-.4,.5))); $('s2').style.opacity=s2;
+  show($('h2'),t,T.s2,.6,1e9,.4,40);
+  const p1=eo5(p(t,21.6,.9)); $('p1').style.transform=`perspective(1800px) rotateX(${-25*(1-p1)}deg) translateY(${80*(1-p1)}px)`; $('p1').style.opacity=p1;
+  const p2=eo5(p(t,23.7,.9)); $('p2').style.transform=`perspective(1800px) rotateX(${25*(1-p2)}deg) translateY(${80*(1-p2)}px)`; $('p2').style.opacity=p2;
+  draw($('rtGo'),eio(p(t,22.4,1))); draw($('rtBack'),eio(p(t,23.2,1))); $('arGo').style.opacity=t>23.3?1:0; $('arBack').style.opacity=t>24.1?1:0;
+  pop($('okc'),t,24.6,.6); draw($('okPath'),eio(p(t,24.8,.5)));
+
+  // ===== S3 intro =====
+  const s3=eio(p(t,T.s3-.2,.6))*(1-eio(p(t,T.l-.3,.5))); $('s3i').style.opacity=s3;
+  pop($('badge1'),t,T.s3,.5);
+  show($('t3'),t,T.s3+.25,.7,1e9,.4,40);
+  const bt=eo5(p(t,32.0,1)); $('bigT').style.opacity=bt; $('bigT').style.transform=`perspective(1600px) rotateY(${-20*(1-bt)}deg) scale(${lerp(.85,1,bt)})`;
+  draw($('bgGo'),eio(p(t,32.6,1.2))); draw($('bgBack'),eio(p(t,33.6,1.2)));
+  const gp=$('bgGo'); if(t<34){const [x,y,a]=along(gp,eio(p(t,32.6,1.2)));$('bgPlane').setAttribute('transform',`translate(${x} ${y}) rotate(${a})`);}else{const bb=$('bgBack');const [x,y,a]=along(bb,eio(p(t,33.6,1.2)));$('bgPlane').setAttribute('transform',`translate(${x} ${y}) rotate(${a})`);}
+  $('cnt18').textContent=Math.round(18*eo(p(t,31.4,2.0)));
+  const st=eb(p(t,39.0,.5)); $('stampOK').style.opacity=clamp(st*2); $('stampOK').style.transform=`rotate(-6deg) scale(${lerp(1.8,1,st)})`;
+  show($('t3b'),t,35.2,.6,1e9,.4,30);
+
+  // ===== list screens =====
+  const lv=eio(p(t,T.l-.1,.5))*(1-eio(p(t,T.s5-.4,.5))); $('lists').style.opacity=lv;
+  const cat2=t>=T.s4-.25;
+  const lh=$('lh');
+  if(cat2){ lh.style.background='linear-gradient(135deg,#FFFFFF,#E3F7FE)'; lh.style.color='#263B55'; lh.style.border='2px solid #BDEBFA'; $('lhT').innerHTML=HDR2; $('lhIcon').innerHTML=IC2; $('lhIcon').style.background='#E8F4FA'; }
+  else { lh.style.background='linear-gradient(135deg,#003FCC,#1560FF)'; lh.style.color='#fff'; lh.style.border='none'; $('lhT').innerHTML=HDR1; $('lhIcon').innerHTML=IC1; $('lhIcon').style.background='rgba(255,255,255,.14)'; }
+  const hk=cat2?eo5(p(t,T.s4,.8)):eo5(p(t,T.l,.8)); lh.style.transform=`translateY(${-60*(1-hk)}px) rotateX(${-20*(1-hk)}deg)`; lh.style.opacity=hk*(cat2?1:1-eio(p(t,T.s4-.5,.3)));
+  rows.forEach((r,i)=>{
+    const scr=i<18?Math.floor(i/6):3, [a,b]=SCR[scr], rt=i<18?R1[i]:R2[i-18];
+    const inn=eo5(p(t,rt-.25,.7)); const out=eio(p(t,b-.35,.4));
+    const vis=t>=a-.5 && t<b+.2;
+    r.style.display=vis?'flex':'none';
+    if(vis){ r.style.opacity=inn*(1-out); r.style.transform=`translateX(${(1-inn)*-140 + out*160}px) perspective(1600px) rotateY(${-14*(1-inn)}deg)`;
+      const fresh=1-p(t,rt+.2,1.2); r.style.boxShadow=`0 18px 40px rgba(0,63,204,.10), 0 0 0 ${4*fresh*(inn>0?1:0)}px rgba(1,203,251,${.8*fresh})`; }
+  });
+  const scrNow=t<SCR[0][1]?0:t<SCR[1][1]?1:t<SCR[2][1]?2:-1;
+  $('dots').style.opacity=(t<T.s4-.3?1:0)*lv;
+  dots.forEach((d,i)=>{d.style.width=(i===scrNow?48:16)+'px'; d.style.background=i===scrNow?'#003FCC':'#C9D8EA';});
+
+  { const ci=eo5(p(t,T.s4+.5,.8))*(1-eio(p(t,78.3,.4))); $('c2i').style.opacity=ci; $('c2i').style.transform=`translateY(${50*(1-eo5(p(t,T.s4+.5,.8)))}px) scale(${lerp(1,.9,eio(p(t,78.3,.4)))})`;
+    const ok=eb(p(t,74.6,.6)); $('c2ok').style.transform=`scale(${ok})`; }
+  // ===== S5 notice =====
+  const s5=eio(p(t,T.s5-.2,.6))*(1-eio(p(t,T.s6-.4,.5))); $('s5').style.opacity=s5;
+  show($('nt'),t,T.s5+.1,.6,1e9,.4,30,0,.2);
+  const mt=eo5(p(t,87.6,.8)); $('miniT').style.opacity=mt; $('miniT').style.transform=`translateX(${-120*(1-mt)}px) rotate(${lerp(-6,2,mt)}deg)`;
+  const md=eo5(p(t,87.9,.8)); $('miniD').style.opacity=md; $('miniD').style.transform=`translateX(${120*(1-md)}px) rotate(${lerp(6,-2,md)}deg)`;
+  draw($('link'),eio(p(t,88.6,.8)));
+  pop($('bigCheck'),t,89.3,.6,1e9,.4,.3);
+  const m1=eo5(p(t,89.6,.8)); $('m1').style.opacity=m1; $('m1').style.transform=`translateY(${50*(1-m1)}px)`;
+  show($('m2'),t,97.7,.6,1e9,.4,30);
+  show($('m3'),t,101.6,.6,1e9,.4,40);
+  show($('m4'),t,106.3,.6,1e9,.4,30);
+
+  // ===== S6 =====
+  const s6=eio(p(t,T.s6+.6,.6)); $('s6').style.opacity=s6;
+  const lg=eb(p(t,T.s6+1.6,.9)); $('logo6').style.opacity=clamp(lg*2); $('logo6').style.transform=`scale(${.7+.3*lg})`;
+  show($('f1'),t,T.s6+2.4,.6,1e9,.4,30);
+  show($('f2'),t,T.s6+3.0,.6,1e9,.4,30);
+
+  // ===== presenter =====
+  const g=$('guy'); let go=0,gx=0,gs=1,armR=0,foreR=0,top=1080,left=-20;
+  const bob=Math.sin(t*2)*3;
+  if(t>=3.3 && t<T.s3-.3){ const k=eo(p(t,3.3,.8)); go=k*(1-eio(p(t,T.s3-.7,.4))); gx=-260*(1-k);
+    const k2=eio(p(t,T.s2,.6)); // scene 1: presenting chips; scene 2: pointing up at panels
+    armR=lerp(-36,-72,k2)*eio(p(t,3.7,.6)) - 5*Math.sin(t*1.5); foreR=lerp(-28,-18,k2)*eio(p(t,3.8,.6));
+    if(t>=T.s2){ top=lerp(1080,1220,k2); gs=lerp(1,.82,k2);} }
+  else if(t>=T.s3 && t<T.l){ const k=eo(p(t,T.s3+.4,.8)); go=k*(1-eio(p(t,T.l-.5,.4))); gx=-240*(1-k); top=1080; gs=.95;
+    armR=-50*eio(p(t,T.s3+.7,.6))-4*Math.sin(t*1.7); foreR=-35*eio(p(t,T.s3+.8,.6)); }
+  g.style.opacity=go; g.style.top=top+'px'; g.style.left=left+'px';
+  g.style.transform=`translate(${gx}px,${bob}px) scale(${gs})`;
+  $('arm').setAttribute('transform',`rotate(${armR} 330 395)`); $('forearm').setAttribute('transform',`rotate(${foreR} 358 550)`);
+  $('eyes').setAttribute('transform',((t+.4)%3.9)<.12?'translate(0 204) scale(1 .15) translate(0 -204)':'');
+
+  // transition sweeps
+  let fl=0;[T.s2,T.s3,T.l,SCR[0][1],SCR[1][1],T.s4,T.s5,T.s6].forEach(c=>{const x=p(t,c-.25,.75); if(x>0&&x<1){fl=Math.max(fl,Math.sin(x*Math.PI)); $('sweep').style.transform=`translateX(${(-1+2*x)*100}%)`;}});
+  $('sweep').style.opacity=fl*.8;
+}
+window.render=render; window.TOTAL=T.end;
+window.ready=document.fonts.ready.then(()=>Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>{i.onload=i.onerror=r;}))));
+const q=new URLSearchParams(location.search); render(parseFloat(q.get('t')||'0'));
+</script>
+</body>
+</html>
