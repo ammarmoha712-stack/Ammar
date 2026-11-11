@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Sawahel Launch Ad</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{ --em:#075B49; --forest:#064638; --deep:#04362B; --gold:#D8B46F; --gold2:#F0D9A6; --goldD:#B8924A; --ivory:#F8FAF6; --sage:#E6EFE8; --ink:#0E3B30; }
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--forest)}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;color:#fff}
+#stage{position:absolute;inset:0;overflow:hidden;background:radial-gradient(110% 70% at 60% 25%,#0B7A61 0%,#075B49 40%,#064638 75%,#04362B 100%)}
+.abs{position:absolute}
+.layer{position:absolute;inset:0}
+.h1{font-family:'Alexandria','IBM Plex Sans Arabic';font-weight:800}
+.gold{color:var(--gold)}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.center{left:0;right:0;text-align:center}
+/* phone */
+#phone{position:absolute;width:676px;height:1336px;border-radius:78px;background:linear-gradient(145deg,#1d2b27,#070d0b);padding:18px;
+  box-shadow:0 60px 120px rgba(0,0,0,.45),0 0 0 2px #2c3d38 inset;transform-style:preserve-3d}
+#screen{position:relative;width:640px;height:1300px;border-radius:62px;overflow:hidden;background:#fff}
+#bbar{position:absolute;left:0;right:0;top:0;height:120px;background:#F4F6F3;border-bottom:1px solid #E2E8E3;z-index:5}
+#bbar .url{position:absolute;left:30px;right:30px;top:52px;height:52px;border-radius:26px;background:#E6ECE7;display:flex;align-items:center;justify-content:center;gap:12px;
+  color:#24453B;font-size:26px;font-weight:600;direction:ltr;font-family:'IBM Plex Sans Arabic'}
+#notch{position:absolute;left:50%;top:14px;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:#0b1411;z-index:6}
+#vp{position:absolute;left:0;top:120px;width:640px;height:1180px;overflow:hidden;background:#fff}
+.page{position:absolute;left:0;top:0;width:900px;transform-origin:0 0}
+.page>img{display:block;width:900px}
+.hl{position:absolute;border:6px solid var(--gold);border-radius:18px;box-shadow:0 0 0 6px rgba(216,180,111,.25),0 0 40px rgba(216,180,111,.6);opacity:0}
+.typed{position:absolute;font-size:38px;font-weight:600;color:#0E3B30;white-space:nowrap;display:flex;align-items:center;background:#fff;padding:0 10px}
+.caret{display:inline-block;width:3px;height:42px;background:#075B49;margin-right:4px}
+.ripple{position:absolute;border-radius:50%;border:6px solid var(--gold);opacity:0;width:20px;height:20px;margin:-10px 0 0 -10px}
+/* captions */
+.cap{position:absolute;font-family:'Alexandria';font-weight:800;text-shadow:0 8px 30px rgba(0,0,0,.25)}
+.pill{position:absolute;display:flex;align-items:center;gap:16px;padding:18px 28px;border-radius:22px;background:rgba(255,255,255,.96);color:var(--ink);
+  font-size:30px;font-weight:700;box-shadow:0 18px 40px rgba(0,0,0,.25);white-space:nowrap}
+.pill i{font-style:normal;width:46px;height:46px;border-radius:50%;background:var(--sage);color:var(--em);display:flex;align-items:center;justify-content:center;font-family:'Alexandria';font-weight:800;font-size:24px;flex:none}
+.wcard{position:absolute;width:380px;height:190px;border-radius:26px;background:#fff;color:var(--ink);box-shadow:0 24px 50px rgba(0,0,0,.3);padding:22px 24px;border:2px solid #EADBB8}
+.wcard .top{display:flex;align-items:center;gap:16px}
+.wcard .mono{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--em),var(--forest));display:flex;align-items:center;justify-content:center;flex:none}
+.wcard .flag{font-family:'Noto Color Emoji';font-size:44px;line-height:1}
+.wcard .pr{font-size:30px;font-weight:700}
+.wcard .meta{display:flex;gap:10px;margin-top:16px}
+.wcard .meta span{padding:6px 14px;border-radius:12px;background:var(--sage);color:var(--em);font-size:22px;font-weight:700}
+.wcard .meta span.g{background:#F6EBD3;color:#8A6A2B}
+.logoCard{position:absolute;background:#fff;border-radius:34px;display:flex;align-items:center;justify-content:center;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.logoCard img{width:88%}
+.upl{position:absolute;width:330px;padding:22px;border-radius:24px;background:#fff;color:var(--ink);box-shadow:0 24px 50px rgba(0,0,0,.3)}
+.upl b{display:block;font-size:28px;margin-bottom:12px}
+.upl .bar{height:14px;border-radius:7px;background:var(--sage);overflow:hidden}
+.upl .bar div{height:100%;background:linear-gradient(90deg,var(--em),var(--gold))}
+.upl small{display:block;margin-top:10px;font-size:22px;color:#4C6D63;font-weight:600}
+.chk{position:absolute;left:46px;display:flex;align-items:center;gap:14px;font-size:27px;font-weight:700;color:#fff;opacity:.35;white-space:nowrap}
+.chk i{width:40px;height:40px;border-radius:50%;border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;flex:none;font-style:normal;font-family:'Alexandria';font-size:20px;color:var(--gold)}
+</style>
+</head>
+<body>
+<div id="stage">
+  <!-- network background -->
+  <svg class="layer" id="net" viewBox="0 0 1080 1920"></svg>
+  <svg class="layer" viewBox="0 0 1080 1920" id="rings" style="opacity:0">
+    <g fill="none" stroke="#D8B46F"><circle id="r1" cx="540" cy="560" r="200" stroke-width="3"/><circle id="r2" cx="540" cy="560" r="200" stroke-width="2"/><circle id="r3" cx="540" cy="560" r="200" stroke-width="1.5"/></g>
+  </svg>
+
+  <!-- ===== S1 ===== -->
+  <div class="cap center" id="q1" style="top:640px;font-size:84px;line-height:1.3">هل تدير شركة<br>لجلب <span class="gold">الأيدي العاملة؟</span></div>
+  <div class="logoCard" id="logo1" style="left:240px;top:330px;width:600px;height:250px"><img src="assets/logo.jpg"></div>
+  <div class="cap center" id="t1" style="top:620px;font-size:58px">السواحل... <span class="gold">منصتك للانطلاق رقمياً.</span></div>
+
+  <!-- ===== captions per scene ===== -->
+  <div class="cap center" id="c2" style="top:110px;font-size:52px;line-height:1.35">منصة واحدة...<br><span class="gold">تجمع الشركات والباحثين عن العمالة.</span></div>
+  <div class="cap" id="c3" style="top:120px;right:60px;font-size:60px">سجّل <span class="gold">شركتك</span></div>
+  <div id="checks"></div>
+  <div class="pill" id="sent1" style="top:110px;right:60px"><i>✓</i>تم إرسال طلب التسجيل</div>
+  <div class="cap" id="sent2" style="top:215px;right:70px;font-size:36px;color:#F0D9A6">بانتظار مراجعة واعتماد الشركة.</div>
+  <div class="cap" id="c4" style="top:120px;right:60px;font-size:58px">لوحة تحكم <span class="gold">خاصة بشركتك</span></div>
+  <div class="cap" id="c5a" style="top:120px;right:60px;font-size:60px">أضف <span class="gold">ملفات العمالة</span></div>
+  <div class="cap" id="c5b" style="top:205px;right:60px;font-size:44px;color:#E6EFE8">اعرض خياراتك للعملاء</div>
+
+  <!-- uploads (scene 5) -->
+  <div class="upl" id="up1" style="left:30px;top:1300px"><b>صورة شخصية للبطاقة</b><div class="bar"><div id="ub1"></div></div><small>بموافقة صاحبها</small></div>
+  <div class="upl" id="up2" style="left:30px;top:1500px"><b>صورة السيرة</b><div class="bar"><div id="ub2"></div></div><small>بدون أرقام الجواز</small></div>
+
+  <!-- ===== PHONE ===== -->
+  <div id="phone">
+    <div id="screen">
+      <div id="bbar"><div class="url"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M7 10V7a5 5 0 0110 0v3" stroke="#24453B" stroke-width="2.4" fill="none"/><rect x="5" y="10" width="14" height="11" rx="2.5" fill="#24453B"/></svg>sawahel-om.com</div></div>
+      <div id="notch"></div>
+      <div id="vp">
+        <div class="page" id="pgHome"><img src="assets/home.jpg">
+          <div class="hl" id="hLogo" style="left:560px;top:20px;width:315px;height:128px"></div>
+          <div class="hl" id="hHead" style="left:205px;top:410px;width:670px;height:205px"></div>
+          <div class="hl" id="hBrowse" style="left:474px;top:840px;width:398px;height:120px"></div>
+          <div class="hl" id="hExplore" style="left:90px;top:840px;width:374px;height:120px"></div>
+          <div class="hl" id="hMenu" style="left:22px;top:26px;width:116px;height:116px"></div>
+        </div>
+        <div class="page" id="pgMenu"><img src="assets/menu.jpg">
+          <div class="hl" id="hSignup" style="left:300px;top:395px;width:300px;height:92px"></div>
+        </div>
+        <div class="page" id="pgReg"><img src="assets/register.jpg"><div id="regTyped"></div>
+          <div class="hl" id="hSubmit" style="left:418px;top:1960px;width:412px;height:114px"></div>
+        </div>
+        <div class="page" id="pgDash"><img src="assets/dashboard.jpg">
+          <div class="abs h1" style="right:40px;top:42px;font-size:68px;color:#0E3B30">مرحبًا، شركة المثال</div>
+          <div id="dashHl"></div>
+          <div class="hl" id="hNotice" style="left:30px;top:1598px;width:840px;height:380px"></div>
+        </div>
+        <div class="page" id="pgAdd"><img src="assets/addworker.jpg"><div id="addTyped"></div></div>
+      </div>
+      <div class="ripple" id="rip"></div>
+      <svg class="abs" id="cursor" width="54" height="54" viewBox="0 0 24 24" style="left:0;top:0;opacity:0;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))"><path d="M4 2 L4 19 L8.5 15 L11.5 22 L14.5 20.6 L11.6 14 L17.5 14 Z" fill="#fff" stroke="#0E3B30" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <div class="abs" id="glare" style="inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);pointer-events:none"></div>
+    </div>
+  </div>
+
+  <!-- worker cards (scene 5→6) -->
+  <div id="cards"></div>
+
+  <!-- ===== S6 : OFFER ===== -->
+  <div class="layer" id="s6">
+    <div class="logoCard" id="logo6" style="left:290px;top:440px;width:500px;height:210px"><img src="assets/logo.jpg"></div>
+    <div class="cap center" id="o1" style="top:150px;font-size:56px">بمناسبة انطلاق <span class="gold">منصة السواحل</span></div>
+    <div class="cap center" id="o2" style="top:250px;font-size:40px;color:#E6EFE8;font-weight:700">عرض خاص لشركات جلب الأيدي العاملة</div>
+    <div class="abs" id="offer" style="left:70px;right:70px;top:760px;height:760px;border-radius:44px;background:linear-gradient(150deg,#F3DDA9 0%,#D8B46F 45%,#B8924A 100%);box-shadow:0 50px 100px rgba(0,0,0,.45);overflow:hidden;color:#0E3B30">
+      <div class="abs" id="offShine" style="top:0;bottom:0;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent)"></div>
+      <div class="abs h1 center" id="of1" style="top:60px;font-size:84px">سجّل شركتك <span style="color:#fff;text-shadow:0 4px 0 #8A6A2B">مجاناً</span></div>
+      <div class="abs h1 center" id="of2" style="top:180px;font-size:72px">واعرض العمالة <span style="color:#fff;text-shadow:0 4px 0 #8A6A2B">مجاناً</span></div>
+      <div class="abs" id="bigOne" style="left:0;right:0;top:300px;height:300px;display:flex;align-items:center;justify-content:center">
+        <div class="h1" id="one" style="font-size:300px;line-height:1;color:#064638">1</div>
+        <svg id="cal" width="250" height="250" viewBox="0 0 100 100" style="position:absolute;opacity:0">
+          <rect x="8" y="16" width="84" height="76" rx="12" fill="#064638"/><rect x="8" y="16" width="84" height="22" rx="12" fill="#075B49"/><rect x="8" y="30" width="84" height="8" fill="#075B49"/>
+          <rect x="24" y="6" width="8" height="20" rx="4" fill="#0E3B30"/><rect x="68" y="6" width="8" height="20" rx="4" fill="#0E3B30"/>
+          <text x="50" y="80" text-anchor="middle" font-family="Alexandria" font-weight="800" font-size="40" fill="#F0D9A6">1</text>
+          <text x="50" y="34" text-anchor="middle" font-family="IBM Plex Sans Arabic" font-weight="700" font-size="12" fill="#F0D9A6">شهر</text>
+        </svg>
+      </div>
+      <div class="abs h1 center" id="of3" style="top:610px;font-size:80px;color:#064638">لمدة شهر كامل!</div>
+    </div>
+    <div class="abs" id="stamp" style="left:190px;right:190px;top:1580px;height:130px;border-radius:65px;background:#064638;border:4px solid var(--gold);display:flex;align-items:center;justify-content:center;gap:18px;box-shadow:0 20px 50px rgba(0,0,0,.35)">
+      <svg width="54" height="54" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#D8B46F" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#D8B46F" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      <span class="h1" style="font-size:52px">العرض لمدة <span class="gold">شهر فقط!</span></span>
+    </div>
+  </div>
+
+  <!-- ===== S7 : CTA ===== -->
+  <div class="layer" id="s7">
+    <svg class="layer" viewBox="0 0 1080 1920"><rect id="frame7" x="50" y="50" width="980" height="1820" rx="36" fill="none" stroke="#D8B46F" stroke-width="3"/></svg>
+    <div class="logoCard" id="logo7" style="left:140px;top:330px;width:800px;height:330px"><img src="assets/logo.jpg"></div>
+    <div class="cap center" id="e1" style="top:760px;font-size:56px;color:#E6EFE8">لا تفوّت فرصة الإطلاق</div>
+    <div class="cap center" id="e2" style="top:860px;font-size:104px">سجّل شركتك <span class="gold">الآن</span></div>
+    <div class="abs" id="web" style="left:110px;right:110px;top:1080px;height:170px;border-radius:85px;background:linear-gradient(135deg,#F3DDA9,#D8B46F);display:flex;align-items:center;justify-content:center;gap:24px;color:#064638;box-shadow:0 30px 60px rgba(0,0,0,.35);overflow:hidden">
+      <svg width="64" height="64" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#064638" stroke-width="2"/><path d="M2 12h20M12 2c3 3 4.5 6.5 4.5 10S15 19 12 22M12 2C9 5 7.5 8.5 7.5 12S9 19 12 22" stroke="#064638" stroke-width="1.6" fill="none"/></svg>
+      <span class="ltr h1" style="font-size:76px">sawahel-om.com</span>
+      <div class="abs" id="webShine" style="top:0;bottom:0;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent)"></div>
+    </div>
+    <div class="abs" id="tel" style="left:220px;right:220px;top:1310px;height:120px;border-radius:60px;border:3px solid rgba(216,180,111,.8);display:flex;align-items:center;justify-content:center;gap:18px;background:rgba(4,54,43,.5)">
+      <svg width="46" height="46" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z" fill="#D8B46F"/></svg>
+      <span class="ltr h1" style="font-size:54px">+968 2243 1008</span>
+    </div>
+    <div class="cap center" id="e3" style="top:1500px;font-size:40px;color:#E6EFE8;font-weight:700">العرض لمدة شهر فقط</div>
+  </div>
+
+  <div class="layer" id="flash" style="background:linear-gradient(115deg,transparent 35%,rgba(240,217,166,.55) 50%,transparent 65%);opacity:0"></div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const p=(t,a,d)=>clamp((t-a)/d);
+const eo=x=>1-Math.pow(1-x,3), eo5=x=>1-Math.pow(1-x,5);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eb=x=>{const c1=1.5,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const lerp=(a,b,k)=>a+(b-a)*k;
+function show(el,t,a,dur=.5,out=1e9,outDur=.4,dy=40,dx=0,sc=0){
+  const i=eo5(p(t,a,dur)),o=1-eio(p(t,out,outDur));
+  el.style.opacity=i*o; el.style.transform=`translate(${dx*(1-i)}px,${dy*(1-i)}px) scale(${1-sc*(1-i)})`; return i*o;}
+function draw(path,k){const L=path.getTotalLength();path.style.strokeDasharray=L;path.style.strokeDashoffset=L*(1-k);}
+function tw(el,t,a,dur){const x=eio(p(t,a,dur));el.style.opacity=x;return x;}
+
+// ---------- timeline (seconds), anchored to measured VO pauses ----------
+const T={s2:8.45,s3:15.4,sub:21.0,s4:23.1,s5:26.6,s6:30.0,s7:37.65,end:48.6};
+
+// ---------- network ----------
+const net=$('net'); const N=[]; let seed=11; const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};
+for(let i=0;i<26;i++) N.push([60+rnd()*960,120+rnd()*1680]);
+let links=[]; N.forEach((a,i)=>{const d=N.map((b,j)=>[Math.hypot(a[0]-b[0],a[1]-b[1]),j]).sort((x,y)=>x[0]-y[0]);
+  for(const [dd,j] of d.slice(1,3)) if(j>i) links.push([i,j]);});
+links.forEach(([i,j],k)=>net.insertAdjacentHTML('beforeend',`<path class="ln" d="M${N[i][0]} ${N[i][1]} L${N[j][0]} ${N[j][1]}" stroke="#D8B46F" stroke-width="1.6" fill="none" opacity=".55"/>`));
+N.forEach((n,i)=>net.insertAdjacentHTML('beforeend',`<circle class="nd" cx="${n[0]}" cy="${n[1]}" r="6" fill="#F0D9A6"/>`));
+const lns=[...net.querySelectorAll('.ln')], nds=[...net.querySelectorAll('.nd')];
+
+// ---------- register form typing (display units of the 900-wide page) ----------
+const REG=[ // [field top, text, x-left, label]
+ [330,'شركة المثال للاستقدام',  '68','اسم الشركة'],
+ [549,'DEMO-000000',           '68','رقم ترخيص الاستقدام'],
+ [768,'almithal',              '68','اسم المستخدم'],
+ [987,'info@example.com',      '68','البريد الإلكتروني'],
+ [1206,'9000 0000',            '68','رقم الهاتف في عمان'],
+ [1425,'••••••••',             '68','كلمة المرور'],
+ [1644,'••••••••',             '68','تأكيد كلمة المرور']];
+const regT=$('regTyped');
+REG.forEach(([y,txt],i)=>{const ltr=/^[A-Za-z0-9@.•\- ]+$/.test(txt);
+  regT.insertAdjacentHTML('beforeend',`<div class="hl rf" style="left:62px;top:${y-6}px;width:${i==4?628:766}px;height:126px"></div>
+  <div class="typed" style="${ltr?'left:'+(i==4?110:110)+'px;direction:ltr':'right:110px'};top:${y}px;height:114px"><span class="tx"></span><span class="caret"></span></div>`);});
+const rfs=[...regT.querySelectorAll('.rf')], rts=[...regT.querySelectorAll('.typed')];
+const regStart=15.75, regStep=.68;
+// step checklist (left of phone)
+const ck=$('checks');
+REG.forEach(([y,,,lab],i)=>ck.insertAdjacentHTML('beforeend',`<div class="chk" style="top:${560+i*96}px"><i>${i+1}</i>${lab}</div>`));
+const cks=[...ck.children];
+
+// ---------- dashboard menu highlights ----------
+const DM=[396,522,648,774,900,1026]; const dh=$('dashHl');
+DM.forEach(y=>dh.insertAdjacentHTML('beforeend',`<div class="hl dm" style="left:30px;top:${y-6}px;width:840px;height:115px"></div>`));
+const dms=[...dh.children];
+
+// ---------- add worker typing ----------
+const ADD=[[456,'ماريا (ملف تجريبي)',0],[673,'🇵🇭 الفلبين',1],[890,'عاملة منزلية',1],[1106,null,0],[1323,null,0],[1539,null,0]];
+const adT=$('addTyped');
+ADD.forEach(([y,txt,cover])=>{adT.insertAdjacentHTML('beforeend',`<div class="hl af" style="left:76px;top:${y-6}px;width:748px;height:126px"></div>`+
+  (txt?`<div class="typed" style="right:${cover?120:120}px;top:${y}px;height:113px;${cover?'background:#fff;padding-left:20px;':''}"><span class="tx"></span><span class="caret"></span></div>`:''));});
+const afs=[...adT.querySelectorAll('.af')], ats=[...adT.querySelectorAll('.typed')];
+const ADDTXT=ADD.filter(a=>a[1]).map(a=>a[1]);
+
+// ---------- worker cards ----------
+const W=[['🇵🇭','عاملة منزلية','استقدام','أنثى','م'],['🇮🇳','سائق خاص','استقدام','ذكر','س'],['🇰🇪','مربية أطفال','استقدام','أنثى','ف'],
+         ['🇮🇩','طباخة','استقدام','أنثى','ط'],['🇱🇰','عاملة منزلية','استقدام','أنثى','ع'],['🇧🇩','مزارع','استقدام','ذكر','ز']];
+const cards=$('cards');
+W.forEach(([f,pr,ty,g,m])=>cards.insertAdjacentHTML('beforeend',`<div class="wcard"><div class="top"><div class="mono">
+ <svg width="40" height="40" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="#F0D9A6" stroke-width="2"/><path d="M7 10h6M7 14h10" stroke="#F0D9A6" stroke-width="2" stroke-linecap="round"/></svg></div>
+ <div><div class="flag">${f}</div></div><div class="pr">${pr}</div></div><div class="meta"><span>${ty}</span><span class="g">${g}</span><span>متاح</span></div></div>`));
+const wcs=[...cards.children];
+// card positions in offer scene (orbit slots)
+const SLOT=[[-150,700],[790,700],[-170,1420],[810,1420],[-190,1060],[830,1060]];
+
+const PAGES=['pgHome','pgMenu','pgReg','pgDash','pgAdd'];
+const S=640/900; // page scale inside viewport
+
+function setPage(name,scrollY=0,op=1){PAGES.forEach(id=>{const e=$(id);if(id===name){e.style.opacity=op;e.style.transform=`scale(${S}) translateY(${-scrollY}px)`;e.style.display='block';}});}
+function typeIn(el,txt,t,a,dur){const k=p(t,a,dur);const chars=[...txt];const n=Math.round(chars.length*k);
+  el.querySelector('.tx').textContent=chars.slice(0,n).join('');const c=el.querySelector('.caret');c.style.opacity=(k>0&&k<1)||(t>a&&t<a+dur+.25&&Math.floor(t*4)%2==0)?1:0;
+  el.style.opacity=k>0?1:0;}
+function hlOn(el,t,a,b=1e9,dur=.25){const k=eo(p(t,a,dur))*(1-p(t,b,.25));el.style.opacity=k;el.style.transform=`scale(${lerp(1.08,1,eo(p(t,a,.35)))})`;}
+
+// cursor path keyframes: [t, x, y] in screen px (640 x 1300), tap times
+let CUR=[],TAPS=[];
+function curAt(t){if(!CUR.length||t<CUR[0][0])return null;for(let i=0;i<CUR.length-1;i++){const[a,x1,y1]=CUR[i],[b,x2,y2]=CUR[i+1];if(t<=b){const k=eio(p(t,a,b-a));return[lerp(x1,x2,k),lerp(y1,y2,k)];}}return CUR[CUR.length-1].slice(1);}
+// page coords (display units) -> screen px
+const sx=x=>x*S, sy=(y,scroll=0)=>120+(y-scroll)*S;
+
+function render(t){
+  // ===== background network =====
+  const netIn=eio(p(t,0,2.6));
+  lns.forEach((l,i)=>draw(l,clamp(netIn*1.6-i/lns.length*.6)));
+  nds.forEach((n,i)=>{const k=eb(p(t,.15+i*.06,.4));n.setAttribute('r',6*k*(1+.25*Math.sin(t*3+i)));});
+  $('net').style.opacity= t<T.s6 ? lerp(1,.35,eio(p(t,4,2))) : lerp(.35,.8,eio(p(t,T.s6,1)));
+  $('net').style.transform=`translateY(${-t*4}px) scale(${1+t*.002})`;
+
+  // ===== S1 =====
+  show($('q1'),t,.35,.8,3.5,.5,60,0,.1);
+  const lg=eb(p(t,3.8,.7)); $('logo1').style.opacity=clamp(lg*2)*(1-eio(p(t,T.s2-.4,.5))); $('logo1').style.transform=`scale(${.6+.4*lg}) translateY(${-30*eio(p(t,T.s2-.4,.5))}px)`;
+  show($('t1'),t,5.3,.6,T.s2-.4,.4,40);
+
+  // ===== PHONE choreography =====
+  const ph=$('phone'); let px=202,py=1960,ps=1,rx=0,ry=0,rz=0,pop=1;
+  if(t<T.s2){ const k=eo5(p(t,4.6,1.6)); py=lerp(1960,760,k); ps=.9; rx=lerp(25,8,k); }
+  else if(t<T.s3){ const k=eio(p(t,T.s2,1.0)); py=lerp(760,330,k); ps=lerp(.9,1.12,k); rx=lerp(8,0,k); ry=-3*Math.sin(t*.6); }
+  else if(t<T.s4){ const k=eio(p(t,T.s3,.8)); px=lerp(202,360,k); py=lerp(330,300,k); ps=lerp(1.12,1.0,k); ry=lerp(0,-10,k); }
+  else if(t<T.s5){ const k=eio(p(t,T.s4,.8)); px=lerp(360,202,k); py=300; ps=lerp(1.0,1.08,k); ry=lerp(-10,8,k); }
+  else if(t<T.s6){ const k=eio(p(t,T.s5,.7)); px=lerp(202,380,k); py=300; ps=lerp(1.08,1.0,k); ry=lerp(8,-9,k);
+     const out=eio(p(t,T.s6-.5,.6)); ps*=lerp(1,.6,out); py+=300*out; pop=1-out; }
+  else pop=0;
+  ph.style.opacity=pop; ph.style.display=pop>0.001?'block':'none';
+  ph.style.left=px+'px'; ph.style.top=py+'px';
+  ph.style.transform=`perspective(2400px) rotateX(${rx}deg) rotateY(${ry}deg) scale(${ps})`;
+  ph.style.transformOrigin='50% 0';
+  $('glare').style.transform=`translateX(${lerp(-120,120,(t*.08)%1)}%)`;
+
+  // pages
+  PAGES.forEach(id=>$(id).style.display='none');
+  CUR=[];TAPS=[];
+  if(t<12.75){ setPage('pgHome');
+    hlOn($('hLogo'),t,9.0,10.0); hlOn($('hHead'),t,9.9,10.9); hlOn($('hBrowse'),t,10.9,11.7); hlOn($('hExplore'),t,11.6,12.3); hlOn($('hMenu'),t,12.2,12.75);
+    CUR=[[10.6,420,900],[11.0,sx(670),sy(900)],[11.5,sx(670),sy(900)],[11.8,sx(280),sy(900)],[12.3,sx(80),sy(84)]]; TAPS=[11.1,11.85,12.45];
+  } else if(t<T.s3+.45){ setPage('pgMenu',0,1); hlOn($('hSignup'),t,14.6);
+    CUR=[[12.6,sx(80),sy(84)],[14.4,sx(450),sy(441)],[15.6,sx(450),sy(441)]]; TAPS=[14.95];
+    // gold sweep over real menu items
+  } else if(t<T.s4){ // registration
+    const scroll = lerp(0,500,eio(p(t,17.9,1.6))) + lerp(0,87,eio(p(t,20.2,.6)));
+    setPage('pgReg',scroll, 1);
+    REG.forEach((r,i)=>{const a=regStart+i*regStep; hlOn(rfs[i],t,a,a+regStep); typeIn(rts[i],r[1],t,a+.08,regStep*.75);});
+    hlOn($('hSubmit'),t,20.75,21.6);
+    const fy=i=>sy(REG[i][0]+57,scroll);
+    CUR=[[15.5,sx(450),sy(441)]]; REG.forEach((r,i)=>{const a=regStart+i*regStep; CUR.push([a,sx(720),sy(REG[i][0]+57, i<3?0:(i<6? (a>17.9? lerp(0,500,eio(p(a,17.9,1.6))):0):500))]);});
+    CUR.push([20.85,sx(620),sy(2017,587)],[21.4,sx(620),sy(2017,587)]); TAPS=[21.05];
+    if(t>21.6){ setPage('pgReg',scroll,1-eio(p(t,21.7,.4))); }
+    if(t>21.7){ setPage('pgDash',1374,eio(p(t,21.7,.4))); hlOn($('hNotice'),t,22.2,T.s4); }
+  } else if(t<T.s5+.3){ // dashboard
+    const sc=lerp(1374,0,eio(p(t,T.s4,.8)));
+    setPage('pgDash',sc,1);
+    dms.forEach((d,i)=>{const a=23.9+i*.36; hlOn(d,t,a, i==2?1e9:a+.5);});
+    CUR=[[24.5,sx(450),sy(1100)],[25.8,sx(700),sy(700)],[26.4,sx(700),sy(700)]]; TAPS=[26.2];
+    if(t>T.s5){ setPage('pgDash',0,1-eio(p(t,T.s5,.3))); setPage('pgAdd',0,eio(p(t,T.s5,.3))); }
+  } else { // add worker
+    const sc=lerp(0,30,eio(p(t,28.4,.8)));
+    setPage('pgAdd',sc,1);
+    let ti=0; ADD.forEach(([y,txt],i)=>{const a=26.9+i*.42; hlOn(afs[i],t,a,a+.45); if(txt){typeIn(ats[ti],txt,t,a+.05,.35); ti++;}});
+    CUR=[[26.7,sx(700),sy(512)],...ADD.map(([y],i)=>[26.9+i*.42,sx(700),sy(y+56, i<3?0:30)])];
+  }
+  // cursor + tap ripple
+  const c=curAt(t), cu=$('cursor');
+  if(c && pop>0){cu.style.opacity=1;cu.style.left=(c[0]-6)+'px';cu.style.top=(c[1]-4)+'px';
+    let rp=0,rx_=0; TAPS.forEach(a=>{const k=p(t,a,.5); if(k>0&&k<1){rp=k;}}); const r=$('rip');
+    if(rp>0){r.style.opacity=1-rp;r.style.left=c[0]+'px';r.style.top=c[1]+'px';r.style.transform=`scale(${1+5*eo(rp)})`; cu.style.transform=`scale(${rp<.2?.85:1})`;} else r.style.opacity=0;
+  } else { cu.style.opacity=0; $('rip').style.opacity=0; }
+
+  // ===== captions =====
+  show($('c2'),t,13.0,.6,T.s3-.2,.35,40);
+  show($('c3'),t,T.s3+.2,.5,20.9,.35,30,60);
+  cks.forEach((e,i)=>{const a=regStart+i*regStep; const inn=eo5(p(t,T.s3+.3+i*.05,.5)); const out=1-eio(p(t,20.9,.35));
+    const on=t>a+regStep*.8; e.style.opacity=inn*out*(on?1:(t>a?.85:.35)); e.style.transform=`translateX(${-60*(1-inn)}px)`;
+    const ic=e.querySelector('i'); ic.textContent=on?'✓':(i+1); ic.style.background=on?'#D8B46F':'transparent'; ic.style.color=on?'#064638':'#D8B46F';});
+  show($('sent1'),t,21.3,.5,T.s4+.1,.3,-30); show($('sent2'),t,21.8,.5,T.s4+.1,.3,20);
+  show($('c4'),t,T.s4+.2,.5,T.s5,.35,30,60);
+  show($('c5a'),t,T.s5+.2,.5,T.s6-.4,.35,30,60);
+  show($('c5b'),t,29.0,.5,T.s6-.4,.35,20);
+  // uploads
+  [['up1','ub1',28.7],['up2','ub2',29.0]].forEach(([u,b,a])=>{show($(u),t,a,.45,T.s6-.3,.3,0,-200);$(b).style.width=(100*eo(p(t,a+.2,.7)))+'%';});
+
+  // ===== worker cards: burst from phone (29.4) -> orbit offer (30.4+) -> converge into logo (37.65) =====
+  wcs.forEach((w,i)=>{
+    const born=29.35+i*.08, k=eo5(p(t,born,.7));
+    const sx0=540, sy0=1000; const [ox,oy]=SLOT[i];
+    let x=lerp(sx0-150,ox,k), y=lerp(sy0,oy,k), s=lerp(.3,.85,k), o=clamp(k*3), rot=(i%2?1:-1)*lerp(18,4,k);
+    if(t>T.s6){ y+=Math.sin(t*1.4+i)*12; rot+=Math.sin(t+i)*1.5; }
+    const cv=eio(p(t,T.s7-.1,.8)); x=lerp(x,390,cv); y=lerp(y,410,cv); s=lerp(s,.15,cv); o*=1-cv;
+    w.style.opacity=o; w.style.transform=`translate(${x}px,${y}px) rotate(${rot}deg) scale(${s})`;
+  });
+
+  // ===== S6 offer =====
+  const s6=eio(p(t,T.s6-.2,.6))*(1-eio(p(t,T.s7-.1,.6)));
+  $('s6').style.opacity=s6;
+  $('rings').style.opacity=s6;
+  [['r1',0],['r2',.6],['r3',1.2]].forEach(([id,o])=>{const k=((t-T.s6+o)%1.8)/1.8; const e=$(id); e.setAttribute('r',150+330*k); e.style.opacity=t>T.s6?(1-k)*.9:0;});
+  const l6=eb(p(t,T.s6,.7)); $('logo6').style.opacity=clamp(l6*2); $('logo6').style.transform=`scale(${.5+.5*l6})`;
+  show($('o1'),t,30.15,.55,1e9,.4,-40,0,.1);
+  show($('o2'),t,30.9,.55);
+  const of=eb(p(t,31.7,.75)); $('offer').style.opacity=clamp(of*2); $('offer').style.transform=`perspective(1800px) rotateX(${25*(1-of)}deg) scale(${.7+.3*of})`;
+  $('offShine').style.transform=`translateX(${lerp(-300,300,p(t,32.4,1.2))}%)`;
+  show($('of1'),t,32.0,.5,1e9,.4,30,0,.2); show($('of2'),t,32.45,.5,1e9,.4,30,0,.2);
+  // big "1" punches in, then morphs into calendar
+  const one=eb(p(t,33.2,.5)), morph=eio(p(t,34.4,.5));
+  $('one').style.opacity=clamp(one*2)*(1-morph); $('one').style.transform=`scale(${(.3+.7*one)*(1-.5*morph)}) rotate(${-10*morph}deg)`;
+  $('cal').style.opacity=morph; $('cal').style.transform=`scale(${.5+.5*eb(p(t,34.4,.6))})`;
+  const o3=eb(p(t,34.6,.5)); $('of3').style.opacity=clamp(o3*2); $('of3').style.transform=`scale(${.4+.6*o3})`;
+  const st=eb(p(t,35.3,.5)); const pulse=1+.04*Math.sin(Math.max(0,t-35.8)*7)*(t>35.8?1:0);
+  $('stamp').style.opacity=clamp(st*2); $('stamp').style.transform=`scale(${(1.6-.6*st)*pulse}) rotate(${-3*(1-st)}deg)`;
+
+  // ===== S7 CTA =====
+  const s7=eio(p(t,T.s7,.6)); $('s7').style.opacity=s7;
+  draw($('frame7'),eio(p(t,T.s7+.2,1.6)));
+  const l7=eb(p(t,T.s7+.35,.7)); $('logo7').style.opacity=clamp(l7*2); $('logo7').style.transform=`scale(${.4+.6*l7})`;
+  show($('e1'),t,37.85,.5);
+  const e2=eb(p(t,39.1,.6)); $('e2').style.opacity=clamp(e2*2); $('e2').style.transform=`scale(${.6+.4*e2})`;
+  const wb=eb(p(t,40.2,.6)); $('web').style.opacity=clamp(wb*2); $('web').style.transform=`scale(${.7+.3*wb})`;
+  $('webShine').style.transform=`translateX(${lerp(-400,400,((t-40.6)%2.4)/2.4)}%)`; $('webShine').style.opacity=t>40.6?1:0;
+  show($('tel'),t,41.4,.5);
+  show($('e3'),t,42.6,.5);
+
+  // transition light sweeps
+  let fl=0; [T.s2,T.s3,T.s4,T.s5,T.s6,T.s7].forEach(c=>{const x=p(t,c-.2,.7); if(x>0&&x<1){fl=Math.max(fl,Math.sin(x*Math.PI)); $('flash').style.transform=`translateX(${(-1+2*x)*100}%)`;}});
+  $('flash').style.opacity=fl*.7;
+}
+window.render=render; window.TOTAL=T.end;
+window.ready=document.fonts.ready.then(()=>Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>{i.onload=i.onerror=r;}))));
+const q=new URLSearchParams(location.search); render(parseFloat(q.get('t')||'0'));
+</script>
+</body>
+</html>
